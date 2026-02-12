@@ -26,7 +26,6 @@
             overflow-x: hidden;
         }
 
-        /* --- TYPOGRAPHY & SHADOWS --- */
         h1, h2, h3, p, li, strong, nav a, .member-name, .cat-btn {
             text-shadow: 0.5px 0.5px 0px rgba(255, 255, 255, 0.9), 
                          -0.5px -0.5px 0px rgba(255, 255, 255, 0.9);
@@ -34,8 +33,8 @@
 
         h2 { color: #444; border-left: 5px solid var(--bright-pink); padding-left: 15px; margin-bottom: 30px; font-family: 'Orbitron', sans-serif; text-transform: uppercase; }
 
-        /* --- GLOBAL INTERACTIVE STYLES --- */
-        nav a, .cat-btn, .member-bio-card, .special-slide, .play-btn {
+        /* --- GLOBAL INTERACTIVE --- */
+        nav a, .cat-btn, .member-bio-card, .special-slide, .play-btn, .close-btn {
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
             backdrop-filter: blur(5px);
@@ -44,19 +43,16 @@
             position: relative;
         }
 
-        /* Hover: Melayang */
-        nav a:hover, .cat-btn:hover, .member-bio-card:hover, .special-slide:hover {
+        nav a:hover, .cat-btn:hover, .member-bio-card:hover, .special-slide:hover, .close-btn:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(162, 210, 255, 0.3);
             background: rgba(255, 255, 255, 0.7);
             border-color: var(--bright-pink);
         }
 
-        /* Active: Tertekan */
-        nav a:active, .cat-btn:active, .member-bio-card:active, .special-slide:active, .play-btn:active {
+        nav a:active, .cat-btn:active, .member-bio-card:active, .special-slide:active, .play-btn:active, .close-btn:active {
             transform: scale(0.96) translateY(2px);
             background: rgba(255, 255, 255, 0.1) !important;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             backdrop-filter: blur(2px);
         }
 
@@ -82,100 +78,89 @@
             box-shadow: 0 8px 32px rgba(162, 210, 255, 0.2);
         }
 
-        /* --- BANNER UNIT (NATURAL LOGO STYLE) --- */
+        /* --- FULLSCREEN OVERLAY (SLIDE PAGE) --- */
+        .overlay-page {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255, 255, 255, 0.85); /* Latar belakang glass tebal */
+            backdrop-filter: blur(30px);
+            z-index: 3000; /* Di atas segalanya */
+            padding: 80px 20px 40px; /* Padding atas untuk header */
+            overflow-y: auto; /* Agar bisa discroll */
+            
+            /* Animasi Masuk */
+            transform: translateY(100%); /* Default tersembunyi di bawah */
+            opacity: 0;
+            transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        .overlay-page.active {
+            transform: translateY(0); /* Muncul ke layar */
+            opacity: 1;
+        }
+
+        .close-btn {
+            position: fixed; top: 20px; right: 20px;
+            width: 50px; height: 50px;
+            border-radius: 50%; background: var(--bright-pink);
+            color: white; font-size: 1.5rem; display: flex; justify-content: center; align-items: center;
+            z-index: 3001; border: 2px solid white;
+        }
+
+        /* --- BANNER UNIT --- */
         .special-slide {
             height: 200px; display: flex; flex-direction: column;
             justify-content: center; align-items: center; text-align: center;
             padding: 0 10%; color: white; border-radius: 30px; margin-top: 20px;
             overflow: hidden; position: relative;
         }
-        
-        /* Animasi Latar Berputar */
         .special-slide::after { content: ""; position: absolute; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%); animation: rotate 20s linear infinite; z-index: 1; pointer-events: none; }
         @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
         .slide-7pm { background: linear-gradient(135deg, rgba(26,26,26,0.9), rgba(50,50,50,0.8)); }
         .slide-lunar { background: linear-gradient(135deg, rgba(27,38,59,0.9), rgba(65,90,119,0.8)); }
 
-        /* TEKS UNIT (Agar tetap di depan logo background) */
         .unit-info { z-index: 10; position: relative; }
         .unit-info h1 { font-family: 'Orbitron'; font-size: 2rem; letter-spacing: 4px; text-shadow: 0 2px 10px rgba(0,0,0,0.3); margin-bottom: 5px; }
         .unit-info p { font-family: 'Satisfy'; font-size: 1.3rem; color: #ffafcc; }
 
-        /* LOGO WATERMARK NATURAL */
-        .band-bg-logo {
-            position: absolute; top: 50%; z-index: 5; 
-            pointer-events: none; transition: all 0.5s ease;
-        }
-        
-        /* Styling Khusus Logo 7PM */
-        .bg-7pm {
-            right: -5%; width: 70%; height: auto; transform: translateY(-50%) rotate(-10deg);
-            opacity: 0.15; /* Transparan agar menyatu */
-            filter: brightness(200%) grayscale(100%); /* Jadi putih pudar */
-        }
-
-        /* Styling Khusus Logo Lunar Dial + Efek Pudar Putih */
-        .bg-lunar {
-            left: -5%; height: 140%; width: auto; transform: translateY(-50%) rotate(15deg);
-            opacity: 0.2;
-            /* Masking agar tepian hilang halus */
-            -webkit-mask-image: radial-gradient(circle, black 30%, transparent 80%);
-            mask-image: radial-gradient(circle, black 30%, transparent 80%);
-            filter: drop-shadow(0 0 20px rgba(255,255,255,0.5)); /* Glow putih */
-        }
-
-        /* Animasi saat Hover Banner: Logo bergerak sedikit */
+        .band-bg-logo { position: absolute; top: 50%; z-index: 5; pointer-events: none; transition: all 0.5s ease; }
+        .bg-7pm { right: -5%; width: 70%; height: auto; transform: translateY(-50%) rotate(-10deg); opacity: 0.15; filter: brightness(200%) grayscale(100%); }
+        .bg-lunar { left: -5%; height: 140%; width: auto; transform: translateY(-50%) rotate(15deg); opacity: 0.2; -webkit-mask-image: radial-gradient(circle, black 30%, transparent 80%); mask-image: radial-gradient(circle, black 30%, transparent 80%); filter: drop-shadow(0 0 20px rgba(255,255,255,0.5)); }
         .special-slide:hover .bg-7pm { transform: translateY(-50%) rotate(0deg) scale(1.05); opacity: 0.25; }
         .special-slide:hover .bg-lunar { transform: translateY(-50%) rotate(0deg) scale(1.05); opacity: 0.3; }
 
-        /* --- CATEGORY NAV --- */
-        .category-nav { display: flex; gap: 15px; margin-bottom: 25px; flex-wrap: wrap; }
+        /* --- CATEGORY & CARDS --- */
+        .category-nav { display: flex; gap: 15px; margin-bottom: 25px; flex-wrap: wrap; justify-content: center; }
         .cat-btn { background: rgba(255,255,255,0.3); padding: 10px 20px; border-radius: 15px; font-size: 0.85rem; font-weight: 700; color: var(--text-color); }
-        .cat-btn.active { 
-            animation: active-glow 2s infinite ease-in-out; background: rgba(255, 133, 161, 0.2) !important; color: var(--deep-blue); border-color: var(--bright-pink);
-        }
-        @keyframes active-glow {
-            0%, 100% { box-shadow: 0 0 5px var(--bright-pink); }
-            50% { box-shadow: 0 0 15px var(--bright-pink); }
-        }
+        .cat-btn.active { animation: active-glow 2s infinite ease-in-out; background: rgba(255, 133, 161, 0.2) !important; color: var(--deep-blue); border-color: var(--bright-pink); }
+        @keyframes active-glow { 0%, 100% { box-shadow: 0 0 5px var(--bright-pink); } 50% { box-shadow: 0 0 15px var(--bright-pink); } }
 
-        /* --- MEMBER CARDS --- */
         .member-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
         .member-bio-card { background: rgba(255, 255, 255, 0.5); border-radius: 25px; padding: 20px; display: flex; gap: 15px; align-items: center; text-decoration: none; color: inherit; }
         .bio-photo { width: 65px; height: 65px; border-radius: 12px; background: #eee; flex-shrink: 0; object-fit: cover; border: 2px solid white; }
 
         /* --- MUSIC PLAYER --- */
-        .music-player {
-            position: fixed; bottom: 30px; right: 30px;
-            background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px);
-            padding: 10px 20px; border-radius: 50px; display: flex; align-items: center; gap: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.3); z-index: 2000;
-        }
+        .music-player { position: fixed; bottom: 30px; right: 30px; background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); padding: 10px 20px; border-radius: 50px; display: flex; align-items: center; gap: 12px; border: 1px solid rgba(255, 255, 255, 0.3); z-index: 2000; }
         .music-player:hover { background: rgba(255, 255, 255, 0.4); border-color: var(--bright-pink); transform: translateY(-5px) !important; }
         .play-btn { width: 40px; height: 40px; border-radius: 50%; border: none; background: var(--bright-pink); color: white; display: flex; align-items: center; justify-content: center; position: relative; }
-        .play-btn.playing::after {
-            content: ""; position: absolute; width: 100%; height: 100%; border-radius: 50%; background: var(--bright-pink);
-            animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
-        }
+        .play-btn.playing::after { content: ""; position: absolute; width: 100%; height: 100%; border-radius: 50%; background: var(--bright-pink); animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite; }
         @keyframes pulse-ring { 0% { transform: scale(.33); } 80%, 100% { opacity: 0; } }
 
+        #particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
         footer { text-align: center; padding: 40px; color: #555; font-size: 0.75rem; font-weight: bold; }
     </style>
 </head>
 <body>
 
-<div id="particles" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></div>
+<div id="particles"></div>
 
 <header>
     <div style="display: flex; align-items: center; gap: 10px;">
-        <img src="1000211311.png" class="header-logo" alt="Akai Logo">
+        <img src="1000211311.jpg" class="header-logo" alt="Akai Logo">
         <div class="logo-text">AKAI ONGAKU</div>
     </div>
     <nav>
-        <a href="#sejarah">Home</a>
-        <a href="#unit">Unit</a>
-        <a href="#member">Member</a>
+        <a href="#" onclick="openOverlay('members')">Anggota</a>
     </nav>
     <div class="leader-tag">Leader: M. Rakan</div>
 </header>
@@ -190,53 +175,90 @@
     
     <section id="sejarah">
         <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
-            <img src="1000211311.png" style="width: 120px; border-radius: 20px; border: 3px solid var(--bright-pink); box-shadow: 0 5px 15px rgba(0,0,0,0.1);" alt="Akai Profile">
+            <img src="1000211311.jpg" style="width: 120px; border-radius: 20px; border: 3px solid var(--bright-pink); box-shadow: 0 5px 15px rgba(0,0,0,0.1);" alt="Akai Profile">
             <div>
                 <h2>Akai Ongaku Profile</h2>
                 <p><strong>Est:</strong> 2022 | <strong>Base:</strong> ITERA Lampung</p>
-                <p style="margin-top: 10px; font-size: 0.9rem;">Divisi Musik Atarashii Sekai.</p>
+                <p style="margin-top: 10px; font-size: 0.9rem;">Perpaduan estetika modern dan futuristik Atarashii Sekai.</p>
             </div>
         </div>
     </section>
 
     <section id="unit">
-        <h2>Unit Band</h2>
+        <h2>Pilih Unit Band</h2>
+        <p style="margin-bottom: 20px; opacity: 0.7;">Klik banner untuk membuka profil lengkap.</p>
         
-        <div class="special-slide slide-7pm" onclick="renderMembers('7pm', null)">
-            <img src="7Lude1.png.png" class="band-bg-logo bg-7pm" alt="7PM Watermark">
-            
+        <div class="special-slide slide-7pm" onclick="openOverlay('7pm')">
+            <img src="7Lude1.png.jpg" class="band-bg-logo bg-7pm" alt="7PM Watermark">
             <div class="unit-info">
                 <h1>7PM INTERLUDE</h1>
-                <p>Sunset Melody</p>
+                <p>Sunset Symphony</p>
             </div>
         </div>
 
-        <div class="special-slide slide-lunar" onclick="renderMembers('lunar', null)">
+        <div class="special-slide slide-lunar" onclick="openOverlay('lunar')">
             <img src="LunarDial.jpg" class="band-bg-logo bg-lunar" alt="Lunar Watermark">
-
             <div class="unit-info">
                 <h1>LUNAR DIAL</h1>
-                <p>Midnight Call</p>
+                <p>Midnight Pulse</p>
             </div>
         </div>
     </section>
 
-    <section id="member">
-        <h2>Daftar Anggota</h2>
-        <div class="category-nav">
-            <div class="cat-btn" id="btn-pengurus" onclick="renderMembers('pengurus', this)">Pengurus</div>
-            <div class="cat-btn" id="btn-founder" onclick="renderMembers('founder', this)">Founder</div>
-        </div>
-        <div class="member-grid" id="member-display"></div>
-    </section>
+</div>
 
+<div id="page-7pm" class="overlay-page">
+    <div class="close-btn" onclick="closeOverlay('7pm')">×</div>
+    <div class="container" style="margin-top: 20px;">
+        <div style="text-align: center; margin-bottom: 40px;">
+            <img src="7Lude1.png.jpg" style="width: 150px; border-radius: 20px; margin-bottom: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+            <h1 style="font-family: 'Orbitron'; font-size: 2.5rem; margin-bottom: 0;">7PM INTERLUDE</h1>
+            <p style="font-family: 'Satisfy'; color: #ff85a1; font-size: 1.5rem;">The Sunset Symphony</p>
+            <p style="max-width: 600px; margin: 20px auto;">Unit yang membawakan melodi senja dengan harmoni yang menenangkan dan penuh perasaan.</p>
+        </div>
+        
+        <h2>Anggota 7PM</h2>
+        <div class="member-grid" id="grid-7pm">
+            </div>
+    </div>
+</div>
+
+<div id="page-lunar" class="overlay-page">
+    <div class="close-btn" onclick="closeOverlay('lunar')">×</div>
+    <div class="container" style="margin-top: 20px;">
+        <div style="text-align: center; margin-bottom: 40px;">
+            <img src="LunarDial.jpg" style="width: 150px; border-radius: 50%; margin-bottom: 10px; box-shadow: 0 0 30px rgba(255,255,255,0.5); border: 4px solid white;">
+            <h1 style="font-family: 'Orbitron'; font-size: 2.5rem; margin-bottom: 0;">LUNAR DIAL</h1>
+            <p style="font-family: 'Satisfy'; color: #a2d2ff; font-size: 1.5rem;">Midnight Pulse</p>
+            <p style="max-width: 600px; margin: 20px auto;">Unit yang bergerak di bawah cahaya bulan, membawa detak ritme malam yang misterius.</p>
+        </div>
+
+        <h2>Anggota Lunar Dial</h2>
+        <div class="member-grid" id="grid-lunar">
+            </div>
+    </div>
+</div>
+
+<div id="page-members" class="overlay-page">
+    <div class="close-btn" onclick="closeOverlay('members')">×</div>
+    <div class="container" style="margin-top: 20px;">
+        <h1 style="text-align: center; font-family: 'Orbitron'; margin-bottom: 30px;">STRUKTUR ORGANISASI</h1>
+        
+        <div class="category-nav">
+            <div class="cat-btn active" onclick="switchMemberTab('pengurus', this)">Pengurus</div>
+            <div class="cat-btn" onclick="switchMemberTab('founder', this)">Founder</div>
+        </div>
+
+        <div class="member-grid" id="grid-general">
+            </div>
+    </div>
 </div>
 
 <footer>&copy; 2026 Akai Ongaku • Atarashii Sekai ITERA</footer>
 
 <script>
-    // DATA ANGGOTA (Bisa diedit di sini)
-    const members = {
+    // DATA ANGGOTA LENGKAP
+    const db = {
         '7pm': [
             { name: 'Rakan', role: 'Drummer', quote: 'Teknik Industri 24', ig: '#' },
             { name: 'Agoy', role: 'Guitarist', quote: 'Teknik Informatika 22', ig: '#' },
@@ -244,13 +266,13 @@
             { name: 'Reza', role: 'Guitarist', quote: 'Teknik Kelautan 24', ig: '#' },
             { name: 'Afri', role: 'Pianist/Composer', quote: 'Teknik Elektro 24', ig: '#' },
             { name: 'Rein', role: 'Bassist', quote: 'Sains Data 23', ig: '#' },
-            
         ],
-        'lunar': [{ name: 'Agoy', role: 'Bassist', quote: 'Teknik Informatika 22', ig: '#' },
-                 { name: 'Azis', role: 'Vokalis', quote: 'Unknown', ig: '#' },
-                 { name: 'Radit', role: 'Keyboardis', quote: 'Unknown', ig: '#' },
-                 { name: 'Sulthan', role: 'Drummer', quote: 'Unknown', ig: '#' },
-                 ],
+        'lunar': [
+            { name: 'Agoy', role: 'Bassist', quote: 'Teknik Informatika 22', ig: '#' },
+            { name: 'Azis', role: 'Vokalis', quote: 'Unknown', ig: '#' },
+            { name: 'Radit', role: 'Keyboardis', quote: 'Unknown', ig: '#' },
+            { name: 'Sulthan', role: 'Drummer', quote: 'Unknown', ig: '#' },
+        ],
         'pengurus': [
             { name: 'M. Rakan Mahardika', role: 'Ketua 2026', quote: 'Teknik Industri 24', ig: '#' },
             { name: 'M. Afri', role: 'Wakil Ketua 2026', quote: 'Teknik Elektro 24', ig: '#' }
@@ -259,14 +281,16 @@
             { name: 'Raga', role: 'Guitarist', quote: 'Teknik Informatika 19', ig: '#' },
             { name: 'Taka', role: 'Perkusi', quote: 'Unknown', ig: '#' },
             { name: 'Ferly', role: 'Guitarist', quote: 'Unknown', ig: '#' },
-            { name: 'Azis', role: 'Vokalist', quote: 'Unknown', ig: '#' }]
+            { name: 'Azis', role: 'Vokalist', quote: 'Unknown', ig: '#' }
+        ]
     };
 
-    function renderMembers(key, clickedBtn) {
-        const display = document.getElementById('member-display');
-        display.innerHTML = '';
-        members[key].forEach(m => {
-            display.innerHTML += `
+    // LOGIC RENDER KARTU ANGGOTA
+    function createCards(data, containerId) {
+        const container = document.getElementById(containerId);
+        container.innerHTML = '';
+        data.forEach(m => {
+            container.innerHTML += `
                 <a href="${m.ig}" target="_blank" class="member-bio-card">
                     <div class="bio-photo"></div>
                     <div class="bio-text">
@@ -276,21 +300,35 @@
                     </div>
                 </a>`;
         });
-
-        // Handle Active Button
-        if (clickedBtn) {
-            document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
-            clickedBtn.classList.add('active');
-        } else {
-             document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
-        }
-
-        if(key === '7pm' || key === 'lunar') document.getElementById('anggota').scrollIntoView();
     }
 
-    renderMembers('pengurus', document.getElementById('btn-pengurus'));
+    // LOGIC BUKA/TUTUP OVERLAY
+    function openOverlay(id) {
+        // Render konten dulu sebelum membuka
+        if(id === '7pm') createCards(db['7pm'], 'grid-7pm');
+        if(id === 'lunar') createCards(db['lunar'], 'grid-lunar');
+        if(id === 'members') switchMemberTab('pengurus', document.querySelector('.cat-btn')); // Default load pengurus
 
-    // Music Logic
+        document.getElementById('page-' + id).classList.add('active');
+        document.body.style.overflow = 'hidden'; // Matikan scroll halaman utama
+    }
+
+    function closeOverlay(id) {
+        document.getElementById('page-' + id).classList.remove('active');
+        document.body.style.overflow = 'auto'; // Hidupkan scroll halaman utama
+    }
+
+    // LOGIC GANTI TAB DI HALAMAN MEMBER UMUM
+    function switchMemberTab(category, btn) {
+        createCards(db[category], 'grid-general');
+        
+        // Atur tombol aktif
+        const buttons = document.querySelectorAll('.cat-btn');
+        buttons.forEach(b => b.classList.remove('active'));
+        if(btn) btn.classList.add('active');
+    }
+
+    // MUSIC PLAYER
     const audio = document.getElementById('bgMusic');
     const btn = document.getElementById('playPause');
     const statusText = document.getElementById('statusText');
@@ -306,7 +344,7 @@
     }
     btn.addEventListener('click', (e) => { e.stopPropagation(); togglePlay(); });
 
-    // Particles
+    // PARTICLES
     const pc = document.getElementById('particles');
     for (let i = 0; i < 40; i++) {
         const dot = document.createElement('div');
@@ -316,4 +354,3 @@
 </script>
 </body>
 </html>
-
