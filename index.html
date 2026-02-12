@@ -26,7 +26,7 @@
             overflow-x: hidden;
         }
 
-        /* Bolderline Shadow untuk semua teks */
+        /* Bolderline Shadow */
         h1, h2, h3, p, li, strong, nav a, .member-name {
             text-shadow: 0.5px 0.5px 0px rgba(255, 255, 255, 0.9), 
                          -0.5px -0.5px 0px rgba(255, 255, 255, 0.9);
@@ -38,7 +38,7 @@
             background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            padding: 15px 5%;
+            padding: 10px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -49,11 +49,18 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.4);
         }
 
-        .logo { 
+        .header-logo {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            border-radius: 50%;
+            border: 2px solid var(--bright-pink);
+        }
+
+        .logo-text { 
             font-family: 'Orbitron', sans-serif; 
-            font-size: 1.6rem; 
+            font-size: 1.4rem; 
             font-weight: 800;
-            letter-spacing: 3px;
             background: linear-gradient(to right, #ff85a1, #00b4d8, #ff85a1);
             background-size: 200% auto;
             -webkit-background-clip: text;
@@ -63,17 +70,12 @@
 
         @keyframes shine { to { background-position: 200% center; } }
 
-        .leader-tag {
-            font-size: 0.75rem;
-            background: var(--bright-pink);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-        }
+        .leader-tag { font-size: 0.75rem; background: var(--bright-pink); color: white; padding: 5px 15px; border-radius: 20px; }
 
-        nav a { text-decoration: none; color: #444; margin-left: 15px; font-size: 0.85rem; font-weight: 600; }
+        nav a { text-decoration: none; color: #444; margin-left: 15px; font-size: 0.85rem; font-weight: 600; transition: 0.3s; }
+        nav a:hover { color: var(--bright-pink); }
 
-        .container { max-width: 1000px; margin: 120px auto 50px; padding: 20px; }
+        .container { max-width: 1000px; margin: 110px auto 50px; padding: 20px; }
 
         section {
             background: var(--glass-white);
@@ -87,9 +89,9 @@
 
         h2 { border-left: 5px solid var(--bright-pink); padding-left: 15px; margin-bottom: 30px; font-family: 'Orbitron'; text-transform: uppercase; }
 
-        /* BANNER UNIT DENGAN EFEK TRANSPARANSI NAIK SAAT KLIK */
+        /* BANNER UNIT DENGAN LOGO ASLI */
         .special-slide {
-            height: 220px;
+            height: 250px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -100,43 +102,27 @@
             border: 2px solid white;
             cursor: pointer;
             transition: all 0.3s ease;
-            background: linear-gradient(135deg, rgba(27, 38, 59, 0.8) 0%, rgba(255, 133, 161, 0.6) 100%);
             position: relative;
             overflow: hidden;
+            text-align: center;
         }
 
-        /* Efek Saat Diklik (Transparansi naik & feedback visual) */
+        /* Efek klik transparansi naik */
         .special-slide:active {
-            background: rgba(255, 255, 255, 0.1);
-            transform: scale(0.98);
+            background: rgba(255, 255, 255, 0.1) !important;
+            transform: scale(0.97);
             backdrop-filter: blur(5px);
         }
 
-        .special-slide h1 { font-family: 'Orbitron'; font-size: 1.8rem; z-index: 2; letter-spacing: 4px; }
-        
-        /* Teks Deskripsi Halus */
-        .special-slide .subtitle { 
-            font-family: 'Satisfy', cursive; 
-            font-size: 1.4rem; 
-            color: #ffafcc; 
-            z-index: 2; 
-            margin-top: 5px;
-            opacity: 0.9;
-        }
+        .slide-7pm { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('Cuplikan layar 2026-02-13 015706.png'); background-size: cover; background-position: center; }
+        .slide-lunar { background: linear-gradient(rgba(27, 38, 59, 0.7), rgba(27, 38, 59, 0.7)), url('LunarDial.jpg'); background-size: cover; background-position: center; }
 
-        .unit-logo {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 10px;
-            z-index: 2;
-            filter: drop-shadow(0 0 5px rgba(255,255,255,0.5));
-        }
+        .special-slide h1 { font-family: 'Orbitron'; font-size: 1.8rem; z-index: 2; letter-spacing: 3px; margin-top: 10px; }
+        .special-slide .subtitle { font-family: 'Satisfy', cursive; font-size: 1.4rem; color: #ffafcc; z-index: 2; }
 
-        /* CATEGORY & MEMBER CARDS */
-        .category-nav { display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; }
-        .cat-btn { background: rgba(255,255,255,0.4); border: 1px solid white; padding: 8px 18px; border-radius: 15px; cursor: pointer; font-size: 0.8rem; font-weight: 700; transition: 0.3s; }
-        .cat-btn:hover { background: var(--bright-pink); color: white; }
+        .unit-icon { width: 80px; height: 80px; object-fit: contain; z-index: 2; filter: drop-shadow(0 0 10px rgba(255,255,255,0.3)); }
 
+        /* MEMBER CARDS */
         .member-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .member-bio-card {
             background: rgba(255, 255, 255, 0.5);
@@ -152,16 +138,13 @@
             color: inherit;
         }
         .member-bio-card:hover { background: white; transform: translateY(-5px); border-color: var(--bright-pink); }
-        .bio-photo { width: 65px; height: 65px; border-radius: 12px; background: var(--soft-blue); border: 2px solid white; flex-shrink: 0; }
-        .bio-text h4 { font-size: 1rem; color: #333; }
-        .bio-text p { font-size: 0.75rem; color: #666; margin: 0; }
+        .bio-photo { width: 65px; height: 65px; border-radius: 12px; background: #eee; flex-shrink: 0; object-fit: cover; border: 2px solid white; }
 
-        /* MUSIC & FOOTER */
+        /* MUSIC PLAYER */
         .music-player { position: fixed; bottom: 30px; right: 30px; background: rgba(255,255,255,0.5); backdrop-filter: blur(20px); padding: 12px 25px; border-radius: 40px; border: 1px solid #fff; z-index: 2000; display: flex; align-items: center; gap: 15px; }
         .play-btn { width: 45px; height: 45px; border-radius: 50%; border: none; background: var(--bright-pink); color: white; cursor: pointer; }
-        .contact-footer { text-align: center; padding: 40px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 30px; margin-top: 50px; }
-        .social-links a { display: inline-block; margin: 0 15px; text-decoration: none; color: var(--deep-blue); font-weight: 700; transition: 0.3s; }
-        footer { text-align: center; padding: 40px; color: #555; font-size: 0.7rem; font-weight: bold; }
+
+        footer { text-align: center; padding: 40px; color: #555; font-size: 0.75rem; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -169,37 +152,45 @@
 <div id="particles"></div>
 
 <header>
-    <div class="logo">AKAI ONGAKU</div>
+    <div style="display: flex; align-items: center; gap: 10px;">
+        <img src="1000211311.jpg" class="header-logo" alt="Akai Logo">
+        <div class="logo-text">AKAI ONGAKU</div>
+    </div>
     <nav>
         <a href="#sejarah">Sejarah</a>
-        <a href="#anggota">Anggota</a>
+        <a href="#special">Unit</a>
     </nav>
     <div class="leader-tag">Leader: M. Rakan</div>
 </header>
 
 <div class="music-player">
     <button class="play-btn" id="playPause">▶</button>
-    <div style="font-size: 0.7rem; font-weight: bold;">AKAI RADIO<br><small>Playing Soul</small></div>
+    <div style="font-size: 0.7rem; font-weight: bold;">AKAI RADIO<br><small>Vibing...</small></div>
     <audio id="bgMusic" loop src="カラオケ敗北ヒーロー  ころんOff Vocal.mp3"></audio>
 </div>
 
 <div class="container">
     
     <section id="sejarah">
-        <h2>Profile</h2>
-        <p><strong>Established:</strong> 2022 | <strong>Base:</strong> ITERA Lampung</p>
-        <p style="margin-top: 10px;">Membangun harmoni futuristik melalui melodi Atarashii Sekai.</p>
+        <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+            <img src="1000211311.jpg" style="width: 120px; border-radius: 20px; border: 3px solid var(--bright-pink);" alt="Akai Profile">
+            <div>
+                <h2>Akai Ongaku Profile</h2>
+                <p><strong>Est:</strong> 2022 | <strong>Base:</strong> ITERA Lampung</p>
+                <p style="margin-top: 10px; font-size: 0.9rem;">Perpaduan estetika modern dan futuristik Atarashii Sekai.</p>
+            </div>
+        </div>
     </section>
 
     <section id="special">
         <h2>Pilih Unit Band</h2>
-        <div class="special-slide" onclick="renderMembers('7pm')">
-            <img src="https://via.placeholder.com/60?text=7PM" class="unit-logo" alt="Logo 7PM">
+        <div class="special-slide slide-7pm" onclick="renderMembers('7pm')">
+            <img src="Cuplikan layar 2026-02-13 015706.png" class="unit-icon" alt="7PM Logo">
             <h1>7PM INTERLUDE</h1>
             <p class="subtitle">Sunset Symphony</p>
         </div>
-        <div class="special-slide" onclick="renderMembers('lunar')">
-            <img src="https://via.placeholder.com/60?text=LNR" class="unit-logo" alt="Logo Lunar">
+        <div class="special-slide slide-lunar" onclick="renderMembers('lunar')">
+            <img src="LunarDial.jpg" class="unit-icon" alt="Lunar Logo">
             <h1>LUNAR DIAL</h1>
             <p class="subtitle">Midnight Pulse</p>
         </div>
@@ -207,23 +198,14 @@
 
     <section id="anggota">
         <h2>Daftar Anggota</h2>
-        <div class="category-nav">
-            <div class="cat-btn" onclick="renderMembers('pengurus')">Pengurus</div>
-            <div class="cat-btn" onclick="renderMembers('founder')">Founder</div>
-            <div class="cat-btn" onclick="renderMembers('umum')">Anggota Umum</div>
+        <div style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
+            <button onclick="renderMembers('pengurus')" style="padding: 8px 15px; border-radius: 12px; border: 1px solid white; background: rgba(255,255,255,0.4); cursor: pointer; font-weight: 600;">Pengurus</button>
+            <button onclick="renderMembers('founder')" style="padding: 8px 15px; border-radius: 12px; border: 1px solid white; background: rgba(255,255,255,0.4); cursor: pointer; font-weight: 600;">Founder</button>
         </div>
         <div class="member-grid" id="member-display">
             </div>
     </section>
 
-    <div class="contact-footer">
-        <h2>Connect With Us</h2>
-        <div class="social-links">
-            <a href="#">INSTAGRAM</a>
-            <a href="#">YOUTUBE</a>
-            <a href="mailto:akaiongaku@email.com">EMAIL</a>
-        </div>
-    </div>
 </div>
 
 <footer>&copy; 2026 Akai Ongaku • Atarashii Sekai ITERA</footer>
@@ -231,14 +213,12 @@
 <script>
     const members = {
         '7pm': [{ name: 'M. Rakan Mahardika', role: 'Leader / Guitarist', quote: '7PM Vibes.', ig: '#' }],
-        'lunar': [{ name: 'Member Lunar', role: 'Bassist', quote: 'Lunar Harmony.', ig: '#' }],
+        'lunar': [{ name: 'Nama Member', role: 'Bassist', quote: 'Lunar Harmony.', ig: '#' }],
         'pengurus': [
             { name: 'M. Rakan Mahardika', role: 'Ketua Umum', quote: '2026-Sekarang', ig: '#' },
-            { name: 'Aulia Rizky', role: 'Ketua 2025', quote: 'Period 2025', ig: '#' },
-            { name: 'Andreas Alfin', role: 'Ketua 2024', quote: 'Period 2024', ig: '#' }
+            { name: 'Aulia Rizky', role: 'Ketua 2025', quote: '2025 Period', ig: '#' }
         ],
-        'founder': [{ name: 'Perdana Raga', role: 'Founder', quote: 'The Beginning.', ig: '#' }],
-        'umum': [{ name: 'Anggota Umum', role: 'Member', quote: 'Family.', ig: '#' }]
+        'founder': [{ name: 'Perdana Raga', role: 'Founder', quote: 'The Beginning.', ig: '#' }]
     };
 
     function renderMembers(key) {
@@ -250,8 +230,8 @@
                     <div class="bio-photo"></div>
                     <div class="bio-text">
                         <h4>${m.name}</h4>
-                        <p class="member-role">${m.role}</p>
-                        <p>"${m.quote}"</p>
+                        <p style="font-size:0.75rem; color: #ff85a1; font-weight:700;">${m.role}</p>
+                        <p style="font-size:0.7rem; color: #666;">"${m.quote}"</p>
                     </div>
                 </a>`;
         });
@@ -260,7 +240,7 @@
 
     renderMembers('pengurus');
 
-    // Particles & Music Logic (Sama)
+    // Music & Particles
     const audio = document.getElementById('bgMusic');
     const btn = document.getElementById('playPause');
     document.body.addEventListener('click', () => { if (audio.paused) audio.play().then(()=>btn.innerHTML="⏸"); }, { once: true });
