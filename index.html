@@ -157,4 +157,125 @@
         .bio-text p { font-size: 0.75rem; color: #666; margin: 0; }
 
         /* MUSIC & FOOTER */
-        .music-player { position: fixed; bottom: 30px; right: 30px; background: rgba(255,255,255,0.5); backdrop-filter: blur(20px); padding: 12px 25px; border-radius: 4
+        .music-player { position: fixed; bottom: 30px; right: 30px; background: rgba(255,255,255,0.5); backdrop-filter: blur(20px); padding: 12px 25px; border-radius: 40px; border: 1px solid #fff; z-index: 2000; display: flex; align-items: center; gap: 15px; }
+        .play-btn { width: 45px; height: 45px; border-radius: 50%; border: none; background: var(--bright-pink); color: white; cursor: pointer; }
+        .contact-footer { text-align: center; padding: 40px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 30px; margin-top: 50px; }
+        .social-links a { display: inline-block; margin: 0 15px; text-decoration: none; color: var(--deep-blue); font-weight: 700; transition: 0.3s; }
+        footer { text-align: center; padding: 40px; color: #555; font-size: 0.7rem; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div id="particles"></div>
+
+<header>
+    <div class="logo">AKAI ONGAKU</div>
+    <nav>
+        <a href="#sejarah">Sejarah</a>
+        <a href="#anggota">Anggota</a>
+    </nav>
+    <div class="leader-tag">Leader: M. Rakan</div>
+</header>
+
+<div class="music-player">
+    <button class="play-btn" id="playPause">▶</button>
+    <div style="font-size: 0.7rem; font-weight: bold;">AKAI RADIO<br><small>Playing Soul</small></div>
+    <audio id="bgMusic" loop src="カラオケ敗北ヒーロー  ころんOff Vocal.mp3"></audio>
+</div>
+
+<div class="container">
+    
+    <section id="sejarah">
+        <h2>Profile</h2>
+        <p><strong>Established:</strong> 2022 | <strong>Base:</strong> ITERA Lampung</p>
+        <p style="margin-top: 10px;">Membangun harmoni futuristik melalui melodi Atarashii Sekai.</p>
+    </section>
+
+    <section id="special">
+        <h2>Pilih Unit Band</h2>
+        <div class="special-slide" onclick="renderMembers('7pm')">
+            <img src="https://via.placeholder.com/60?text=7PM" class="unit-logo" alt="Logo 7PM">
+            <h1>7PM INTERLUDE</h1>
+            <p class="subtitle">Sunset Symphony</p>
+        </div>
+        <div class="special-slide" onclick="renderMembers('lunar')">
+            <img src="https://via.placeholder.com/60?text=LNR" class="unit-logo" alt="Logo Lunar">
+            <h1>LUNAR DIAL</h1>
+            <p class="subtitle">Midnight Pulse</p>
+        </div>
+    </section>
+
+    <section id="anggota">
+        <h2>Daftar Anggota</h2>
+        <div class="category-nav">
+            <div class="cat-btn" onclick="renderMembers('pengurus')">Pengurus</div>
+            <div class="cat-btn" onclick="renderMembers('founder')">Founder</div>
+            <div class="cat-btn" onclick="renderMembers('umum')">Anggota Umum</div>
+        </div>
+        <div class="member-grid" id="member-display">
+            </div>
+    </section>
+
+    <div class="contact-footer">
+        <h2>Connect With Us</h2>
+        <div class="social-links">
+            <a href="#">INSTAGRAM</a>
+            <a href="#">YOUTUBE</a>
+            <a href="mailto:akaiongaku@email.com">EMAIL</a>
+        </div>
+    </div>
+</div>
+
+<footer>&copy; 2026 Akai Ongaku • Atarashii Sekai ITERA</footer>
+
+<script>
+    const members = {
+        '7pm': [{ name: 'M. Rakan Mahardika', role: 'Leader / Guitarist', quote: '7PM Vibes.', ig: '#' }],
+        'lunar': [{ name: 'Member Lunar', role: 'Bassist', quote: 'Lunar Harmony.', ig: '#' }],
+        'pengurus': [
+            { name: 'M. Rakan Mahardika', role: 'Ketua Umum', quote: '2026-Sekarang', ig: '#' },
+            { name: 'Aulia Rizky', role: 'Ketua 2025', quote: 'Period 2025', ig: '#' },
+            { name: 'Andreas Alfin', role: 'Ketua 2024', quote: 'Period 2024', ig: '#' }
+        ],
+        'founder': [{ name: 'Perdana Raga', role: 'Founder', quote: 'The Beginning.', ig: '#' }],
+        'umum': [{ name: 'Anggota Umum', role: 'Member', quote: 'Family.', ig: '#' }]
+    };
+
+    function renderMembers(key) {
+        const display = document.getElementById('member-display');
+        display.innerHTML = '';
+        members[key].forEach(m => {
+            display.innerHTML += `
+                <a href="${m.ig}" target="_blank" class="member-bio-card">
+                    <div class="bio-photo"></div>
+                    <div class="bio-text">
+                        <h4>${m.name}</h4>
+                        <p class="member-role">${m.role}</p>
+                        <p>"${m.quote}"</p>
+                    </div>
+                </a>`;
+        });
+        if(key === '7pm' || key === 'lunar') document.getElementById('anggota').scrollIntoView();
+    }
+
+    renderMembers('pengurus');
+
+    // Particles & Music Logic (Sama)
+    const audio = document.getElementById('bgMusic');
+    const btn = document.getElementById('playPause');
+    document.body.addEventListener('click', () => { if (audio.paused) audio.play().then(()=>btn.innerHTML="⏸"); }, { once: true });
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (audio.paused) { audio.play(); btn.innerHTML = "⏸"; } 
+        else { audio.pause(); btn.innerHTML = "▶"; }
+    });
+
+    const pc = document.getElementById('particles');
+    for (let i = 0; i < 40; i++) {
+        const dot = document.createElement('div');
+        Object.assign(dot.style, { position:'absolute', width:'4px', height:'4px', background:'white', borderRadius:'50%', top:Math.random()*100+'%', left:Math.random()*100+'%', boxShadow:'0 0 10px white', opacity:'0.5'});
+        pc.appendChild(dot);
+    }
+</script>
+</body>
+</html>
