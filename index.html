@@ -4,28 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Akai Ongaku | Portofolio Futuristik</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --soft-blue: rgba(162, 210, 255, 0.4);
             --candy-pink: rgba(255, 175, 204, 0.5);
             --bright-pink: #ff85a1;
             --glass-white: rgba(255, 255, 255, 0.25);
-            --text-color: #4a4a4a;
+            --text-color: #333;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #fdfcfb 0%, #a2d2ff 50%, #ffafcc 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #a2d2ff 50%, #ffafcc 100%);
             background-attachment: fixed;
             min-height: 100vh;
             color: var(--text-color);
             overflow-x: hidden;
         }
 
-        /* Latar Belakang Partikel */
+        /* Borderline tipis untuk semua teks */
+        h1, h2, h3, p, li, strong, .logo, nav a {
+            text-shadow: 0.5px 0.5px 0px rgba(255, 255, 255, 0.8), 
+                         -0.5px -0.5px 0px rgba(255, 255, 255, 0.8);
+        }
+
         #particles {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -33,9 +38,8 @@
             pointer-events: none;
         }
 
-        /* HEADER TRANSPARAN */
         header {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             padding: 15px 5%;
@@ -46,7 +50,7 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
         }
 
         .logo { 
@@ -54,77 +58,107 @@
             font-size: 1.4rem; 
             letter-spacing: 2px;
             color: #fff;
-            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+            text-shadow: 0 0 10px rgba(255, 133, 161, 0.8), 1px 1px 2px rgba(0,0,0,0.2);
+            font-weight: bold;
         }
 
         .leader-tag {
             font-size: 0.75rem;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(5px);
+            background: var(--bright-pink);
             color: white;
             padding: 5px 15px;
             border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         nav a {
             text-decoration: none;
-            color: white;
+            color: #444;
             margin-left: 15px;
             font-size: 0.85rem;
             transition: 0.3s;
-            font-weight: 500;
+            font-weight: 600;
         }
 
-        nav a:hover { color: var(--bright-pink); text-shadow: 0 0 8px var(--bright-pink); }
+        nav a:hover { color: var(--bright-pink); }
 
-        /* CONTAINER DENGAN EFEK KACA */
-        .container { max-width: 900px; margin: 120px auto 50px; padding: 20px; }
+        .container { max-width: 1000px; margin: 120px auto 50px; padding: 20px; }
 
         section {
             background: var(--glass-white);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            margin-bottom: 30px;
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            margin-bottom: 40px;
             padding: 40px;
             border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+            border: 1.5px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 32px rgba(162, 210, 255, 0.2);
         }
 
         h2 { 
-            color: #fff; 
-            margin-bottom: 25px; 
+            color: #444; 
+            margin-bottom: 30px; 
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             text-transform: uppercase;
+            border-left: 5px solid var(--bright-pink);
+            padding-left: 15px;
         }
 
-        .data-box {
-            background: rgba(255, 255, 255, 0.1);
+        /* GRID KARTU ANGGOTA */
+        .member-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .member-card {
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 25px;
             padding: 20px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            transition: 0.4s ease;
         }
 
-        /* GALLERY TRANSPARAN */
+        .member-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 15px 30px rgba(255, 133, 161, 0.2);
+        }
+
+        .member-photo {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, var(--soft-blue), var(--candy-pink));
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            border: 3px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .member-name { font-weight: 700; font-size: 1.1rem; color: #333; margin-bottom: 5px; }
+        .member-role { font-size: 0.8rem; color: var(--bright-pink); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* GALLERY & SLIDES */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
         .gallery-item {
-            background: rgba(255, 255, 255, 0.1);
+            background: white;
             border-radius: 20px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: 0.4s;
+            border: 1.5px solid rgba(255, 255, 255, 0.8);
         }
-        .gallery-item:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.2); }
-        .gallery-item img { width: 100%; filter: brightness(0.9); }
+        .gallery-item img { width: 100%; display: block; }
 
-        /* SPECIAL SLIDES */
         .special-slide {
             height: 350px;
             display: flex;
@@ -134,29 +168,30 @@
             color: white;
             border-radius: 30px;
             margin-top: 25px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            border: 2px solid white;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
             text-align: center;
         }
 
-        .interlude { background: linear-gradient(45deg, rgba(162, 210, 255, 0.4), rgba(255, 175, 204, 0.4)); }
-        .lunar { background: linear-gradient(135deg, rgba(27, 38, 59, 0.6), rgba(255, 175, 204, 0.3)); }
+        .interlude { background: linear-gradient(45deg, #a2d2ff, #ffafcc); }
+        .lunar { background: linear-gradient(135deg, #1b263b, #415a77, #ffafcc); }
 
-        .special-slide h1 { font-family: 'Orbitron', sans-serif; font-size: 2rem; letter-spacing: 4px; margin-bottom: 10px; }
+        .special-slide h1 { font-family: 'Orbitron', sans-serif; font-size: 2.2rem; letter-spacing: 4px; }
 
-        /* MUSIC PLAYER TRANSPARAN */
+        /* MUSIC PLAYER */
         .music-player {
             position: fixed;
             bottom: 30px; right: 30px;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.4);
             backdrop-filter: blur(20px);
             padding: 12px 25px;
             border-radius: 40px;
             display: flex;
             align-items: center;
             gap: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            border: 1px solid #fff;
             z-index: 2000;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
 
         .play-btn {
@@ -166,10 +201,10 @@
             background: var(--bright-pink);
             color: white;
             cursor: pointer;
-            box-shadow: 0 0 15px var(--bright-pink);
+            box-shadow: 0 0 15px rgba(255, 133, 161, 0.5);
         }
 
-        footer { text-align: center; padding: 40px; color: white; font-size: 0.7rem; opacity: 0.7; }
+        footer { text-align: center; padding: 40px; color: #555; font-size: 0.75rem; font-weight: bold; }
 
     </style>
 </head>
@@ -181,16 +216,16 @@
         <div class="logo">AKAI ONGAKU</div>
         <nav>
             <a href="#sejarah">Sejarah</a>
+            <a href="#anggota">Anggota</a>
             <a href="#gallery">Gallery</a>
-            <a href="#special">Band</a>
         </nav>
         <div class="leader-tag">Ketua: M. Rakan</div>
     </header>
 
     <div class="music-player">
         <button class="play-btn" id="playPause">▶</button>
-        <div style="font-size: 0.7rem; color: white;">
-            <strong>AKAI ONGAKU RADIO</strong><br>Tap to Play
+        <div style="font-size: 0.7rem; color: #444; font-weight: bold;">
+            AKAI ONGAKU RADIO<br>Tap to Play
         </div>
         <audio id="bgMusic" loop>
             <source src="カラオケ敗北ヒーロー  ころんOff Vocal.mp3" type="audio/mpeg">
@@ -201,10 +236,10 @@
         
         <section id="sejarah">
             <h2>Sejarah Akai Ongaku</h2>
-            <div class="data-box">
+            <div style="background: rgba(255, 255, 255, 0.3); padding: 25px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.4);">
                 <p><strong>Berdiri:</strong> 2022 </p>
                 <p><strong>Pendiri:</strong> Raga, Taka, Azis, Ferly </p>
-                <hr style="margin: 15px 0; opacity: 0.2;">
+                <hr style="margin: 15px 0; border: 0; border-top: 1px solid rgba(0,0,0,0.05);">
                 <p><strong>Riwayat Kepengurusan:</strong></p>
                 <p>• Perdana Raga Winata (Founder)</p>
                 <p>• Andreas Alfin Yoga Utama (2024)</p>
@@ -213,16 +248,42 @@
             </div>
         </section>
 
+        <section id="anggota">
+            <h2>Daftar Anggota Band</h2>
+            <div class="member-grid">
+                <div class="member-card">
+                    <div class="member-photo">V</div>
+                    <div class="member-name">Nama Anggota</div>
+                    <div class="member-role">Vocalist</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-photo">G</div>
+                    <div class="member-name">Nama Anggota</div>
+                    <div class="member-role">Guitarist</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-photo">B</div>
+                    <div class="member-name">Nama Anggota</div>
+                    <div class="member-role">Bassist</div>
+                </div>
+                <div class="member-card">
+                    <div class="member-photo">D</div>
+                    <div class="member-name">Nama Anggota</div>
+                    <div class="member-role">Drummer</div>
+                </div>
+            </div>
+        </section>
+
         <section id="gallery">
             <h2>Gallery Dokumentasi</h2>
             <div class="gallery-grid">
                 <div class="gallery-item">
                     <img src="https://via.placeholder.com/400x300/a2d2ff/ffffff?text=Akai+1" alt="Foto 1">
-                    <div style="padding: 15px; color: white; font-size: 0.8rem;">Keterangan Foto & Tanggal</div>
+                    <div style="padding: 15px; color: #555; font-size: 0.8rem; font-weight: 600; text-align: center;">Keterangan Foto & Tanggal</div>
                 </div>
                 <div class="gallery-item">
                     <img src="https://via.placeholder.com/400x300/ffafcc/ffffff?text=Akai+2" alt="Foto 2">
-                    <div style="padding: 15px; color: white; font-size: 0.8rem;">Keterangan Foto & Tanggal</div>
+                    <div style="padding: 15px; color: #555; font-size: 0.8rem; font-weight: 600; text-align: center;">Keterangan Foto & Tanggal</div>
                 </div>
             </div>
         </section>
@@ -244,28 +305,28 @@
     <footer>&copy; 2026 Akai Ongaku • Atarashii Sekai ITERA</footer>
 
     <script>
-        // Animasi Partikel Sederhana di Background
+        // Animasi Partikel
         const particlesContainer = document.getElementById('particles');
-        for (let i = 0; i < 30; i++) {
+        for (let i = 0; i < 35; i++) {
             const dot = document.createElement('div');
             dot.style.position = 'absolute';
-            dot.style.width = Math.random() * 5 + 'px';
+            dot.style.width = Math.random() * 6 + 'px';
             dot.style.height = dot.style.width;
-            dot.style.background = 'rgba(255,255,255,0.5)';
+            dot.style.background = 'rgba(255,255,255,0.7)';
             dot.style.borderRadius = '50%';
             dot.style.top = Math.random() * 100 + '%';
             dot.style.left = Math.random() * 100 + '%';
-            dot.style.boxShadow = '0 0 10px white';
+            dot.style.boxShadow = '0 0 12px white';
             particlesContainer.appendChild(dot);
         }
 
-        // Logic Musik
         const audio = document.getElementById('bgMusic');
         const btn = document.getElementById('playPause');
 
         function playAudio() {
             audio.play().then(() => {
                 btn.innerHTML = "⏸";
+                btn.style.background = "#00b4d8";
             }).catch(() => {});
         }
 
@@ -278,9 +339,11 @@
             if (audio.paused) {
                 audio.play();
                 btn.innerHTML = "⏸";
+                btn.style.background = "#00b4d8";
             } else {
                 audio.pause();
                 btn.innerHTML = "▶";
+                btn.style.background = "#ff85a1";
             }
         });
     </script>
