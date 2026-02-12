@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akai Ongaku | Portofolio Futuristik</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <title>Akai Ongaku | Atarashii Sekai</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@500;800&family=Satisfy&display=swap" rel="stylesheet">
     <style>
         :root {
             --soft-blue: rgba(162, 210, 255, 0.4);
             --candy-pink: rgba(255, 175, 204, 0.5);
             --bright-pink: #ff85a1;
+            --deep-blue: #1b263b;
             --glass-white: rgba(255, 255, 255, 0.25);
             --text-color: #333;
         }
@@ -25,10 +26,10 @@
             overflow-x: hidden;
         }
 
-        /* Borderline tipis untuk semua teks */
-        h1, h2, h3, p, li, strong, .logo, nav a {
-            text-shadow: 0.5px 0.5px 0px rgba(255, 255, 255, 0.8), 
-                         -0.5px -0.5px 0px rgba(255, 255, 255, 0.8);
+        /* Bolderline Shadow untuk semua teks */
+        h1, h2, h3, p, li, strong, nav a, .member-name {
+            text-shadow: 0.5px 0.5px 0px rgba(255, 255, 255, 0.9), 
+                         -0.5px -0.5px 0px rgba(255, 255, 255, 0.9);
         }
 
         #particles {
@@ -53,13 +54,21 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.4);
         }
 
+        /* 1. Judul Akai Ongaku Lebih Menarik */
         .logo { 
             font-family: 'Orbitron', sans-serif; 
-            font-size: 1.4rem; 
-            letter-spacing: 2px;
-            color: #fff;
-            text-shadow: 0 0 10px rgba(255, 133, 161, 0.8), 1px 1px 2px rgba(0,0,0,0.2);
-            font-weight: bold;
+            font-size: 1.6rem; 
+            font-weight: 800;
+            letter-spacing: 3px;
+            background: linear-gradient(to right, #ff85a1, #00b4d8, #ff85a1);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 3s linear infinite;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
         }
 
         .leader-tag {
@@ -80,14 +89,11 @@
             font-weight: 600;
         }
 
-        nav a:hover { color: var(--bright-pink); }
-
         .container { max-width: 1000px; margin: 120px auto 50px; padding: 20px; }
 
         section {
             background: var(--glass-white);
             backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
             margin-bottom: 40px;
             padding: 40px;
             border-radius: 30px;
@@ -105,60 +111,64 @@
             padding-left: 15px;
         }
 
-        /* GRID KARTU ANGGOTA */
-        .member-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
+        /* 2. Fitur Profile Band & Member Bio */
+        .band-profile {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
         }
 
-        .member-card {
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 25px;
-            padding: 20px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            transition: 0.4s ease;
-        }
-
-        .member-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.8);
-            box-shadow: 0 15px 30px rgba(255, 133, 161, 0.2);
-        }
-
-        .member-photo {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(45deg, var(--soft-blue), var(--candy-pink));
-            border-radius: 50%;
-            margin: 0 auto 15px;
-            border: 3px solid white;
+        .band-logo {
+            width: 150px;
+            height: 150px;
+            background: white;
+            border-radius: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            color: white;
-            font-size: 1.5rem;
+            border: 2px solid var(--bright-pink);
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-        .member-name { font-weight: 700; font-size: 1.1rem; color: #333; margin-bottom: 5px; }
-        .member-role { font-size: 0.8rem; color: var(--bright-pink); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
-
-        /* GALLERY & SLIDES */
-        .gallery-grid {
+        .member-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
         }
-        .gallery-item {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1.5px solid rgba(255, 255, 255, 0.8);
-        }
-        .gallery-item img { width: 100%; display: block; }
 
+        .member-bio-card {
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 25px;
+            padding: 20px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            transition: 0.3s;
+        }
+
+        .member-bio-card:hover {
+            background: rgba(255, 255, 255, 0.8);
+            transform: scale(1.03);
+            border-color: var(--bright-pink);
+        }
+
+        .bio-photo {
+            width: 70px;
+            height: 70px;
+            border-radius: 15px;
+            background: var(--soft-blue);
+            flex-shrink: 0;
+            border: 2px solid white;
+        }
+
+        .bio-text h4 { font-size: 1rem; color: #333; }
+        .bio-text p { font-size: 0.75rem; color: #666; margin: 0; }
+
+        /* 4. Sync Style 7pm & Lunar Dial */
         .special-slide {
             height: 350px;
             display: flex;
@@ -169,20 +179,52 @@
             border-radius: 30px;
             margin-top: 25px;
             border: 2px solid white;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.4);
             text-align: center;
+            background: linear-gradient(135deg, var(--deep-blue) 0%, #415a77 50%, var(--bright-pink) 100%);
+            position: relative;
+            overflow: hidden;
         }
 
-        .interlude { background: linear-gradient(45deg, #a2d2ff, #ffafcc); }
-        .lunar { background: linear-gradient(135deg, #1b263b, #415a77, #ffafcc); }
+        .special-slide::after {
+            content: "";
+            position: absolute;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 10s linear infinite;
+        }
 
-        .special-slide h1 { font-family: 'Orbitron', sans-serif; font-size: 2.2rem; letter-spacing: 4px; }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-        /* MUSIC PLAYER */
+        .special-slide h1 { font-family: 'Orbitron', sans-serif; font-size: 2.2rem; letter-spacing: 5px; z-index: 1; }
+        .special-slide p { font-family: 'Satisfy', cursive; font-size: 1.5rem; z-index: 1; text-shadow: none; color: #ffafcc; }
+
+        /* 3. Kontak & Sosmed Ending */
+        .contact-footer {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            margin-top: 50px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 15px;
+            text-decoration: none;
+            color: var(--deep-blue);
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover { color: var(--bright-pink); transform: translateY(-3px); }
+
         .music-player {
             position: fixed;
             bottom: 30px; right: 30px;
-            background: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.5);
             backdrop-filter: blur(20px);
             padding: 12px 25px;
             border-radius: 40px;
@@ -204,7 +246,7 @@
             box-shadow: 0 0 15px rgba(255, 133, 161, 0.5);
         }
 
-        footer { text-align: center; padding: 40px; color: #555; font-size: 0.75rem; font-weight: bold; }
+        footer { text-align: center; padding: 40px; color: #555; font-size: 0.7rem; font-weight: bold; }
 
     </style>
 </head>
@@ -219,13 +261,13 @@
             <a href="#anggota">Anggota</a>
             <a href="#gallery">Gallery</a>
         </nav>
-        <div class="leader-tag">Ketua: M. Rakan</div>
+        <div class="leader-tag">Leader: M. Rakan</div>
     </header>
 
     <div class="music-player">
         <button class="play-btn" id="playPause">▶</button>
         <div style="font-size: 0.7rem; color: #444; font-weight: bold;">
-            AKAI ONGAKU RADIO<br>Tap to Play
+            RADIO AKAI<br>Now Playing...
         </div>
         <audio id="bgMusic" loop>
             <source src="カラオケ敗北ヒーロー  ころんOff Vocal.mp3" type="audio/mpeg">
@@ -235,69 +277,71 @@
     <div class="container">
         
         <section id="sejarah">
-            <h2>Sejarah Akai Ongaku</h2>
-            <div style="background: rgba(255, 255, 255, 0.3); padding: 25px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.4);">
-                <p><strong>Berdiri:</strong> 2022 </p>
-                <p><strong>Pendiri:</strong> Raga, Taka, Azis, Ferly </p>
-                <hr style="margin: 15px 0; border: 0; border-top: 1px solid rgba(0,0,0,0.05);">
-                <p><strong>Riwayat Kepengurusan:</strong></p>
-                <p>• Perdana Raga Winata (Founder)</p>
-                <p>• Andreas Alfin Yoga Utama (2024)</p>
-                <p>• Aulia Rizky (2025)</p>
-                <p>• Muhammad Rakan Mahardika (2026-Sekarang)</p>
+            <div class="band-profile">
+                <div class="band-logo">
+                    <img src="https://via.placeholder.com/150?text=LOGO" alt="Logo Akai Ongaku" style="width:100%">
+                </div>
+                <div>
+                    <h2>Akai Ongaku Profile</h2>
+                    <p><strong>Est:</strong> 2022 | <strong>Base:</strong> ITERA Lampung</p>
+                    <p style="font-size: 0.9rem; margin-top: 10px;">Band perpaduan estetika modern dan futuristik yang lahir dari semangat Atarashii Sekai.</p>
+                </div>
+            </div>
+            
+            <div style="background: rgba(255, 255, 255, 0.2); padding: 20px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.3);">
+                <h3>Riwayat Kepengurusan</h3>
+                <p style="font-size: 0.85rem; margin-top:10px;">
+                    • Perdana Raga Winata (Founder)<br>
+                    • Andreas Alfin Yoga Utama (2024)<br>
+                    • Aulia Rizky (2025)<br>
+                    • Muhammad Rakan Mahardika (2026-Sekarang)
+                </p>
             </div>
         </section>
 
         <section id="anggota">
-            <h2>Daftar Anggota Band</h2>
+            <h2>Member Bio</h2>
             <div class="member-grid">
-                <div class="member-card">
-                    <div class="member-photo">V</div>
-                    <div class="member-name">Nama Anggota</div>
-                    <div class="member-role">Vocalist</div>
+                <div class="member-bio-card">
+                    <div class="bio-photo"></div>
+                    <div class="bio-text">
+                        <h4>M. Rakan</h4>
+                        <p class="member-role">Leader / Guitarist</p>
+                        <p>Visi: Membawa harmoni baru.</p>
+                    </div>
                 </div>
-                <div class="member-card">
-                    <div class="member-photo">G</div>
-                    <div class="member-name">Nama Anggota</div>
-                    <div class="member-role">Guitarist</div>
+                <div class="member-bio-card">
+                    <div class="bio-photo"></div>
+                    <div class="bio-text">
+                        <h4>Nama Member</h4>
+                        <p class="member-role">Vocalist</p>
+                        <p>Motto: Suara adalah jiwa.</p>
+                    </div>
                 </div>
-                <div class="member-card">
-                    <div class="member-photo">B</div>
-                    <div class="member-name">Nama Anggota</div>
-                    <div class="member-role">Bassist</div>
                 </div>
-                <div class="member-card">
-                    <div class="member-photo">D</div>
-                    <div class="member-name">Nama Anggota</div>
-                    <div class="member-role">Drummer</div>
-                </div>
-            </div>
-        </section>
-
-        <section id="gallery">
-            <h2>Gallery Dokumentasi</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/400x300/a2d2ff/ffffff?text=Akai+1" alt="Foto 1">
-                    <div style="padding: 15px; color: #555; font-size: 0.8rem; font-weight: 600; text-align: center;">Keterangan Foto & Tanggal</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/400x300/ffafcc/ffffff?text=Akai+2" alt="Foto 2">
-                    <div style="padding: 15px; color: #555; font-size: 0.8rem; font-weight: 600; text-align: center;">Keterangan Foto & Tanggal</div>
-                </div>
-            </div>
         </section>
 
         <div id="special">
-            <div class="special-slide interlude">
+            <div class="special-slide">
                 <h1>7PM INTERLUDE</h1>
-                <p>Hiburan Malam</p>
+                <p>Sunset Symphony</p>
             </div>
 
-            <div class="special-slide lunar">
+            <div class="special-slide">
                 <h1>LUNAR DIAL</h1>
-                <p>Panggilan Malam</p>
+                <p>Midnight Pulse</p>
             </div>
+        </div>
+
+        <div class="contact-footer">
+            <h2>Connect With Us</h2>
+            <div class="social-links">
+                <a href="#">INSTAGRAM</a>
+                <a href="#">YOUTUBE</a>
+                <a href="#">TIKTOK</a>
+                <a href="mailto:akaiongaku@email.com">EMAIL</a>
+            </div>
+            <p style="margin-top: 20px; font-size: 0.8rem; opacity: 0.6;">Booking & Inquiries: +62 8xx-xxxx-xxxx</p>
         </div>
 
     </div>
@@ -305,46 +349,35 @@
     <footer>&copy; 2026 Akai Ongaku • Atarashii Sekai ITERA</footer>
 
     <script>
-        // Animasi Partikel
+        // Partikel Cahaya Melayang
         const particlesContainer = document.getElementById('particles');
-        for (let i = 0; i < 35; i++) {
+        for (let i = 0; i < 40; i++) {
             const dot = document.createElement('div');
             dot.style.position = 'absolute';
-            dot.style.width = Math.random() * 6 + 'px';
+            dot.style.width = Math.random() * 5 + 'px';
             dot.style.height = dot.style.width;
-            dot.style.background = 'rgba(255,255,255,0.7)';
+            dot.style.background = 'rgba(255,255,255,0.6)';
             dot.style.borderRadius = '50%';
             dot.style.top = Math.random() * 100 + '%';
             dot.style.left = Math.random() * 100 + '%';
-            dot.style.boxShadow = '0 0 12px white';
+            dot.style.boxShadow = '0 0 10px white';
             particlesContainer.appendChild(dot);
         }
 
+        // Logic Musik
         const audio = document.getElementById('bgMusic');
         const btn = document.getElementById('playPause');
 
         function playAudio() {
-            audio.play().then(() => {
-                btn.innerHTML = "⏸";
-                btn.style.background = "#00b4d8";
-            }).catch(() => {});
+            audio.play().then(() => { btn.innerHTML = "⏸"; }).catch(() => {});
         }
 
-        document.body.addEventListener('click', () => {
-            if (audio.paused) playAudio();
-        }, { once: true });
+        document.body.addEventListener('click', () => { if (audio.paused) playAudio(); }, { once: true });
 
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
-            if (audio.paused) {
-                audio.play();
-                btn.innerHTML = "⏸";
-                btn.style.background = "#00b4d8";
-            } else {
-                audio.pause();
-                btn.innerHTML = "▶";
-                btn.style.background = "#ff85a1";
-            }
+            if (audio.paused) { audio.play(); btn.innerHTML = "⏸"; } 
+            else { audio.pause(); btn.innerHTML = "▶"; }
         });
     </script>
 </body>
