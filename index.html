@@ -26,6 +26,7 @@
             overflow-x: hidden;
         }
 
+        /* --- TYPOGRAPHY & SHADOWS --- */
         h1, h2, h3, p, li, strong, nav a, .member-name, .cat-btn {
             text-shadow: 0.5px 0.5px 0px rgba(255, 255, 255, 0.9), 
                          -0.5px -0.5px 0px rgba(255, 255, 255, 0.9);
@@ -33,7 +34,7 @@
 
         h2 { color: #444; border-left: 5px solid var(--bright-pink); padding-left: 15px; margin-bottom: 30px; font-family: 'Orbitron', sans-serif; text-transform: uppercase; }
 
-        /* --- GLOBAL INTERACTIVE --- */
+        /* --- GLOBAL INTERACTIVE STYLES --- */
         nav a, .cat-btn, .member-bio-card, .special-slide, .play-btn, .close-btn {
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
@@ -43,6 +44,7 @@
             position: relative;
         }
 
+        /* Hover: Melayang */
         nav a:hover, .cat-btn:hover, .member-bio-card:hover, .special-slide:hover, .close-btn:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(162, 210, 255, 0.3);
@@ -50,6 +52,7 @@
             border-color: var(--bright-pink);
         }
 
+        /* Active: Tertekan */
         nav a:active, .cat-btn:active, .member-bio-card:active, .special-slide:active, .play-btn:active, .close-btn:active {
             transform: scale(0.96) translateY(2px);
             background: rgba(255, 255, 255, 0.1) !important;
@@ -81,28 +84,17 @@
         /* --- FULLSCREEN OVERLAY (SLIDE PAGE) --- */
         .overlay-page {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(255, 255, 255, 0.85); /* Latar belakang glass tebal */
+            background: rgba(255, 255, 255, 0.95); /* Sedikit lebih tebal agar tidak terlalu transparan */
             backdrop-filter: blur(30px);
-            z-index: 3000; /* Di atas segalanya */
-            padding: 80px 20px 40px; /* Padding atas untuk header */
-            overflow-y: auto; /* Agar bisa discroll */
-            
-            /* Animasi Masuk */
-            transform: translateY(100%); /* Default tersembunyi di bawah */
-            opacity: 0;
+            z-index: 3000; padding: 80px 20px 40px; overflow-y: auto;
+            transform: translateY(100%); opacity: 0;
             transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1);
         }
-
-        .overlay-page.active {
-            transform: translateY(0); /* Muncul ke layar */
-            opacity: 1;
-        }
-
+        .overlay-page.active { transform: translateY(0); opacity: 1; }
         .close-btn {
-            position: fixed; top: 20px; right: 20px;
-            width: 50px; height: 50px;
-            border-radius: 50%; background: var(--bright-pink);
-            color: white; font-size: 1.5rem; display: flex; justify-content: center; align-items: center;
+            position: fixed; top: 20px; right: 20px; width: 50px; height: 50px;
+            border-radius: 50%; background: var(--bright-pink); color: white;
+            font-size: 1.5rem; display: flex; justify-content: center; align-items: center;
             z-index: 3001; border: 2px solid white;
         }
 
@@ -130,14 +122,20 @@
         .special-slide:hover .bg-lunar { transform: translateY(-50%) rotate(0deg) scale(1.05); opacity: 0.3; }
 
         /* --- CATEGORY & CARDS --- */
-        .category-nav { display: flex; gap: 15px; margin-bottom: 25px; flex-wrap: wrap; justify-content: center; }
-        .cat-btn { background: rgba(255,255,255,0.3); padding: 10px 20px; border-radius: 15px; font-size: 0.85rem; font-weight: 700; color: var(--text-color); }
+        .category-nav { display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; justify-content: center; }
+        .cat-btn { background: rgba(255,255,255,0.3); padding: 8px 15px; border-radius: 15px; font-size: 0.8rem; font-weight: 700; color: var(--text-color); }
         .cat-btn.active { animation: active-glow 2s infinite ease-in-out; background: rgba(255, 133, 161, 0.2) !important; color: var(--deep-blue); border-color: var(--bright-pink); }
         @keyframes active-glow { 0%, 100% { box-shadow: 0 0 5px var(--bright-pink); } 50% { box-shadow: 0 0 15px var(--bright-pink); } }
 
         .member-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
         .member-bio-card { background: rgba(255, 255, 255, 0.5); border-radius: 25px; padding: 20px; display: flex; gap: 15px; align-items: center; text-decoration: none; color: inherit; }
         .bio-photo { width: 65px; height: 65px; border-radius: 12px; background: #eee; flex-shrink: 0; object-fit: cover; border: 2px solid white; }
+
+        /* --- GALLERY --- */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .gallery-item { overflow: hidden; border-radius: 15px; position: relative; background: var(--soft-blue); }
+        .gallery-item img { width: 100%; display: block; transition: 0.5s; }
+        .gallery-item .desc { padding: 10px; font-size: 0.8rem; background: white; text-align: center; }
 
         /* --- MUSIC PLAYER --- */
         .music-player { position: fixed; bottom: 30px; right: 30px; background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); padding: 10px 20px; border-radius: 50px; display: flex; align-items: center; gap: 12px; border: 1px solid rgba(255, 255, 255, 0.3); z-index: 2000; }
@@ -156,7 +154,7 @@
 
 <header>
     <div style="display: flex; align-items: center; gap: 10px;">
-        <img src="1000211311.jpg" class="header-logo" alt="Akai Logo">
+        <img src="1000211311.png" class="header-logo" alt="Akai Logo">
         <div class="logo-text">AKAI ONGAKU</div>
     </div>
     <nav>
@@ -170,7 +168,7 @@
 
 <div class="music-player">
     <button class="play-btn" id="playPause">▶</button>
-    <div style="font-size: 0.65rem; font-weight: bold; color: #444;">AKAI RADIO<br><span id="statusText">TAP TO PLAY</span></div>
+    <div style="font-size: 0.65rem; font-weight: bold; color: #444;">ONGAKU RADIO<br><span id="statusText">TAP TO PLAY</span></div>
     <audio id="bgMusic" loop src="カラオケ敗北ヒーロー  ころんOff Vocal.mp3"></audio>
 </div>
 
@@ -178,24 +176,24 @@
     
     <section id="home">
         <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
-            <img src="1000211311.jpg" style="width: 120px; border-radius: 20px; border: 3px solid var(--bright-pink); box-shadow: 0 5px 15px rgba(0,0,0,0.1);" alt="Akai Profile">
+            <img src="1000211311.png" style="width: 120px; border-radius: 20px; border: 3px solid var(--bright-pink); box-shadow: 0 5px 15px rgba(0,0,0,0.1);" alt="Akai Profile">
             <div>
                 <h2>Akai Ongaku Profile</h2>
                 <p><strong>Est:</strong> 2022 | <strong>Base:</strong> ITERA Lampung</p>
-                <p style="margin-top: 10px; font-size: 0.9rem;">Perpaduan estetika modern dan futuristik Atarashii Sekai.</p>
+                <p style="margin-top: 10px; font-size: 0.9rem;">Divisi Musik dari UKM Atarashii Sekai ITERA (AKAI).</p>
             </div>
         </div>
     </section>
 
     <section id="unit">
-        <h2>Pilih Unit Band</h2>
-        <p style="margin-bottom: 20px; opacity: 0.7;">Klik banner untuk membuka profil lengkap.</p>
+        <h2>Telusuri Unit Band</h2>
+        <p style="margin-bottom: 20px; opacity: 0.7;">Klik band untuk membuka profil anggota.</p>
         
         <div class="special-slide slide-7pm" onclick="openOverlay('7pm')">
-            <img src="7Lude1.png.png" class="band-bg-logo bg-7pm" alt="7PM Watermark">
+            <img src="7Lude.png.png" class="band-bg-logo bg-7pm" alt="7PM Watermark">
             <div class="unit-info">
                 <h1>7PM INTERLUDE</h1>
-                <p>Sunset Banger</p>
+                <p>2024</p>
             </div>
         </div>
 
@@ -203,24 +201,24 @@
             <img src="LunarDial.jpg" class="band-bg-logo bg-lunar" alt="Lunar Watermark">
             <div class="unit-info">
                 <h1>LUNAR DIAL</h1>
-                <p>Midnight Call</p>
+                <p>2023</p>
             </div>
         </div>
     </section>  
     
     <section id="gallery">
-            <h2>Gallery Dokumentasi</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/400x300/a2d2ff/ffffff?text=Photo+1" alt="Event 1">
-                    <div class="desc">Moment Latihan - 10 Feb 2026</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/400x300/ffafcc/ffffff?text=Photo+2" alt="Event 2">
-                    <div class="desc">Performance - 15 Feb 2026</div>
-                </div>
+        <h2>Gallery Dokumentasi</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x300/a2d2ff/ffffff?text=Photo+1" alt="Event 1">
+                <div class="desc">Moment Latihan - 10 Feb 2026</div>
             </div>
-        </section>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x300/ffafcc/ffffff?text=Photo+2" alt="Event 2">
+                <div class="desc">Performance - 15 Feb 2026</div>
+            </div>
+        </div>
+    </section>
 
 </div>
 
@@ -230,13 +228,12 @@
         <div style="text-align: center; margin-bottom: 40px;">
             <img src="7Lude1.png.jpg" style="width: 150px; border-radius: 20px; margin-bottom: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
             <h1 style="font-family: 'Orbitron'; font-size: 2.5rem; margin-bottom: 0;">7PM INTERLUDE</h1>
-            <p style="font-family: 'Satisfy'; color: #ff85a1; font-size: 1.5rem;">The Sunset Symphony</p>
+            <p style="font-family: 'Satisfy'; color: #ff85a1; font-size: 1.5rem;">Born at 2024</p>
             <p style="max-width: 600px; margin: 20px auto;">Hiburan setiap jam 7 malam</p>
         </div>
         
         <h2>Anggota 7PM</h2>
-        <div class="member-grid" id="grid-7pm">
-            </div>
+        <div class="member-grid" id="grid-7pm"></div>
     </div>
 </div>
 
@@ -246,13 +243,12 @@
         <div style="text-align: center; margin-bottom: 40px;">
             <img src="LunarDial.jpg" style="width: 150px; border-radius: 50%; margin-bottom: 10px; box-shadow: 0 0 30px rgba(255,255,255,0.5); border: 4px solid white;">
             <h1 style="font-family: 'Orbitron'; font-size: 2.5rem; margin-bottom: 0;">LUNAR DIAL</h1>
-            <p style="font-family: 'Satisfy'; color: #a2d2ff; font-size: 1.5rem;">Midnight Call</p>
-            <p style="max-width: 600px; margin: 20px auto;">Melodi tenagh malam kota Metro</p>
+            <p style="font-family: 'Satisfy'; color: #a2d2ff; font-size: 1.5rem;">Born at 2023</p>
+            <p style="max-width: 600px; margin: 20px auto;">Melodi tengah malam kota Metro</p>
         </div>
 
         <h2>Anggota Lunar Dial</h2>
-        <div class="member-grid" id="grid-lunar">
-            </div>
+        <div class="member-grid" id="grid-lunar"></div>
     </div>
 </div>
 
@@ -263,14 +259,13 @@
         
         <div class="category-nav">
             <div class="cat-btn active" onclick="switchMemberTab('pengurus26', this)">Pengurus 2026</div>
-            <div class="cat-btn active" onclick="switchMemberTab('pengurus25', this)">Pengurus 2025</div>
-            <div class="cat-btn active" onclick="switchMemberTab('pengurus24', this)">Pengurus 2024</div>
-            <div class="cat-btn active" onclick="switchMemberTab('pengurus23', this)">Pengurus 2023</div>
+            <div class="cat-btn" onclick="switchMemberTab('pengurus25', this)">Pengurus 2025</div>
+            <div class="cat-btn" onclick="switchMemberTab('pengurus24', this)">Pengurus 2024</div>
+            <div class="cat-btn" onclick="switchMemberTab('pengurus23', this)">Pengurus 2023</div>
             <div class="cat-btn" onclick="switchMemberTab('founder', this)">Founder 2022</div>
         </div>
 
-        <div class="member-grid" id="grid-general">
-            </div>
+        <div class="member-grid" id="grid-general"></div>
     </div>
 </div>
 
@@ -297,6 +292,9 @@
             { name: 'M. Rakan Mahardika', role: 'Ketua 2026', quote: 'Teknik Industri 24', ig: '#' },
             { name: 'M. Afri', role: 'Wakil Ketua 2026', quote: 'Teknik Elektro 24', ig: '#' }
         ],
+        'pengurus25': [{ name: 'Muhammad', role: 'Ketua 2025', quote: 'Periode 2025', ig: '#' }],
+        'pengurus24': [{ name: 'Andreas', role: 'Ketua 2024', quote: 'Periode 2024', ig: '#' }],
+        'pengurus23': [{ name: 'Unknown', role: 'Ketua 2023', quote: 'Periode 2023', ig: '#' }],
         'founder': [
             { name: 'Raga', role: 'Guitarist', quote: 'Teknik Informatika 19', ig: '#' },
             { name: 'Taka', role: 'Perkusi', quote: 'Unknown', ig: '#' },
@@ -309,17 +307,21 @@
     function createCards(data, containerId) {
         const container = document.getElementById(containerId);
         container.innerHTML = '';
-        data.forEach(m => {
-            container.innerHTML += `
-                <a href="${m.ig}" target="_blank" class="member-bio-card">
-                    <div class="bio-photo"></div>
-                    <div class="bio-text">
-                        <h4>${m.name}</h4>
-                        <p style="font-size:0.75rem; color: #ff85a1; font-weight:700;">${m.role}</p>
-                        <p style="font-size:0.7rem; color: #666;">"${m.quote}"</p>
-                    </div>
-                </a>`;
-        });
+        if (data && data.length > 0) {
+            data.forEach(m => {
+                container.innerHTML += `
+                    <a href="${m.ig}" target="_blank" class="member-bio-card">
+                        <div class="bio-photo"></div>
+                        <div class="bio-text">
+                            <h4>${m.name}</h4>
+                            <p style="font-size:0.75rem; color: #ff85a1; font-weight:700;">${m.role}</p>
+                            <p style="font-size:0.7rem; color: #666;">"${m.quote}"</p>
+                        </div>
+                    </a>`;
+            });
+        } else {
+            container.innerHTML = '<p style="text-align:center; width:100%; color:#666;">Data belum tersedia.</p>';
+        }
     }
 
     // LOGIC BUKA/TUTUP OVERLAY
@@ -327,7 +329,7 @@
         // Render konten dulu sebelum membuka
         if(id === '7pm') createCards(db['7pm'], 'grid-7pm');
         if(id === 'lunar') createCards(db['lunar'], 'grid-lunar');
-        if(id === 'members') switchMemberTab('pengurus', document.querySelector('.cat-btn')); // Default load pengurus
+        if(id === 'members') switchMemberTab('pengurus26', document.querySelector('.cat-btn')); // Default load pengurus 2026
 
         document.getElementById('page-' + id).classList.add('active');
         document.body.style.overflow = 'hidden'; // Matikan scroll halaman utama
