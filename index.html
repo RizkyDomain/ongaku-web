@@ -26,23 +26,16 @@
             overflow-x: hidden;
         }
 
-        /* Bolderline Shadow */
         h1, h2, h3, p, li, strong, nav a, .member-name {
             text-shadow: 0.5px 0.5px 0px rgba(255, 255, 255, 0.9), 
                          -0.5px -0.5px 0px rgba(255, 255, 255, 0.9);
         }
 
-        #particles { 
-            position: fixed; 
-            top: 0; left: 0; width: 100%; height: 100%; 
-            z-index: -1;
-            pointer-events: none; 
-        }
+        #particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
 
         header {
             background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
             padding: 10px 5%;
             display: flex;
             justify-content: space-between;
@@ -54,29 +47,10 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.4);
         }
 
-        .header-logo {
-            width: 50px;
-            height: 50px;
-            object-fit: contain;
-            border-radius: 50%;
-            border: 2px solid var(--bright-pink);
-        }
-
-        .logo-text { 
-            font-family: 'Orbitron', sans-serif; 
-            font-size: 1.4rem; 
-            font-weight: 800;
-            background: linear-gradient(to right, #ff85a1, #00b4d8, #ff85a1);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shine 3s linear infinite;
-        }
-
+        .header-logo { width: 50px; height: 50px; object-fit: contain; border-radius: 50%; border: 2px solid var(--bright-pink); }
+        .logo-text { font-family: 'Orbitron', sans-serif; font-size: 1.4rem; font-weight: 800; background: linear-gradient(to right, #ff85a1, #00b4d8, #ff85a1); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shine 3s linear infinite; }
         @keyframes shine { to { background-position: 200% center; } }
-
         .leader-tag { font-size: 0.75rem; background: var(--bright-pink); color: white; padding: 5px 15px; border-radius: 20px; }
-
         nav a { text-decoration: none; color: #444; margin-left: 15px; font-size: 0.85rem; font-weight: 600; transition: 0.3s; }
         nav a:hover { color: var(--bright-pink); }
 
@@ -92,22 +66,16 @@
             box-shadow: 0 8px 32px rgba(162, 210, 255, 0.2);
         }
 
-        h2 { 
-            color: #444;
-            border-left: 5px solid var(--bright-pink); 
-            padding-left: 15px; 
-            margin-bottom: 30px; 
-            font-family: 'Orbitron', sans-serif; 
-            text-transform: uppercase; 
-        }
+        h2 { color: #444; border-left: 5px solid var(--bright-pink); padding-left: 15px; margin-bottom: 30px; font-family: 'Orbitron', sans-serif; text-transform: uppercase; }
 
-        /* BANNER UNIT DENGAN LOGO ASLI */
+        /* BANNER UNIT: LOGO KIRI, TEKS KANAN */
         .special-slide {
-            height: 250px;
+            height: 180px;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            flex-direction: row; /* Berjejer ke samping */
+            justify-content: flex-start;
             align-items: center;
+            padding: 0 10%;
             color: white;
             border-radius: 30px;
             margin-top: 20px;
@@ -116,59 +84,80 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            text-align: center;
         }
 
-        /* Efek klik transparansi naik */
-        .special-slide:active {
-            background: rgba(255, 255, 255, 0.1) !important;
-            transform: scale(0.97);
-            backdrop-filter: blur(5px);
-        }
-        .special-slide::after {
-            content: "";
-            position: absolute;
-            width: 200%; height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: rotate 10s linear infinite;
-        }
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-        .slide-7pm { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), background-size: cover; background-position: center; }
-        .slide-lunar { background: linear-gradient(rgba(27, 38, 59, 0.7), rgba(27, 38, 59, 0.7)), background-size: cover; background-position: center; }
+        .special-slide:active { transform: scale(0.97); backdrop-filter: blur(10px); }
+        .special-slide::after { content: ""; position: absolute; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%); animation: rotate 15s linear infinite; z-index: 1; }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-        .special-slide h1 { font-family: 'Orbitron'; font-size: 1.8rem; z-index: 2; letter-spacing: 3px; margin-top: 10px; }
-        .special-slide .subtitle { font-family: 'Satisfy', cursive; font-size: 1.4rem; color: #ffafcc; z-index: 2; }
+        .slide-7pm { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), #1a1a1a; }
+        .slide-lunar { background: linear-gradient(rgba(27, 38, 59, 0.7), rgba(27, 38, 59, 0.7)), #1b263b; }
 
-        .unit-icon { width: 80px; height: 80px; object-fit: contain; z-index: 2; filter: drop-shadow(0 0 10px rgba(255,255,255,0.3)); }
+        .unit-icon { width: 100px; height: 100px; object-fit: contain; z-index: 2; filter: drop-shadow(0 0 10px rgba(255,255,255,0.3)); margin-right: 30px; }
+        .unit-info { z-index: 2; text-align: left; }
+        .unit-info h1 { font-family: 'Orbitron'; font-size: 1.8rem; letter-spacing: 2px; }
 
         /* MEMBER CARDS */
         .member-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .member-bio-card {
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 25px;
-            padding: 20px;
-            display: flex;
-            gap: 15px;
-            align-items: center;
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            transition: 0.3s;
-            cursor: pointer;
-            text-decoration: none;
-            color: inherit;
-        }
+        .member-bio-card { background: rgba(255, 255, 255, 0.5); border-radius: 25px; padding: 20px; display: flex; gap: 15px; align-items: center; border: 1px solid rgba(255, 255, 255, 0.6); transition: 0.3s; cursor: pointer; text-decoration: none; color: inherit; }
         .member-bio-card:hover { background: white; transform: translateY(-5px); border-color: var(--bright-pink); }
         .bio-photo { width: 65px; height: 65px; border-radius: 12px; background: #eee; flex-shrink: 0; object-fit: cover; border: 2px solid white; }
 
-        /* MUSIC PLAYER */
-        .music-player { position: fixed; bottom: 30px; right: 30px; background: rgba(255,255,255,0.5); backdrop-filter: blur(20px); padding: 12px 25px; border-radius: 40px; border: 1px solid #fff; z-index: 2000; display: flex; align-items: center; gap: 15px; }
-        .play-btn { width: 45px; height: 45px; border-radius: 50%; border: none; background: var(--bright-pink); color: white; cursor: pointer; }
+        /* MUSIC PLAYER ANIMATION & STYLE */
+        .music-player {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: rgba(255, 255, 255, 0.15); /* Lebih transparan */
+            backdrop-filter: blur(10px);
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            z-index: 2000;
+            transition: all 0.3s ease;
+        }
+
+        .music-player:hover {
+            background: rgba(255, 255, 255, 0.4); /* Lebih tebal saat hover */
+            border-color: var(--bright-pink);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 133, 161, 0.2);
+        }
+
+        .play-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: var(--bright-pink);
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Animasi Pulse saat musik nyala */
+        .play-btn.playing::before {
+            content: "";
+            position: absolute;
+            width: 100%; height: 100%;
+            border-radius: 50%;
+            background: var(--bright-pink);
+            animation: pulse 1.5s infinite;
+            z-index: -1;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.8); opacity: 0; }
+        }
+
+        .music-info { font-size: 0.65rem; font-weight: bold; color: #444; }
 
         footer { text-align: center; padding: 40px; color: #555; font-size: 0.75rem; font-weight: bold; }
     </style>
@@ -191,7 +180,7 @@
 
 <div class="music-player">
     <button class="play-btn" id="playPause">▶</button>
-    <div style="font-size: 0.7rem; font-weight: bold;">AKAI RADIO<br><small>Vibing...</small></div>
+    <div class="music-info">AKAI RADIO<br><span id="statusText">TAP TO PLAY</span></div>
     <audio id="bgMusic" loop src="カラオケ敗北ヒーロー  ころんOff Vocal.mp3"></audio>
 </div>
 
@@ -212,11 +201,17 @@
         <h2>Unit Band</h2>
         <div class="special-slide slide-7pm" onclick="renderMembers('7pm')">
             <img src="7Lude.png.png" class="unit-icon" alt="7PM Logo">
-            <h1>7PM INTERLUDE</h1>
+            <div class="unit-info">
+                <h1>7PM INTERLUDE</h1>
+                <p style="font-family: 'Satisfy'; color: #ffafcc; font-size: 1.2rem;">Sunset Symphony</p>
+            </div>
         </div>
         <div class="special-slide slide-lunar" onclick="renderMembers('lunar')">
             <img src="LunarDial.jpg" class="unit-icon" alt="Lunar Logo">
-            <h1>LUNAR DIAL</h1>
+            <div class="unit-info">
+                <h1>LUNAR DIAL</h1>
+                <p style="font-family: 'Satisfy'; color: #ffafcc; font-size: 1.2rem;">Midnight Pulse</p>
+            </div>
         </div>
     </section>
 
@@ -226,8 +221,7 @@
             <button onclick="renderMembers('pengurus')" style="padding: 8px 15px; border-radius: 12px; border: 1px solid white; background: rgba(255,255,255,0.4); cursor: pointer; font-weight: 600;">Pengurus</button>
             <button onclick="renderMembers('founder')" style="padding: 8px 15px; border-radius: 12px; border: 1px solid white; background: rgba(255,255,255,0.4); cursor: pointer; font-weight: 600;">Founder</button>
         </div>
-        <div class="member-grid" id="member-display">
-            </div>
+        <div class="member-grid" id="member-display"></div>
     </section>
 
 </div>
@@ -264,14 +258,35 @@
 
     renderMembers('pengurus');
 
-    // Music & Particles
+    // Music Logic
     const audio = document.getElementById('bgMusic');
     const btn = document.getElementById('playPause');
-    document.body.addEventListener('click', () => { if (audio.paused) audio.play().then(()=>btn.innerHTML="⏸"); }, { once: true });
+    const statusText = document.getElementById('statusText');
+
+    function togglePlay() {
+        if (audio.paused) {
+            audio.play().then(() => {
+                btn.innerHTML = "⏸";
+                btn.classList.add('playing');
+                statusText.innerText = "NOW PLAYING";
+            });
+        } else {
+            audio.pause();
+            btn.innerHTML = "▶";
+            btn.classList.remove('playing');
+            statusText.innerText = "PAUSED";
+        }
+    }
+
+    document.body.addEventListener('click', () => { 
+        if (audio.paused && btn.innerHTML === "▶") {
+            // First time interaction only if not yet played
+        }
+    }, { once: true });
+
     btn.addEventListener('click', (e) => {
         e.stopPropagation();
-        if (audio.paused) { audio.play(); btn.innerHTML = "⏸"; } 
-        else { audio.pause(); btn.innerHTML = "▶"; }
+        togglePlay();
     });
 
     const pc = document.getElementById('particles');
@@ -283,7 +298,5 @@
 </script>
 </body>
 </html>
-
-
 
 
