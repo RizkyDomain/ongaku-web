@@ -114,8 +114,14 @@
         .member-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
         .member-bio-card { background: rgba(255, 255, 255, 0.5); border-radius: 25px; padding: 20px; display: flex; gap: 15px; align-items: center; text-decoration: none; color: inherit; }
         
-        /* STYLE FOTO BARU: Menggunakan <img> tag */
         .bio-photo { width: 65px; height: 65px; border-radius: 12px; object-fit: cover; border: 2px solid white; box-shadow: 0 4px 10px rgba(0,0,0,0.1); background: #eee; }
+
+        /* --- GALLERY --- */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .gallery-item { overflow: hidden; border-radius: 15px; position: relative; background: var(--soft-blue); box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 2px solid white; }
+        .gallery-item img { width: 100%; display: block; transition: 0.5s; }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-item .desc { padding: 10px; font-size: 0.8rem; background: rgba(255,255,255,0.9); text-align: center; font-weight: 600; color: #444; }
 
         /* --- CONTACT SECTION --- */
         .contact-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
@@ -166,6 +172,7 @@
         <a href="#home">Home</a>
         <a href="#unit">Unit</a>
         <a href="#" onclick="openOverlay('members')">Anggota</a>
+        <a href="#gallery">Gallery</a>
         <a href="#contact">Kontak</a>
     </nav>
     <div class="leader-tag">Leader: M. Rakan</div>
@@ -173,7 +180,7 @@
 
 <div class="music-player">
     <button class="play-btn" id="playPause">▶</button>
-    <div style="font-size: 0.65rem; font-weight: bold; color: #444;">BACKGROUND MUSIC<br><span id="statusText">TAP TO PLAY</span></div>
+    <div style="font-size: 0.65rem; font-weight: bold; color: #444;">AKAI RADIO<br><span id="statusText">TAP TO PLAY</span></div>
     <audio id="bgMusic" loop src="カラオケ敗北ヒーロー  ころんOff Vocal.mp3"></audio>
 </div>
 
@@ -185,20 +192,20 @@
             <div>
                 <h2>Akai Ongaku Profile</h2>
                 <p><strong>Est:</strong> 2022 | <strong>Base:</strong> ITERA Lampung</p>
-                <p style="margin-top: 10px; font-size: 0.9rem;">Divisi Musik dari UKM Atarashii Sekai ITERA(AKAI).</p>
+                <p style="margin-top: 10px; font-size: 0.9rem;">Perpaduan estetika modern dan futuristik Atarashii Sekai.</p>
             </div>
         </div>
     </section>
 
     <section id="unit">
-        <h2>Unit Band</h2>
-        <p style="margin-bottom: 20px; opacity: 0.7;">Klik band untuk membuka profil anggota.</p>
+        <h2>Pilih Unit Band</h2>
+        <p style="margin-bottom: 20px; opacity: 0.7;">Klik banner untuk membuka profil lengkap.</p>
         
         <div class="special-slide slide-7pm" onclick="openOverlay('7pm')">
             <img src="7Lude1.png.jpg" class="band-bg-logo bg-7pm" alt="7PM Watermark">
             <div class="unit-info">
                 <h1>7PM INTERLUDE</h1>
-                <p>Born at 2023</p>
+                <p>Sunset Banger</p>
             </div>
         </div>
 
@@ -206,11 +213,29 @@
             <img src="LunarDial.jpg" class="band-bg-logo bg-lunar" alt="Lunar Watermark">
             <div class="unit-info">
                 <h1>LUNAR DIAL</h1>
-                <p>Born at 2022</p>
+                <p>Midnight Call</p>
             </div>
         </div>
     </section>  
     
+    <section id="gallery">
+        <h2>Gallery Dokumentasi</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x300/a2d2ff/ffffff?text=Photo+1" alt="Event 1">
+                <div class="desc">Moment Latihan - 10 Feb 2026</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x300/ffafcc/ffffff?text=Photo+2" alt="Event 2">
+                <div class="desc">Performance - 15 Feb 2026</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x300/1b263b/ffffff?text=Photo+3" alt="Event 3">
+                <div class="desc">Gathering Member</div>
+            </div>
+        </div>
+    </section>
+
     <section id="contact">
         <h2>Hubungi Kami</h2>
         <div class="contact-grid">
@@ -237,9 +262,9 @@
         <div style="text-align: center; margin-bottom: 40px;">
             <img src="7Lude1.png.jpg" style="width: 150px; border-radius: 20px; margin-bottom: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
             <h1 style="font-family: 'Orbitron'; font-size: 2.5rem; margin-bottom: 0;">7PM INTERLUDE</h1>
-            <p style="font-family: 'Satisfy'; color: #ff85a1; font-size: 1.5rem;">Born at 2022</p>
+            <p style="font-family: 'Satisfy'; color: #ff85a1; font-size: 1.5rem;">The Sunset Symphony</p>
         </div>
-        <h2>Anggota 7Lude</h2>
+        <h2>Anggota 7PM</h2>
         <div class="member-grid" id="grid-7pm"></div>
     </div>
 </div>
@@ -263,9 +288,9 @@
         <h1 style="text-align: center; font-family: 'Orbitron'; margin-bottom: 30px;">Daftar Anggota</h1>
         <div class="category-nav">
             <div class="cat-btn active" onclick="switchMemberTab('pengurus26', this)">Pengurus 2026</div>
-            <div class="cat-btn" onclick="switchMemberTab('Anggota', this)">Anggota</div>
-            <div class="cat-btn" onclick="switchMemberTab('Demisioner', this)">Demisioner</div>
-            <div class="cat-btn" onclick="switchMemberTab('Lulus', this)">Lulus</div>
+            <div class="cat-btn" onclick="switchMemberTab('pengurus25', this)">Pengurus 2025</div>
+            <div class="cat-btn" onclick="switchMemberTab('pengurus24', this)">Pengurus 2024</div>
+            <div class="cat-btn" onclick="switchMemberTab('pengurus23', this)">Pengurus 2023</div>
             <div class="cat-btn" onclick="switchMemberTab('founder', this)">Founder 2022</div>
         </div>
         <div class="member-grid" id="grid-general"></div>
@@ -351,7 +376,7 @@
         if(btn) btn.classList.add('active');
     }
 
-    // MUSIC PLAYER & AUTO START ON INTERACTION
+    // MUSIC PLAYER & AUTO START
     const audio = document.getElementById('bgMusic');
     const btn = document.getElementById('playPause');
     const statusText = document.getElementById('statusText');
@@ -365,19 +390,18 @@
             audio.pause(); btn.innerHTML = "▶"; btn.classList.remove('playing'); statusText.innerText = "PAUSED";
         }
     }
-
     btn.addEventListener('click', (e) => { e.stopPropagation(); togglePlay(); });
 
-    // --- FITUR BARU: AUTO PLAY SAAT KLIK PERTAMA ---
+    // FITUR: Auto Play saat klik pertama di body
     document.body.addEventListener('click', () => {
         if (audio.paused) {
             audio.play().then(() => {
                 btn.innerHTML = "⏸";
                 btn.classList.add('playing');
                 statusText.innerText = "NOW PLAYING";
-            });
+            }).catch(e => console.log("Autoplay blocked until interaction"));
         }
-    }, { once: true }); // 'once: true' artinya hanya jalan sekali seumur hidup halaman
+    }, { once: true });
 
     // PARTICLES
     const pc = document.getElementById('particles');
