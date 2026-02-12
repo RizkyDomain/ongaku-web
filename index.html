@@ -169,12 +169,13 @@
 
 <header>
     <div style="display: flex; align-items: center; gap: 10px;">
-        <img src="1000211311.jpg" class="header-logo" alt="Akai Logo">
+        <img src="1000211311.png" class="header-logo" alt="Akai Logo">
         <div class="logo-text">AKAI ONGAKU</div>
     </div>
     <nav>
-        <a href="#sejarah">Sejarah</a>
-        <a href="#special">Unit</a>
+        <a href="#sejarah">Home</a>
+        <a href="#unit">Unit</a>
+        <a href="#member">Member</a>
     </nav>
     <div class="leader-tag">Leader: M. Rakan</div>
 </header>
@@ -189,24 +190,24 @@
     
     <section id="sejarah">
         <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
-            <img src="1000211311.jpg" style="width: 120px; border-radius: 20px; border: 3px solid var(--bright-pink); box-shadow: 0 5px 15px rgba(0,0,0,0.1);" alt="Akai Profile">
+            <img src="1000211311.png" style="width: 120px; border-radius: 20px; border: 3px solid var(--bright-pink); box-shadow: 0 5px 15px rgba(0,0,0,0.1);" alt="Akai Profile">
             <div>
                 <h2>Akai Ongaku Profile</h2>
                 <p><strong>Est:</strong> 2022 | <strong>Base:</strong> ITERA Lampung</p>
-                <p style="margin-top: 10px; font-size: 0.9rem;">Perpaduan estetika modern dan futuristik Atarashii Sekai.</p>
+                <p style="margin-top: 10px; font-size: 0.9rem;">Divisi Musik Atarashii Sekai.</p>
             </div>
         </div>
     </section>
 
-    <section id="special">
+    <section id="unit">
         <h2>Unit Band</h2>
         
         <div class="special-slide slide-7pm" onclick="renderMembers('7pm', null)">
-            <img src="7Lude1.png.jpg" class="band-bg-logo bg-7pm" alt="7PM Watermark">
+            <img src="7Lude1.png.png" class="band-bg-logo bg-7pm" alt="7PM Watermark">
             
             <div class="unit-info">
                 <h1>7PM INTERLUDE</h1>
-                <p>Sunset Symphony</p>
+                <p>Sunset Melody</p>
             </div>
         </div>
 
@@ -215,12 +216,12 @@
 
             <div class="unit-info">
                 <h1>LUNAR DIAL</h1>
-                <p>Midnight Pulse</p>
+                <p>Midnight Call</p>
             </div>
         </div>
     </section>
 
-    <section id="anggota">
+    <section id="member">
         <h2>Daftar Anggota</h2>
         <div class="category-nav">
             <div class="cat-btn" id="btn-pengurus" onclick="renderMembers('pengurus', this)">Pengurus</div>
@@ -236,13 +237,29 @@
 <script>
     // DATA ANGGOTA (Bisa diedit di sini)
     const members = {
-        '7pm': [{ name: 'Rakan', role: 'Drummer', quote: 'Gerobak merah no.1', ig: '#' }],
-        'lunar': [{ name: 'Agoy', role: 'Bassist', quote: 'Infokan', ig: '#' }],
-        'pengurus': [
-            { name: 'M. Rakan Mahardika', role: 'Drummer', quote: '2026-Sekarang', ig: '#' },
-            { name: 'Muhammad', role: 'Ketua 2025', quote: '2025 Period', ig: '#' }
+        '7pm': [
+            { name: 'Rakan', role: 'Drummer', quote: 'Teknik Industri 24', ig: '#' },
+            { name: 'Agoy', role: 'Guitarist', quote: 'Teknik Informatika 22', ig: '#' },
+            { name: 'Pita', role: 'Singer', quote: 'Teknik Telekomunikasi 24', ig: '#' },
+            { name: 'Reza', role: 'Guitarist', quote: 'Teknik Kelautan 24', ig: '#' },
+            { name: 'Afri', role: 'Pianist/Composer', quote: 'Teknik Elektro 24', ig: '#' },
+            { name: 'Rein', role: 'Bassist', quote: 'Sains Data 23', ig: '#' },
+            
         ],
-        'founder': [{ name: 'Perdana Raga', role: 'Founder', quote: 'The Beginning.', ig: '#' }]
+        'lunar': [{ name: 'Agoy', role: 'Bassist', quote: 'Teknik Informatika 22', ig: '#' },
+                 { name: 'Azis', role: 'Vokalis', quote: 'Unknown', ig: '#' },
+                 { name: 'Radit', role: 'Keyboardis', quote: 'Unknown', ig: '#' },
+                 { name: 'Sulthan', role: 'Drummer', quote: 'Unknown', ig: '#' },
+                 ],
+        'pengurus': [
+            { name: 'M. Rakan Mahardika', role: 'Ketua 2026', quote: 'Teknik Industri 24', ig: '#' },
+            { name: 'M. Afri', role: 'Wakil Ketua 2026', quote: 'Teknik Elektro 24', ig: '#' }
+        ],
+        'founder': [
+            { name: 'Raga', role: 'Guitarist', quote: 'Teknik Informatika 19', ig: '#' },
+            { name: 'Taka', role: 'Perkusi', quote: 'Unknown', ig: '#' },
+            { name: 'Ferly', role: 'Guitarist', quote: 'Unknown', ig: '#' },
+            { name: 'Azis', role: 'Vokalist', quote: 'Unknown', ig: '#' }]
     };
 
     function renderMembers(key, clickedBtn) {
@@ -299,3 +316,4 @@
 </script>
 </body>
 </html>
+
