@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akai Ongaku | Portofolio Futuristik</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@500;700&family=Satisfy&display=swap" rel="stylesheet">
+    <title>Akai Ongaku | Atarashii Sekai</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@500;800&family=Satisfy&display=swap" rel="stylesheet">
     <style>
         :root {
             --soft-blue: rgba(162, 210, 255, 0.4);
@@ -26,23 +26,16 @@
             overflow-x: hidden;
         }
 
-        /* Bolderline Shadow untuk semua teks */
         h1, h2, h3, p, li, strong, nav a, .member-name {
             text-shadow: 0.5px 0.5px 0px rgba(255, 255, 255, 0.9), 
                          -0.5px -0.5px 0px rgba(255, 255, 255, 0.9);
         }
 
-        #particles {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-            pointer-events: none;
-        }
+        #particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
 
         header {
             background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
             padding: 15px 5%;
             display: flex;
             justify-content: space-between;
@@ -68,24 +61,6 @@
 
         @keyframes shine { to { background-position: 200% center; } }
 
-        .leader-tag {
-            font-size: 0.75rem;
-            background: var(--bright-pink);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #444;
-            margin-left: 15px;
-            font-size: 0.85rem;
-            transition: 0.3s;
-            font-weight: 600;
-        }
-
         .container { max-width: 1000px; margin: 120px auto 50px; padding: 20px; }
 
         section {
@@ -98,41 +73,39 @@
             box-shadow: 0 8px 32px rgba(162, 210, 255, 0.2);
         }
 
-        h2 { 
-            color: #444; 
-            margin-bottom: 30px; 
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.3rem;
-            text-transform: uppercase;
-            border-left: 5px solid var(--bright-pink);
-            padding-left: 15px;
-        }
+        h2 { border-left: 5px solid var(--bright-pink); padding-left: 15px; margin-bottom: 30px; font-family: 'Orbitron'; text-transform: uppercase; }
 
-        .band-profile {
+        /* BANNER INTERAKTIF */
+        .special-slide {
+            height: 200px;
             display: flex;
-            align-items: center;
-            gap: 30px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-
-        .band-logo {
-            width: 150px;
-            height: 150px;
-            background: white;
-            border-radius: 30px;
-            display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            border: 2px solid var(--bright-pink);
+            align-items: center;
+            color: white;
+            border-radius: 30px;
+            margin-top: 20px;
+            border: 2px solid white;
+            cursor: pointer;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: linear-gradient(135deg, var(--deep-blue) 0%, #415a77 100%);
+            position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
+
+        .special-slide:hover { transform: scale(1.03); box-shadow: 0 10px 30px rgba(255, 133, 161, 0.4); }
+        .special-slide h1 { font-family: 'Orbitron'; font-size: 1.8rem; z-index: 2; pointer-events: none; }
+        .special-slide p { font-family: 'Satisfy'; font-size: 1.1rem; color: #ffafcc; z-index: 2; pointer-events: none; }
+
+        /* MEMBER BIO SECTION */
+        #member-display { display: none; animation: slideDown 0.6s ease-out; }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
 
         .member-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
+            margin-top: 20px;
         }
 
         .member-bio-card {
@@ -143,233 +116,158 @@
             gap: 15px;
             align-items: center;
             border: 1px solid rgba(255, 255, 255, 0.6);
-            transition: 0.3s;
             cursor: pointer;
+            transition: 0.3s;
             text-decoration: none;
             color: inherit;
         }
 
-        .member-bio-card:hover {
-            background: rgba(255, 255, 255, 0.8);
-            transform: scale(1.03);
-            border-color: var(--bright-pink);
-        }
+        .member-bio-card:hover { background: white; transform: translateY(-5px); border-color: var(--bright-pink); }
+        .bio-photo { width: 65px; height: 65px; border-radius: 12px; background: linear-gradient(45deg, var(--soft-blue), var(--candy-pink)); flex-shrink: 0; border: 2px solid white; }
+        .bio-text h4 { font-size: 1rem; color: #333; }
+        .bio-text p { font-size: 0.75rem; color: #666; margin: 0; }
 
-        .bio-photo {
-            width: 70px;
-            height: 70px;
-            border-radius: 15px;
-            background: var(--soft-blue);
-            flex-shrink: 0;
-            border: 2px solid white;
-        }
+        /* MUSIC PLAYER */
+        .music-player { position: fixed; bottom: 30px; right: 30px; background: rgba(255,255,255,0.5); backdrop-filter: blur(20px); padding: 12px 25px; border-radius: 40px; border: 1px solid #fff; z-index: 2000; display: flex; align-items: center; gap: 15px; }
+        .play-btn { width: 45px; height: 45px; border-radius: 50%; border: none; background: var(--bright-pink); color: white; cursor: pointer; }
 
-        .special-slide {
-            height: 350px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            border-radius: 30px;
-            margin-top: 25px;
-            border: 2px solid white;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.4);
-            text-align: center;
-            background: linear-gradient(135deg, var(--deep-blue) 0%, #415a77 50%, var(--bright-pink) 100%);
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            transition: 0.4s;
-        }
-
-        .special-slide:hover { transform: scale(1.02); box-shadow: 0 10px 30px rgba(255, 133, 161, 0.3); }
-
-        .special-slide::after {
-            content: "";
-            position: absolute;
-            width: 200%; height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: rotate 10s linear infinite;
-        }
-
-        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-
-        .special-slide h1 { font-family: 'Orbitron', sans-serif; font-size: 2.2rem; letter-spacing: 5px; z-index: 1; }
-        .special-slide p { font-family: 'Satisfy', cursive; font-size: 1.5rem; z-index: 1; text-shadow: none; color: #ffafcc; }
-
-        .contact-footer {
-            text-align: center;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 30px;
-            margin-top: 50px;
-        }
-
-        .social-links a {
-            display: inline-block;
-            margin: 0 15px;
-            text-decoration: none;
-            color: var(--deep-blue);
-            font-weight: 700;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-
-        .social-links a:hover { color: var(--bright-pink); transform: translateY(-3px); }
-
-        .music-player {
-            position: fixed;
-            bottom: 30px; right: 30px;
-            background: rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(20px);
-            padding: 12px 25px;
-            border-radius: 40px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            border: 1px solid #fff;
-            z-index: 2000;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        }
-
-        .play-btn {
-            width: 45px; height: 45px;
-            border-radius: 50%;
-            border: none;
-            background: var(--bright-pink);
-            color: white;
-            cursor: pointer;
-            box-shadow: 0 0 15px rgba(255, 133, 161, 0.5);
-        }
-
+        .contact-footer { text-align: center; padding: 40px; border-radius: 30px; margin-top: 20px; background: rgba(255,255,255,0.1); }
+        .social-links a { display: inline-block; margin: 0 15px; text-decoration: none; color: var(--deep-blue); font-weight: 700; transition: 0.3s; }
+        .social-links a:hover { color: var(--bright-pink); }
         footer { text-align: center; padding: 40px; color: #555; font-size: 0.7rem; font-weight: bold; }
-
     </style>
 </head>
 <body>
 
-    <div id="particles"></div>
+<div id="particles"></div>
 
-    <header>
-        <div class="logo">AKAI ONGAKU</div>
-        <nav>
-            <a href="#sejarah">Sejarah</a>
-            <a href="#anggota">Anggota</a>
-            <a href="#gallery">Gallery</a>
-        </nav>
-        <div class="leader-tag">Leader: M. Rakan</div>
-    </header>
+<header>
+    <div class="logo">AKAI ONGAKU</div>
+    <nav style="display: flex; gap: 20px;">
+        <a href="#sejarah" style="text-decoration: none; color: #444; font-weight: 600;">Sejarah</a>
+        <a href="#special" style="text-decoration: none; color: #444; font-weight: 600;">Unit</a>
+    </nav>
+    <div class="leader-tag">Leader: M. Rakan</div>
+</header>
 
-    <div class="music-player">
-        <button class="play-btn" id="playPause">▶</button>
-        <div style="font-size: 0.7rem; color: #444; font-weight: bold;">
-            RADIO AKAI<br>Now Playing...
+<div class="music-player">
+    <button class="play-btn" id="playPause">▶</button>
+    <div style="font-size: 0.7rem; font-weight: bold;">AKAI RADIO<br><small>Now Playing...</small></div>
+    <audio id="bgMusic" loop src="カラオケ敗北ヒーロー  ころんOff Vocal.mp3"></audio>
+</div>
+
+<div class="container">
+    
+    <section id="sejarah">
+        <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+            <div style="width: 100px; height: 100px; background: white; border-radius: 20px; border: 2px solid var(--bright-pink); display: flex; align-items: center; justify-content: center; font-family: 'Orbitron'; font-weight: 800; color: var(--bright-pink);">LOGO</div>
+            <div>
+                <h2>Akai Ongaku Profile</h2>
+                <p>Est. 2022 | ITERA Lampung</p>
+            </div>
         </div>
-        <audio id="bgMusic" loop>
-            <source src="カラオケ敗北ヒーロー  ころんOff Vocal.mp3" type="audio/mpeg">
-        </audio>
-    </div>
+        <div style="margin-top: 20px; background: rgba(255,255,255,0.2); padding: 20px; border-radius: 20px;">
+            <p>• Perdana Raga Winata (Founder)<br>• Andreas Alfin Yoga Utama (2024)<br>• Aulia Rizky (2025)<br>• Muhammad Rakan Mahardika (2026-Sekarang)</p>
+        </div>
+    </section>
 
-    <div class="container">
+    <section id="special">
+        <h2>Pilih Unit Band</h2>
+        <p style="font-size: 0.75rem; opacity: 0.7; margin-bottom: 10px;">Klik untuk melihat anggota unit:</p>
         
-        <section id="sejarah">
-            <div class="band-profile">
-                <div class="band-logo">
-                    <img src="https://via.placeholder.com/150?text=LOGO" alt="Logo Akai Ongaku" style="width:100%">
-                </div>
-                <div>
-                    <h2>Akai Ongaku Profile</h2>
-                    <p><strong>Est:</strong> 2022 | <strong>Base:</strong> ITERA Lampung</p>
-                    <p style="font-size: 0.9rem; margin-top: 10px;">Band perpaduan estetika modern dan futuristik yang lahir dari semangat Atarashii Sekai.</p>
-                </div>
-            </div>
-            
-            <div style="background: rgba(255, 255, 255, 0.2); padding: 20px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.3);">
-                <h3>Riwayat Kepengurusan</h3>
-                <p style="font-size: 0.85rem; margin-top:10px;">
-                    • Perdana Raga Winata (Founder)<br>
-                    • Andreas Alfin Yoga Utama (2024)<br>
-                    • Aulia Rizky (2025)<br>
-                    • Muhammad Rakan Mahardika (2026-Sekarang)
-                </p>
-            </div>
-        </section>
-
-        <section id="anggota">
-            <h2>Member Bio</h2>
-            <div class="member-grid">
-                <a href="https://instagram.com/rakan" target="_blank" class="member-bio-card">
-                    <div class="bio-photo"></div>
-                    <div class="bio-text">
-                        <h4>M. Rakan</h4>
-                        <p class="member-role">Leader / Guitarist</p>
-                        <p>Visi: Membawa harmoni baru.</p>
-                    </div>
-                </a>
-                <a href="#" target="_blank" class="member-bio-card">
-                    <div class="bio-photo"></div>
-                    <div class="bio-text">
-                        <h4>Nama Member</h4>
-                        <p class="member-role">Vocalist</p>
-                        <p>Motto: Suara adalah jiwa.</p>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-        <div id="special">
-            <div class="special-slide" onclick="document.getElementById('anggota').scrollIntoView();">
-                <h1>7PM INTERLUDE</h1>
-                <p>Sunset Symphony</p>
-            </div>
-
-            <div class="special-slide" onclick="document.getElementById('anggota').scrollIntoView();">
-                <h1>LUNAR DIAL</h1>
-                <p>Midnight Pulse</p>
-            </div>
+        <div class="special-slide" onclick="renderMembers('7pm')">
+            <h1>7PM INTERLUDE</h1>
+            <p>Sunset Symphony</p>
         </div>
 
-        <div class="contact-footer">
-            <h2>Connect With Us</h2>
-            <div class="social-links">
-                <a href="#">INSTAGRAM</a>
-                <a href="#">YOUTUBE</a>
-                <a href="#">TIKTOK</a>
-                <a href="mailto:akaiongaku@email.com">EMAIL</a>
-            </div>
+        <div class="special-slide" onclick="renderMembers('lunar')">
+            <h1>LUNAR DIAL</h1>
+            <p>Midnight Pulse</p>
         </div>
+    </section>
 
+    <section id="member-display">
+        <h2 id="unit-name">Member Bio</h2>
+        <div class="member-grid" id="member-list">
+            </div>
+    </section>
+
+    <div class="contact-footer">
+        <h2>Connect With Us</h2>
+        <div class="social-links">
+            <a href="#">INSTAGRAM</a>
+            <a href="#">YOUTUBE</a>
+            <a href="mailto:akaiongaku@email.com">EMAIL</a>
+        </div>
     </div>
+</div>
 
-    <footer>&copy; 2026 Akai Ongaku • Atarashii Sekai ITERA</footer>
+<footer>&copy; 2026 Akai Ongaku • ITERA</footer>
 
-    <script>
-        const particlesContainer = document.getElementById('particles');
-        for (let i = 0; i < 40; i++) {
-            const dot = document.createElement('div');
-            dot.style.position = 'absolute';
-            dot.style.width = Math.random() * 5 + 'px';
-            dot.style.height = dot.style.width;
-            dot.style.background = 'rgba(255,255,255,0.6)';
-            dot.style.borderRadius = '50%';
-            dot.style.top = Math.random() * 100 + '%';
-            dot.style.left = Math.random() * 100 + '%';
-            dot.style.boxShadow = '0 0 10px white';
-            particlesContainer.appendChild(dot);
-        }
+<script>
+    // DATA DINAMIS: Edit di sini untuk ubah anggota
+    const units = {
+        '7pm': [
+            { name: 'M. Rakan Mahardika', role: 'Leader / Guitarist', quote: 'Membangun harmoni futuristik.', ig: 'https://instagram.com/rakan' },
+            { name: 'Nama Vokalis 7PM', role: 'Vocalist', quote: 'Suara senja di ujung hari.', ig: '#' }
+        ],
+        'lunar': [
+            { name: 'Nama Bassist Lunar', role: 'Bassist', quote: 'Detak jantung di malam hari.', ig: '#' },
+            { name: 'Nama Drummer Lunar', role: 'Drummer', quote: 'Ritme cahaya bulan.', ig: '#' }
+        ]
+    };
 
-        const audio = document.getElementById('bgMusic');
-        const btn = document.getElementById('playPause');
-        function playAudio() { audio.play().then(() => { btn.innerHTML = "⏸"; }).catch(() => {}); }
-        document.body.addEventListener('click', () => { if (audio.paused) playAudio(); }, { once: true });
-        btn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            if (audio.paused) { audio.play(); btn.innerHTML = "⏸"; } 
-            else { audio.pause(); btn.innerHTML = "▶"; }
+    function renderMembers(key) {
+        const section = document.getElementById('member-display');
+        const list = document.getElementById('member-list');
+        const unitTitle = document.getElementById('unit-name');
+
+        unitTitle.innerText = "Members: " + key.toUpperCase();
+        list.innerHTML = '';
+
+        units[key].forEach(m => {
+            list.innerHTML += `
+                <a href="${m.ig}" target="_blank" class="member-bio-card">
+                    <div class="bio-photo"></div>
+                    <div class="bio-text">
+                        <h4>${m.name}</h4>
+                        <p class="member-role">${m.role}</p>
+                        <p>"${m.quote}"</p>
+                    </div>
+                </a>
+            `;
         });
-    </script>
+
+        section.style.display = 'block';
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Particles
+    const pc = document.getElementById('particles');
+    for (let i = 0; i < 30; i++) {
+        const d = document.createElement('div');
+        d.className = 'dot';
+        Object.assign(d.style, {
+            position: 'absolute', width: Math.random()*5+'px', height: Math.random()*5+'px',
+            background: 'white', borderRadius: '50%', opacity: '0.6',
+            top: Math.random()*100+'%', left: Math.random()*100+'%',
+            boxShadow: '0 0 10px white'
+        });
+        pc.appendChild(d);
+    }
+
+    // Music
+    const audio = document.getElementById('bgMusic');
+    const btn = document.getElementById('playPause');
+    function play() { audio.play().then(() => btn.innerHTML = "⏸"); }
+    document.body.addEventListener('click', () => { if (audio.paused) play(); }, { once: true });
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (audio.paused) { audio.play(); btn.innerHTML = "⏸"; } 
+        else { audio.pause(); btn.innerHTML = "▶"; }
+    });
+</script>
 </body>
 </html>
-
+        .special-slide:hover { transform: scale(1.03); box-shadow: 0 10px 30px rgba(255, 133, 161, 0.4); }
+        .special-slide h1 { font-family: 'Orbitron'; font-size: 1.8rem; z-index: 2
