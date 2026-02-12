@@ -26,138 +26,136 @@
             overflow-x: hidden;
         }
 
-        /* Bolderline Shadow */
-        h1, h2, h3, p, li, strong, nav a, .member-name {
+        /* --- TYPOGRAPHY & SHADOWS --- */
+        h1, h2, h3, p, li, strong, nav a, .member-name, .cat-btn {
             text-shadow: 0.5px 0.5px 0px rgba(255, 255, 255, 0.9), 
                          -0.5px -0.5px 0px rgba(255, 255, 255, 0.9);
         }
 
-        #particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+        h2 { color: #444; border-left: 5px solid var(--bright-pink); padding-left: 15px; margin-bottom: 30px; font-family: 'Orbitron', sans-serif; text-transform: uppercase; }
 
+        /* --- GLOBAL INTERACTIVE STYLES (Efek Timbul di Semua Tombol) --- */
+        /* Menerapkan efek glass elevated ke Navigasi, Tombol Kategori, Member Card, Banner, dan Play Button */
+        nav a, .cat-btn, .member-bio-card, .special-slide, .play-btn {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Bayangan dasar halus */
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            position: relative;
+        }
+
+        /* State HOVER: Melayang naik & bayangan menebal */
+        nav a:hover, .cat-btn:hover, .member-bio-card:hover, .special-slide:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(162, 210, 255, 0.3);
+            background: rgba(255, 255, 255, 0.7);
+            border-color: var(--bright-pink);
+        }
+
+        /* State ACTIVE (KLIK): Menekan ke bawah & transparansi tinggi */
+        nav a:active, .cat-btn:active, .member-bio-card:active, .special-slide:active, .play-btn:active {
+            transform: scale(0.96) translateY(2px);
+            background: rgba(255, 255, 255, 0.1) !important; /* Sangat transparan saat diklik */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            backdrop-filter: blur(2px);
+        }
+
+        /* --- HEADER & NAV --- */
         header {
             background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
             padding: 10px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center;
+            position: fixed; width: 100%; top: 0; z-index: 1000;
             border-bottom: 1px solid rgba(255, 255, 255, 0.4);
         }
-
         .header-logo { width: 50px; height: 50px; object-fit: contain; border-radius: 50%; border: 2px solid var(--bright-pink); }
         .logo-text { font-family: 'Orbitron', sans-serif; font-size: 1.4rem; font-weight: 800; background: linear-gradient(to right, #ff85a1, #00b4d8, #ff85a1); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shine 3s linear infinite; }
         @keyframes shine { to { background-position: 200% center; } }
         .leader-tag { font-size: 0.75rem; background: var(--bright-pink); color: white; padding: 5px 15px; border-radius: 20px; }
-        nav a { text-decoration: none; color: #444; margin-left: 15px; font-size: 0.85rem; font-weight: 600; transition: 0.3s; }
+        
+        nav a { 
+            text-decoration: none; color: #444; margin-left: 10px; font-size: 0.85rem; font-weight: 600;
+            padding: 8px 15px; border-radius: 15px; background: rgba(255,255,255,0.2);
+        }
 
+        /* --- LAYOUT CONTAINER & SECTION --- */
         .container { max-width: 1000px; margin: 110px auto 50px; padding: 20px; }
-
         section {
-            background: var(--glass-white);
-            backdrop-filter: blur(25px);
-            margin-bottom: 40px;
-            padding: 40px;
-            border-radius: 30px;
+            background: var(--glass-white); backdrop-filter: blur(25px);
+            margin-bottom: 40px; padding: 40px; border-radius: 30px;
             border: 1.5px solid rgba(255, 255, 255, 0.5);
             box-shadow: 0 8px 32px rgba(162, 210, 255, 0.2);
         }
 
-        h2 { color: #444; border-left: 5px solid var(--bright-pink); padding-left: 15px; margin-bottom: 30px; font-family: 'Orbitron', sans-serif; text-transform: uppercase; }
-
-        /* BANNER UNIT DENGAN ANIMASI PULSE */
+        /* --- BANNER UNIT --- */
         .special-slide {
-            height: 180px;
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
-            align-items: center;
-            padding: 0 10%;
-            color: white;
-            border-radius: 30px;
-            margin-top: 20px;
-            border: 2px solid white;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
+            height: 180px; display: flex; flex-direction: row;
+            justify-content: flex-start; align-items: center;
+            padding: 0 10%; color: white; border-radius: 30px; margin-top: 20px;
             overflow: hidden;
         }
-
-        /* Animasi Glow/Pulse pada Banner */
-        .special-slide:hover {
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
-            border-color: #ffffff;
-        }
-
-        .special-slide:active { 
-            transform: scale(0.97); 
-            background: rgba(255, 255, 255, 0.2) !important;
-            backdrop-filter: blur(15px);
-        }
-
-        .special-slide::after { content: ""; position: absolute; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%); animation: rotate 15s linear infinite; z-index: 1; }
+        /* Efek cahaya berputar di belakang banner */
+        .special-slide::after { content: ""; position: absolute; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%); animation: rotate 15s linear infinite; z-index: 1; pointer-events: none;}
         @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
         .slide-7pm { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), #1a1a1a; }
         .slide-lunar { background: linear-gradient(rgba(27, 38, 59, 0.7), rgba(27, 38, 59, 0.7)), #1b263b; }
-
-        .unit-icon { width: 100px; height: 100px; object-fit: contain; z-index: 2; margin-right: 30px; }
+        .unit-icon { width: 100px; height: 100px; object-fit: contain; z-index: 2; margin-right: 30px; filter: drop-shadow(0 0 10px rgba(255,255,255,0.2)); }
         
-        /* EFEK PUDAR PUTIH (White Fade Mask) */
+        /* EFEK PUDAR PUTIH (White Fade Mask) LUNAR DIAL */
         .lunar-fade {
             -webkit-mask-image: radial-gradient(circle, white 40%, transparent 95%);
             mask-image: radial-gradient(circle, white 40%, transparent 95%);
-            /* Filter tambahan untuk efek 'bersinar' putih di tepi */
-            filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));
+            filter: drop-shadow(0 0 15px rgba(255,255,255,0.5)); /* Glow putih tambahan */
         }
-
         .unit-info { z-index: 2; text-align: left; }
         .unit-info h1 { font-family: 'Orbitron'; font-size: 1.8rem; letter-spacing: 2px; }
 
-        /* MUSIC PLAYER */
+        /* --- CATEGORY BUTTONS & ACTIVE GLOW --- */
+        .category-nav { display: flex; gap: 15px; margin-bottom: 25px; flex-wrap: wrap; }
+        .cat-btn { 
+            background: rgba(255,255,255,0.3); padding: 10px 20px; border-radius: 15px; font-size: 0.85rem; font-weight: 700; color: var(--text-color);
+        }
+
+        /* Animasi Glow untuk Tombol Kategori yang Aktif */
+        @keyframes active-glow {
+            0%, 100% { box-shadow: 0 0 5px var(--bright-pink), 0 0 20px rgba(255, 133, 161, 0.5) inset; border-color: var(--bright-pink); }
+            50% { box-shadow: 0 0 20px var(--bright-pink), 0 0 30px rgba(255, 133, 161, 0.8) inset; border-color: white; }
+        }
+        .cat-btn.active {
+            animation: active-glow 2s infinite ease-in-out;
+            background: rgba(255, 133, 161, 0.2) !important;
+            color: var(--deep-blue);
+        }
+
+        /* --- MEMBER CARDS --- */
+        .member-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .member-bio-card { background: rgba(255, 255, 255, 0.5); border-radius: 25px; padding: 20px; display: flex; gap: 15px; align-items: center; text-decoration: none; color: inherit; }
+        .bio-photo { width: 65px; height: 65px; border-radius: 12px; background: #eee; flex-shrink: 0; object-fit: cover; border: 2px solid white; }
+
+        /* --- MUSIC PLAYER --- */
         .music-player {
             position: fixed; bottom: 30px; right: 30px;
-            background: rgba(255, 255, 255, 0.1); 
-            backdrop-filter: blur(10px);
-            padding: 10px 20px; border-radius: 50px;
-            display: flex; align-items: center; gap: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            z-index: 2000; transition: all 0.4s ease;
+            background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px);
+            padding: 10px 20px; border-radius: 50px; display: flex; align-items: center; gap: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3); z-index: 2000;
         }
-
-        .music-player:hover {
-            background: rgba(255, 255, 255, 0.4);
-            border-color: var(--bright-pink);
-            transform: translateY(-5px);
-        }
-
+        .music-player:hover { background: rgba(255, 255, 255, 0.4); border-color: var(--bright-pink); transform: translateY(-5px) !important; }
         .play-btn {
             width: 40px; height: 40px; border-radius: 50%; border: none;
-            background: var(--bright-pink); color: white; cursor: pointer;
-            display: flex; align-items: center; justify-content: center; position: relative;
+            background: var(--bright-pink); color: white; display: flex; align-items: center; justify-content: center; position: relative;
         }
-
         .play-btn.playing::after {
             content: ""; position: absolute; width: 100%; height: 100%;
             border-radius: 50%; background: var(--bright-pink);
             animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
         }
+        @keyframes pulse-ring { 0% { transform: scale(.33); } 80%, 100% { opacity: 0; } }
 
-        @keyframes pulse-ring {
-            0% { transform: scale(.33); }
-            80%, 100% { opacity: 0; }
-        }
-
-        /* MEMBER CARDS */
-        .member-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .member-bio-card { background: rgba(255, 255, 255, 0.5); border-radius: 25px; padding: 20px; display: flex; gap: 15px; align-items: center; border: 1px solid rgba(255, 255, 255, 0.6); transition: 0.3s; cursor: pointer; text-decoration: none; color: inherit; }
-        .member-bio-card:hover { background: white; transform: translateY(-5px); border-color: var(--bright-pink); }
-        .bio-photo { width: 65px; height: 65px; border-radius: 12px; background: #eee; flex-shrink: 0; object-fit: cover; border: 2px solid white; }
-
+        /* --- PARTICLES & FOOTER --- */
+        #particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
         footer { text-align: center; padding: 40px; color: #555; font-size: 0.75rem; font-weight: bold; }
     </style>
 </head>
@@ -187,7 +185,7 @@
     
     <section id="sejarah">
         <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
-            <img src="1000211311.png" style="width: 120px; border-radius: 20px; border: 3px solid var(--bright-pink);" alt="Akai Profile">
+            <img src="1000211311.png" style="width: 120px; border-radius: 20px; border: 3px solid var(--bright-pink); box-shadow: 0 5px 15px rgba(0,0,0,0.1);" alt="Akai Profile">
             <div>
                 <h2>Akai Ongaku Profile</h2>
                 <p><strong>Est:</strong> 2022 | <strong>Base:</strong> ITERA Lampung</p>
@@ -198,14 +196,14 @@
 
     <section id="special">
         <h2>Unit Band</h2>
-        <div class="special-slide slide-7pm" onclick="renderMembers('7pm')">
-            <img src="7Lude1.png.png" class="unit-icon" alt="7PM Logo">
+        <div class="special-slide slide-7pm" onclick="renderMembers('7pm', null)">
+            <img src="7Lude.png.png" class="unit-icon" alt="7PM Logo">
             <div class="unit-info">
                 <h1>7PM INTERLUDE</h1>
                 <p style="font-family: 'Satisfy'; color: #ffafcc; font-size: 1.2rem;">Sunset Symphony</p>
             </div>
         </div>
-        <div class="special-slide slide-lunar" onclick="renderMembers('lunar')">
+        <div class="special-slide slide-lunar" onclick="renderMembers('lunar', null)">
             <img src="LunarDial.jpg" class="unit-icon lunar-fade" alt="Lunar Logo">
             <div class="unit-info">
                 <h1>LUNAR DIAL</h1>
@@ -216,9 +214,9 @@
 
     <section id="anggota">
         <h2>Daftar Anggota</h2>
-        <div style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
-            <button onclick="renderMembers('pengurus')" style="padding: 8px 15px; border-radius: 12px; border: 1px solid white; background: rgba(255,255,255,0.4); cursor: pointer; font-weight: 600;">Pengurus</button>
-            <button onclick="renderMembers('founder')" style="padding: 8px 15px; border-radius: 12px; border: 1px solid white; background: rgba(255,255,255,0.4); cursor: pointer; font-weight: 600;">Founder</button>
+        <div class="category-nav">
+            <div class="cat-btn" id="btn-pengurus" onclick="renderMembers('pengurus', this)">Pengurus</div>
+            <div class="cat-btn" id="btn-founder" onclick="renderMembers('founder', this)">Founder</div>
         </div>
         <div class="member-grid" id="member-display"></div>
     </section>
@@ -228,6 +226,7 @@
 <footer>&copy; 2026 Akai Ongaku • Atarashii Sekai ITERA</footer>
 
 <script>
+    // DATA ANGGOTA
     const members = {
         '7pm': [{ name: 'Rakan', role: 'Drummer', quote: 'Gerobak merah no.1', ig: '#' }],
         'lunar': [{ name: 'Agoy', role: 'Bassist', quote: 'Infokan', ig: '#' }],
@@ -238,9 +237,12 @@
         'founder': [{ name: 'Perdana Raga', role: 'Founder', quote: 'The Beginning.', ig: '#' }]
     };
 
-    function renderMembers(key) {
+    // FUNGSI RENDER ANGGOTA & HANDLE ACTIVE STATE
+    function renderMembers(key, clickedBtn) {
         const display = document.getElementById('member-display');
         display.innerHTML = '';
+        
+        // Render kartu anggota
         members[key].forEach(m => {
             display.innerHTML += `
                 <a href="${m.ig}" target="_blank" class="member-bio-card">
@@ -252,12 +254,26 @@
                     </div>
                 </a>`;
         });
+
+        // Handle Active Glow State pada Tombol Kategori
+        if (clickedBtn) {
+            // Hapus class active dari semua tombol kategori
+            document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
+            // Tambah class active ke tombol yang diklik
+            clickedBtn.classList.add('active');
+        } else {
+             // Jika diklik dari banner, hapus semua active state di kategori
+             document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
+        }
+
+        // Auto scroll jika diklik dari banner unit
         if(key === '7pm' || key === 'lunar') document.getElementById('anggota').scrollIntoView();
     }
 
-    renderMembers('pengurus');
+    // Load Default: Set Pengurus sebagai aktif di awal
+    renderMembers('pengurus', document.getElementById('btn-pengurus'));
 
-    // Music Logic
+    // MUSIC PLAYER LOGIC
     const audio = document.getElementById('bgMusic');
     const btn = document.getElementById('playPause');
     const statusText = document.getElementById('statusText');
@@ -277,12 +293,9 @@
         }
     }
 
-    btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        togglePlay();
-    });
+    btn.addEventListener('click', (e) => { e.stopPropagation(); togglePlay(); });
 
-    // Particles
+    // PARTICLES ENGINE
     const pc = document.getElementById('particles');
     for (let i = 0; i < 40; i++) {
         const dot = document.createElement('div');
@@ -292,6 +305,3 @@
 </script>
 </body>
 </html>
-
-
-
