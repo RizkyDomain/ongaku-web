@@ -160,7 +160,10 @@
         <div class="logo-text">AKAI ONGAKU</div>
     </div>
     <nav>
+        <a href="#home">Home</a>
+        <a href="#unit">Unit</a>
         <a href="#" onclick="openOverlay('members')">Anggota</a>
+        <a href="#gallery">Gallery</a>
     </nav>
     <div class="leader-tag">Leader: M. Rakan</div>
 </header>
@@ -173,7 +176,7 @@
 
 <div class="container">
     
-    <section id="sejarah">
+    <section id="home">
         <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
             <img src="1000211311.jpg" style="width: 120px; border-radius: 20px; border: 3px solid var(--bright-pink); box-shadow: 0 5px 15px rgba(0,0,0,0.1);" alt="Akai Profile">
             <div>
@@ -189,10 +192,10 @@
         <p style="margin-bottom: 20px; opacity: 0.7;">Klik banner untuk membuka profil lengkap.</p>
         
         <div class="special-slide slide-7pm" onclick="openOverlay('7pm')">
-            <img src="7Lude1.png.jpg" class="band-bg-logo bg-7pm" alt="7PM Watermark">
+            <img src="7Lude1.png.png" class="band-bg-logo bg-7pm" alt="7PM Watermark">
             <div class="unit-info">
                 <h1>7PM INTERLUDE</h1>
-                <p>Sunset Symphony</p>
+                <p>Sunset Banger</p>
             </div>
         </div>
 
@@ -200,10 +203,24 @@
             <img src="LunarDial.jpg" class="band-bg-logo bg-lunar" alt="Lunar Watermark">
             <div class="unit-info">
                 <h1>LUNAR DIAL</h1>
-                <p>Midnight Pulse</p>
+                <p>Midnight Call</p>
             </div>
         </div>
-    </section>
+    </section>  
+    
+    <section id="gallery">
+            <h2>Gallery Dokumentasi</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/400x300/a2d2ff/ffffff?text=Photo+1" alt="Event 1">
+                    <div class="desc">Moment Latihan - 10 Feb 2026</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/400x300/ffafcc/ffffff?text=Photo+2" alt="Event 2">
+                    <div class="desc">Performance - 15 Feb 2026</div>
+                </div>
+            </div>
+        </section>
 
 </div>
 
@@ -214,7 +231,7 @@
             <img src="7Lude1.png.jpg" style="width: 150px; border-radius: 20px; margin-bottom: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
             <h1 style="font-family: 'Orbitron'; font-size: 2.5rem; margin-bottom: 0;">7PM INTERLUDE</h1>
             <p style="font-family: 'Satisfy'; color: #ff85a1; font-size: 1.5rem;">The Sunset Symphony</p>
-            <p style="max-width: 600px; margin: 20px auto;">Unit yang membawakan melodi senja dengan harmoni yang menenangkan dan penuh perasaan.</p>
+            <p style="max-width: 600px; margin: 20px auto;">Hiburan setiap jam 7 malam</p>
         </div>
         
         <h2>Anggota 7PM</h2>
@@ -229,8 +246,8 @@
         <div style="text-align: center; margin-bottom: 40px;">
             <img src="LunarDial.jpg" style="width: 150px; border-radius: 50%; margin-bottom: 10px; box-shadow: 0 0 30px rgba(255,255,255,0.5); border: 4px solid white;">
             <h1 style="font-family: 'Orbitron'; font-size: 2.5rem; margin-bottom: 0;">LUNAR DIAL</h1>
-            <p style="font-family: 'Satisfy'; color: #a2d2ff; font-size: 1.5rem;">Midnight Pulse</p>
-            <p style="max-width: 600px; margin: 20px auto;">Unit yang bergerak di bawah cahaya bulan, membawa detak ritme malam yang misterius.</p>
+            <p style="font-family: 'Satisfy'; color: #a2d2ff; font-size: 1.5rem;">Midnight Call</p>
+            <p style="max-width: 600px; margin: 20px auto;">Melodi tenagh malam kota Metro</p>
         </div>
 
         <h2>Anggota Lunar Dial</h2>
@@ -242,11 +259,14 @@
 <div id="page-members" class="overlay-page">
     <div class="close-btn" onclick="closeOverlay('members')">×</div>
     <div class="container" style="margin-top: 20px;">
-        <h1 style="text-align: center; font-family: 'Orbitron'; margin-bottom: 30px;">STRUKTUR ORGANISASI</h1>
+        <h1 style="text-align: center; font-family: 'Orbitron'; margin-bottom: 30px;">Daftar Anggota</h1>
         
         <div class="category-nav">
-            <div class="cat-btn active" onclick="switchMemberTab('pengurus', this)">Pengurus</div>
-            <div class="cat-btn" onclick="switchMemberTab('founder', this)">Founder</div>
+            <div class="cat-btn active" onclick="switchMemberTab('pengurus26', this)">Pengurus 2026</div>
+            <div class="cat-btn active" onclick="switchMemberTab('pengurus25', this)">Pengurus 2025</div>
+            <div class="cat-btn active" onclick="switchMemberTab('pengurus24', this)">Pengurus 2024</div>
+            <div class="cat-btn active" onclick="switchMemberTab('pengurus23', this)">Pengurus 2023</div>
+            <div class="cat-btn" onclick="switchMemberTab('founder', this)">Founder 2022</div>
         </div>
 
         <div class="member-grid" id="grid-general">
@@ -273,7 +293,7 @@
             { name: 'Radit', role: 'Keyboardis', quote: 'Unknown', ig: '#' },
             { name: 'Sulthan', role: 'Drummer', quote: 'Unknown', ig: '#' },
         ],
-        'pengurus': [
+        'pengurus26': [
             { name: 'M. Rakan Mahardika', role: 'Ketua 2026', quote: 'Teknik Industri 24', ig: '#' },
             { name: 'M. Afri', role: 'Wakil Ketua 2026', quote: 'Teknik Elektro 24', ig: '#' }
         ],
@@ -354,3 +374,4 @@
 </script>
 </body>
 </html>
+
