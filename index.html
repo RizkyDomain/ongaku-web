@@ -156,7 +156,7 @@
         @keyframes pulse-ring { 0% { transform: scale(.33); } 80%, 100% { opacity: 0; } }
 
                
-                /* Kontainer Utama untuk Geser */
+                /* IGKontainer Utama untuk Geser */
         .ig-embed-container {
             display: flex;
             gap: 15px;
@@ -192,95 +192,100 @@
             background: var(--candy-pink);
             border-radius: 10px;
         }
-       
-        /* =========================================
+                /* =========================================
            RESPONSIVE MOBILE (LAYAR HP)
            ========================================= */
         @media (max-width: 768px) {
             
             /* 1. Header Menjadi Susun ke Bawah */
-        header {
-            flex-direction: column;
-            gap: 15px;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.85); /* Lebih solid agar tulisan jelas */
-        }
-
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+                background: rgba(255, 255, 255, 0.85);
+            }
+        
             /* Navigasi agar muat di layar kecil */
-        nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        nav a {
-            margin: 0;
-            font-size: 0.75rem; /* Ukuran font sedikit mengecil */
-            padding: 6px 12px;
-        }
-
-            /* Sembunyikan Tag Leader di HP agar tidak penuh (Opsional) */
-        .leader-tag { display: none; }
-
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px;
+            }
+        
+            nav a {
+                margin: 0;
+                font-size: 0.75rem;
+                padding: 6px 12px;
+            }
+        
+            /* Sembunyikan Tag Leader di HP agar tidak penuh */
+            .leader-tag { display: none; }
+        
             /* 2. Penyesuaian Kontainer Utama */
-        .container {
-            margin-top: 160px; /* Turunkan konten karena header makin tinggi */
-            padding: 15px;
-        }
-
+            .container {
+                margin-top: 160px;
+                padding: 15px;
+            }
+        
             /* 3. Teks Judul Lebih Kecil */
-        h1 { font-size: 1.8rem !important; } /* Pakai !important agar menimpa style desktop */
-        h2 { font-size: 1.4rem; border-left-width: 4px; padding-left: 10px; }
+            h1 { font-size: 1.8rem !important; }
+            h2 { font-size: 1.4rem; border-left-width: 4px; padding-left: 10px; }
             
             /* 4. Banner Unit */
-         .special-slide {
-            height: 160px; /* Tinggi banner dikurangi */
-            padding: 0 15px;
-        }
-        .special-slide .unit-info h1 { font-size: 1.5rem; letter-spacing: 2px; }
+            .special-slide {
+                height: 160px;
+                padding: 0 15px;
+            }
+            .special-slide .unit-info h1 { font-size: 1.5rem; letter-spacing: 2px; }
             
-            /* Logo Watermark di HP dibuat lebih transparan agar teks terbaca */
-        .bg-7pm, .bg-lunar { opacity: 0.1; }
-
+            /* Logo Watermark di HP dibuat lebih transparan */
+            .bg-7pm, .bg-lunar { opacity: 0.1; }
+        
             /* 5. Music Player Lebih Ringkas */
-        .music-player {
-             bottom: 15px;
-             right: 15px;
-             padding: 8px 15px;
-             background: rgba(255, 255, 255, 0.6); /* Lebih transparan */
-         }
-            /* Sembunyikan teks "TAP TO PLAY" di HP agar tombol tidak lebar */
-        .music-player div { display: none; } 
+            .music-player {
+                    bottom: 15px;
+                    right: 15px;
+                    padding: 8px 15px;
+                    background: rgba(255, 255, 255, 0.6);
+                }
+            /* Sembunyikan teks "TAP TO PLAY" di HP */
+            .music-player div { display: none; } 
             
             /* 6. Overlay / Slide Page */
-        .overlay-page {
-            padding: 20px 15px; /* Kurangi padding */
-            z-index: 5000; /* Pastikan di atas header */
-        }
+            .overlay-page {
+                padding: 20px 15px;
+                z-index: 5000;
+            }
             
             /* Tombol Close Overlay */
-        .close-btn {
-            top: 15px; 
-            right: 15px;
-            width: 40px; 
-            height: 40px;
-            font-size: 1.2rem;
-        }
-
-            /* 7. Grid Kontak Menjadi 2 Kolom (bukan 1 baris panjang) */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr; /* Setengah-setengah */
-            gap: 10px;
-        }
-        .contact-btn {
-            justify-content: center;
-            font-size: 0.8rem;
-            padding: 10px;
-        }
-        }
-                               
+            .close-btn {
+                top: 15px; 
+                right: 15px;
+                width: 40px; 
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        
+            /* 7. Grid Kontak Menjadi 2 Kolom */
+            .contact-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+            .contact-btn {
+                justify-content: center;
+                font-size: 0.8rem;
+                padding: 10px;
+            }
+        
+            /* 8. Sembunyikan Instagram Feed (Solusi Anti-Lag) */
+            /* Langsung ditulis di sini, JANGAN pakai @media lagi */
+            #instagram-feed {
+                display: none;
+            }
+        
+        } /* <--- Ini penutup kurung kurawal utama untuk @media (max-width: 768px) */
         #particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
         footer { text-align: center; padding: 40px; color: #555; font-size: 0.75rem; font-weight: bold; }
         
@@ -575,6 +580,7 @@
 </script>
 </body>
 </html>
+
 
 
 
