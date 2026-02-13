@@ -157,40 +157,57 @@
 
         
                 /* Kontainer Utama untuk Geser */
-        .ig-embed-container {
+                /* Container geser */
+        .horizontal-scroll {
             display: flex;
             gap: 15px;
             overflow-x: auto;
-            padding: 10px 5px 20px;
+            padding: 10px 0 25px;
             scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
         }
         
-        /* Kartu Pembungkus Embed */
-        .ig-embed-card {
-            flex: 0 0 320px; /* Lebar postingan IG */
-            scroll-snap-align: center;
-            background: white;
+        /* Styling Gambar Saja */
+        .ig-only-media {
+            flex: 0 0 250px; /* Ukuran gambar */
+            aspect-ratio: 1 / 1;
+            position: relative;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            border: 1px solid var(--soft-blue);
+            scroll-snap-align: start;
+            border: 3px solid white;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            transition: 0.3s ease;
         }
         
-        /* Responsif untuk HP */
-        @media (max-width: 768px) {
-            .ig-embed-card {
-                flex: 0 0 280px; /* Sedikit lebih kecil di HP */
-            }
+        .ig-only-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
-        /* Sembunyikan Scrollbar tapi tetap bisa digeser */
-        .ig-embed-container::-webkit-scrollbar {
-            height: 6px;
+        .ig-only-media:hover {
+            transform: translateY(-5px) scale(1.02);
+            border-color: var(--bright-pink);
         }
-        .ig-embed-container::-webkit-scrollbar-thumb {
-            background: var(--candy-pink);
-            border-radius: 10px;
+        
+        /* Badge kecil di pojok gambar */
+        .ig-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 0.6rem;
+            padding: 4px 8px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+        }
+        
+        /* Scrollbar halus */
+        .horizontal-scroll::-webkit-scrollbar { height: 5px; }
+        .horizontal-scroll::-webkit-scrollbar-thumb { 
+            background: var(--candy-pink); 
+            border-radius: 10px; 
         }
         /* =========================================
            RESPONSIVE MOBILE (LAYAR HP)
@@ -364,20 +381,21 @@
     
     <section id="instagram-feed">
         <h2>Instagram Updates</h2>
-        <p style="margin-bottom: 20px; opacity: 0.7;">Postingan terbaru dari @ongaku.akai</p>
-        
-        <div class="horizontal-scroll ig-embed-container">
-            <div class="ig-embed-card">
-                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C9dBE7JuEC5/?utm_source=ig_web_copy_link" data-instgrm-version="14"></blockquote>
-            </div>
+        <div class="horizontal-scroll" id="ig-container">
+            <a href="https://www.instagram.com/reel/C9dBE7JuEC5/" target="_blank" class="ig-only-media">
+                <img src="https://www.instagram.com/reel/C9dBE7JuEC5//media/?size=l" alt="IG Post">
+                <div class="ig-badge">Instagram</div>
+            </a>
             
-            <div class="ig-embed-card">
-                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C9dBE7JuEC5/?utm_source=ig_web_copy_link" data-instgrm-version="14"></blockquote>
-            </div>
+            <a href="https://www.instagram.com/p/C2_9YIovvI9/" target="_blank" class="ig-only-media">
+                <img src="https://www.instagram.com/p/C2_9YIovvI9/media/?size=l" alt="IG Post">
+                <div class="ig-badge">Instagram</div>
+            </a>
     
-            <div class="ig-embed-card">
-                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C9dBE7JuEC5/?utm_source=ig_web_copy_link" data-instgrm-version="14"></blockquote>
-            </div>
+            <a href="https://www.instagram.com/p/C27D0pGvX9v/" target="_blank" class="ig-only-media">
+                <img src="https://www.instagram.com/p/C27D0pGvX9v/media/?size=l" alt="IG Post">
+                <div class="ig-badge">Instagram</div>
+            </a>
         </div>
     </section>
     
@@ -562,6 +580,7 @@
 </script>
 </body>
 </html>
+
 
 
 
