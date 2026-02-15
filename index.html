@@ -217,7 +217,26 @@
         .gallery-item img { width: 100%; display: block; transition: 0.5s; }
         .gallery-item:hover img { transform: scale(1.1); }
         .gallery-item .desc { padding: 10px; font-size: 0.8rem; background: rgba(255,255,255,0.9); text-align: center; font-weight: 600; color: #444; }
+/* Membungkus gambar dan mengunci tingginya agar sama semua */
+        .img-wrapper {
+            width: 100%;
+            height: 220px; /* Kunci tingginya di sini (bisa kamu ubah, misal 200px atau 250px) */
+            overflow: hidden;
+            border-radius: 10px; /* Lengkungan sudut gambar */
+        }
 
+        /* Trik agar foto menyesuaikan bingkai tanpa gepeng */
+        .gallery-item img { 
+            width: 100%; 
+            height: 100%; /* Memaksa gambar mengisi penuh tinggi wrapper (220px) */
+            object-fit: cover; /* INI KUNCINYA! Gambar akan di-zoom/potong otomatis biar pas */
+            display: block; 
+            transition: transform 0.5s ease; 
+        }
+        
+        .gallery-item:hover img { 
+            transform: scale(1.08); /* Efek zoom tipis saat kursor diarahkan ke foto */
+        }
         /* --- INSTAGRAM FEED --- */
         .ig-embed-container { display: flex; gap: 15px; overflow-x: auto; padding: 10px 5px 20px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
         .ig-embed-container::-webkit-scrollbar { height: 6px; }
@@ -687,3 +706,4 @@
     </script>
 </body>
 </html>
+
