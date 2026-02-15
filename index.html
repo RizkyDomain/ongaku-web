@@ -288,7 +288,31 @@
         } /* <--- Ini penutup kurung kurawal utama untuk @media (max-width: 768px) */
         #particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
         footer { text-align: center; padding: 40px; color: #555; font-size: 0.75rem; font-weight: bold; }
+                /* --- MUSICAL NOTES ANIMATION --- */
+        .music-note {
+            position: absolute;
+            bottom: -50px; /* Mulai dari bawah layar */
+            color: rgba(255, 255, 255, 0.6); /* Warna putih transparan */
+            font-size: 24px;
+            pointer-events: none; /* Agar tidak mengganggu klik */
+            animation: floatUp linear forwards; /* Animasi jalan ke atas */
+            z-index: -1; /* Di belakang konten */
+            text-shadow: 0 0 5px rgba(255, 133, 161, 0.4); /* Glow pink tipis */
+        }
         
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-110vh) rotate(360deg) translateX(50px); /* Naik sampai atas layar */
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -589,16 +613,50 @@
         }
     }, { once: true });
 
-    // PARTICLES
-    const pc = document.getElementById('particles');
-    for (let i = 0; i < 40; i++) {
-        const dot = document.createElement('div');
-        Object.assign(dot.style, { position:'absolute', width:'4px', height:'4px', background:'white', borderRadius:'50%', top:Math.random()*100+'%', left:Math.random()*100+'%', boxShadow:'0 0 10px white', opacity:'0.5'});
-        pc.appendChild(dot);
+    // === MUSICAL NOTES BACKGROUND ===
+    const notesContainer = document.getElementById('particles');
+    const symbols = ['♪', '♫', '♩', '♬', '♭', '♮', '♯']; // Simbol not musik
+
+    function createNote() {
+        const note = document.createElement('div');
+        const symbol = symbols[Math.floor(Math.random() * symbols.length)];
+        
+        note.classList.add('music-note');
+        note.innerText = symbol;
+
+        // Randomisasi Posisi, Ukuran, dan Durasi
+        const left = Math.random() * 100; // Posisi horizontal 0-100%
+        const size = Math.random() * 20 + 15; // Ukuran font antara 15px - 35px
+        const duration = Math.random() * 5 + 5; // Durasi animasi antara 5 - 10 detik
+        const delay = Math.random() * 2; // Delay sedikit biar tidak muncul barengan
+
+        note.style.left = left + '%';
+        note.style.fontSize = size + 'px';
+        note.style.animationDuration = duration + 's';
+        note.style.animationDelay = delay + 's';
+
+        // Warna acak lembut (Putih, Pink Pucat, Biru Pucat) sesuai tema
+        const colors = ['rgba(255,255,255,0.7)', 'rgba(255, 175, 204, 0.6)', 'rgba(162, 210, 255, 0.6)'];
+        note.style.color = colors[Math.floor(Math.random() * colors.length)];
+
+        notesContainer.appendChild(note);
+
+        // Hapus elemen setelah animasi selesai agar website tidak berat
+        setTimeout(() => {
+            note.remove();
+        }, (duration + delay) * 1000); 
+    }
+
+    // Buat not baru setiap 800ms
+    setInterval(createNote, 800);
+
+    // Buat beberapa not langsung saat load agar tidak kosong
+    for(let i=0; i<10; i++) createNote();
     }
 </script>
 </body>
 </html>
+
 
 
 
