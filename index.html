@@ -178,7 +178,7 @@
         .gallery-grid::-webkit-scrollbar-thumb { background: var(--bright-pink); border-radius: 10px; }
 
         .gallery-item { 
-            flex: 0 0 280px; /* Ukuran kartu tetap agar tidak mengecil */
+            flex: 0 0 280px; 
             scroll-snap-align: center; 
             background: white; 
             border-radius: 15px; 
@@ -195,10 +195,10 @@
         .gallery-item img { 
             width: 100%; 
             height: 200px; /* Tinggi awal seragam */
-            object-fit: cover; /* Foto memenuhi bingkai (terpotong rapi) */
+            object-fit: cover; 
             border-radius: 8px;
             display: block; 
-            cursor: pointer; /* Indikator bisa diklik */
+            cursor: pointer; 
             transition: all 0.4s ease; 
         }
         
@@ -206,9 +206,9 @@
 
         /* Class untuk mode "Utuh" saat diklik */
         .gallery-item img.show-full {
-            object-fit: contain !important; /* Foto tampil utuh 100% */
-            background-color: #1b263b; /* Background gelap agar elegan */
-            transform: scale(1) !important; /* Reset zoom hover */
+            object-fit: contain !important; 
+            background-color: #1b263b; 
+            transform: scale(1) !important; 
         }
 
         .gallery-item .desc { 
@@ -706,6 +706,7 @@
     <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
 </html>
+
 
 
 
