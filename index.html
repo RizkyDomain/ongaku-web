@@ -6,6 +6,9 @@
     <title>Akai Ongaku | Atarashii Sekai</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@500;800&family=Satisfy&display=swap" rel="stylesheet">
     <style>
+        /* =========================================
+           1. VARIABEL & RESET GLOBAL
+        ========================================= */
         :root {
             --soft-blue: rgba(162, 210, 255, 0.4);
             --candy-pink: rgba(255, 175, 204, 0.5);
@@ -15,7 +18,12 @@
             --text-color: #333;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            scroll-behavior: smooth; 
+        }
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -26,15 +34,22 @@
             overflow-x: hidden;
         }
 
-        /* --- TYPOGRAPHY & SHADOWS --- */
+        /* --- TIPOGRAFI & SHADOW --- */
         h1, h2, h3, p, li, strong, nav a, .member-name, .cat-btn {
             text-shadow: 0.5px 0.5px 0px rgba(255, 255, 255, 0.9), 
-                         -0.5px -0.5px 0px rgba(255, 255, 255, 0.9);
+                        -0.5px -0.5px 0px rgba(255, 255, 255, 0.9);
         }
 
-        h2 { color: #444; border-left: 5px solid var(--bright-pink); padding-left: 15px; margin-bottom: 30px; font-family: 'Orbitron', sans-serif; text-transform: uppercase; }
+        h2 { 
+            color: #444; 
+            border-left: 5px solid var(--bright-pink); 
+            padding-left: 15px; 
+            margin-bottom: 30px; 
+            font-family: 'Orbitron', sans-serif; 
+            text-transform: uppercase; 
+        }
 
-        /* --- GLOBAL INTERACTIVE STYLES --- */
+        /* --- INTERAKSI GLOBAL (HOVER & ACTIVE) --- */
         nav a, .cat-btn, .member-bio-card, .special-slide, .play-btn, .contact-btn, .close-btn {
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
@@ -44,7 +59,6 @@
             position: relative;
         }
 
-        /* Hover State */
         nav a:hover, .cat-btn:hover, .member-bio-card:hover, .special-slide:hover, .contact-btn:hover, .close-btn:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(162, 210, 255, 0.3);
@@ -52,7 +66,6 @@
             border-color: var(--bright-pink);
         }
 
-        /* Active State */
         nav a:active, .cat-btn:active, .member-bio-card:active, .special-slide:active, .play-btn:active, .contact-btn:active, .close-btn:active {
             transform: scale(0.96) translateY(2px);
             background: rgba(255, 255, 255, 0.1) !important;
@@ -60,21 +73,52 @@
             backdrop-filter: blur(2px);
         }
 
-        /* --- HEADER --- */
+        /* =========================================
+           2. HEADER & NAVIGASI
+        ========================================= */
         header {
-            background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(15px);
-            padding: 10px 5%; display: flex; justify-content: space-between; align-items: center;
-            position: fixed; width: 100%; top: 0; z-index: 1000;
+            background: rgba(255, 255, 255, 0.2); 
+            backdrop-filter: blur(15px);
+            padding: 10px 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            position: fixed; 
+            width: 100%; 
+            top: 0; 
+            z-index: 1000;
             border-bottom: 1px solid rgba(255, 255, 255, 0.4);
         }
-        .header-logo { width: 50px; height: 50px; object-fit: contain; border-radius: 50%; border: 2px solid var(--bright-pink); }
-        .logo-text { font-family: 'Orbitron', sans-serif; font-size: 1.4rem; font-weight: 800; background: linear-gradient(to right, #ff85a1, #00b4d8, #ff85a1); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shine 3s linear infinite; }
-        @keyframes shine { to { background-position: 200% center; } }
-        .leader-tag { font-size: 0.75rem; background: var(--bright-pink); color: white; padding: 5px 15px; border-radius: 20px; }
-        nav a { text-decoration: none; color: #444; margin-left: 10px; font-size: 0.85rem; font-weight: 600; padding: 8px 15px; border-radius: 15px; background: rgba(255,255,255,0.2); }
 
-        /* --- CONTAINER --- */
+        .header-logo { 
+            width: 50px; height: 50px; object-fit: contain; 
+            border-radius: 50%; border: 2px solid var(--bright-pink); 
+        }
+
+        .logo-text { 
+            font-family: 'Orbitron', sans-serif; font-size: 1.4rem; font-weight: 800; 
+            background: linear-gradient(to right, #ff85a1, #00b4d8, #ff85a1); 
+            background-size: 200% auto; -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; animation: shine 3s linear infinite; 
+        }
+        @keyframes shine { to { background-position: 200% center; } }
+
+        .leader-tag { 
+            font-size: 0.75rem; background: var(--bright-pink); color: white; 
+            padding: 5px 15px; border-radius: 20px; 
+        }
+
+        nav a { 
+            text-decoration: none; color: #444; margin-left: 10px; 
+            font-size: 0.85rem; font-weight: 600; padding: 8px 15px; 
+            border-radius: 15px; background: rgba(255,255,255,0.2); 
+        }
+
+        /* =========================================
+           3. KONTAINER UTAMA & SECTIONS
+        ========================================= */
         .container { max-width: 1000px; margin: 110px auto 50px; padding: 20px; }
+
         section {
             background: var(--glass-white); backdrop-filter: blur(25px);
             margin-bottom: 40px; padding: 40px; border-radius: 30px;
@@ -82,14 +126,18 @@
             box-shadow: 0 8px 32px rgba(162, 210, 255, 0.2);
         }
 
-        /* --- BANNER UNIT --- */
+        /* --- BANNER UNIT (7PM & LUNAR) --- */
         .special-slide {
             height: 200px; display: flex; flex-direction: column;
             justify-content: center; align-items: center; text-align: center;
             padding: 0 10%; color: white; border-radius: 30px; margin-top: 20px;
             overflow: hidden; position: relative;
         }
-        .special-slide::after { content: ""; position: absolute; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%); animation: rotate 20s linear infinite; z-index: 1; pointer-events: none; }
+        .special-slide::after { 
+            content: ""; position: absolute; width: 200%; height: 200%; 
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%); 
+            animation: rotate 20s linear infinite; z-index: 1; pointer-events: none; 
+        }
         @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
         .slide-7pm { background: linear-gradient(135deg, rgba(26,26,26,0.9), rgba(50,50,50,0.8)); }
@@ -102,10 +150,11 @@
         .band-bg-logo { position: absolute; top: 50%; z-index: 5; pointer-events: none; transition: all 0.5s ease; }
         .bg-7pm { right: -5%; width: 70%; height: auto; transform: translateY(-50%) rotate(-10deg); opacity: 0.15; filter: brightness(200%) grayscale(100%); }
         .bg-lunar { left: -5%; height: 140%; width: auto; transform: translateY(-50%) rotate(15deg); opacity: 0.2; -webkit-mask-image: radial-gradient(circle, black 30%, transparent 80%); mask-image: radial-gradient(circle, black 30%, transparent 80%); filter: drop-shadow(0 0 20px rgba(255,255,255,0.5)); }
+        
         .special-slide:hover .bg-7pm { transform: translateY(-50%) rotate(0deg) scale(1.05); opacity: 0.25; }
         .special-slide:hover .bg-lunar { transform: translateY(-50%) rotate(0deg) scale(1.05); opacity: 0.3; }
 
-        /* --- CATEGORY & CARDS --- */
+        /* --- KATEGORI & KARTU ANGGOTA --- */
         .category-nav { display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; justify-content: center; }
         .cat-btn { background: rgba(255,255,255,0.3); padding: 8px 15px; border-radius: 15px; font-size: 0.8rem; font-weight: 700; color: var(--text-color); }
         .cat-btn.active { animation: active-glow 2s infinite ease-in-out; background: rgba(255, 133, 161, 0.2) !important; color: var(--deep-blue); border-color: var(--bright-pink); }
@@ -113,34 +162,87 @@
 
         .member-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
         .member-bio-card { background: rgba(255, 255, 255, 0.5); border-radius: 25px; padding: 20px; display: flex; gap: 15px; align-items: center; text-decoration: none; color: inherit; }
-        
         .bio-photo { width: 65px; height: 65px; border-radius: 12px; object-fit: cover; border: 2px solid white; box-shadow: 0 4px 10px rgba(0,0,0,0.1); background: #eee; }
 
-        /* --- GALLERY --- */
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
-        .gallery-item { overflow: hidden; border-radius: 15px; position: relative; background: var(--soft-blue); box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 2px solid white; }
-        .gallery-item img { width: 100%; display: block; transition: 0.5s; }
-        .gallery-item:hover img { transform: scale(1.1); }
-        .gallery-item .desc { padding: 10px; font-size: 0.8rem; background: rgba(255,255,255,0.9); text-align: center; font-weight: 600; color: #444; }
+        /* --- GALERI (CAROUSEL + CLICK TO FIT) --- */
+        .gallery-grid { 
+            display: flex; /* Mode baris ke samping */
+            gap: 15px; 
+            overflow-x: auto; /* Bisa digeser horizontal */
+            padding: 10px 5px 20px; 
+            scroll-snap-type: x mandatory; 
+            -webkit-overflow-scrolling: touch; 
+        }
+        
+        .gallery-grid::-webkit-scrollbar { height: 8px; }
+        .gallery-grid::-webkit-scrollbar-thumb { background: var(--bright-pink); border-radius: 10px; }
 
-        /* --- CONTACT SECTION --- */
-        .contact-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        .contact-btn {
-            display: flex; align-items: center; gap: 10px;
-            padding: 12px 25px; background: rgba(255,255,255,0.4);
-            border-radius: 15px; text-decoration: none; color: #444; font-weight: bold; font-size: 0.9rem;
+        .gallery-item { 
+            flex: 0 0 280px; /* Ukuran kartu tetap agar tidak mengecil */
+            scroll-snap-align: center; 
+            background: white; 
+            border-radius: 15px; 
+            padding: 12px 12px 0 12px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08); 
+            border-bottom: 20px solid #d0e3ff; 
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
         }
 
-        /* --- OVERLAY --- */
+        .gallery-item:hover { transform: translateY(-5px); }
+
+        .gallery-item img { 
+            width: 100%; 
+            height: 200px; /* Tinggi awal seragam */
+            object-fit: cover; /* Foto memenuhi bingkai (terpotong rapi) */
+            border-radius: 8px;
+            display: block; 
+            cursor: pointer; /* Indikator bisa diklik */
+            transition: all 0.4s ease; 
+        }
+        
+        .gallery-item:hover img { transform: scale(1.05); }
+
+        /* Class untuk mode "Utuh" saat diklik */
+        .gallery-item img.show-full {
+            object-fit: contain !important; /* Foto tampil utuh 100% */
+            background-color: #1b263b; /* Background gelap agar elegan */
+            transform: scale(1) !important; /* Reset zoom hover */
+        }
+
+        .gallery-item .desc { 
+            padding: 15px 10px; 
+            font-size: 0.9rem; 
+            background: white; 
+            text-align: center; 
+            font-weight: 700; 
+            color: #444; 
+        }
+
+        /* --- INSTAGRAM FEED --- */
+        .ig-embed-container { display: flex; gap: 15px; overflow-x: auto; padding: 10px 5px 20px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+        .ig-embed-container::-webkit-scrollbar { height: 6px; }
+        .ig-embed-container::-webkit-scrollbar-thumb { background: var(--candy-pink); border-radius: 10px; }
+        .ig-embed-card { flex: 0 0 320px; scroll-snap-align: center; background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05); border: 1px solid var(--soft-blue); }
+
+        /* --- KONTAK & FOOTER --- */
+        .contact-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .contact-btn { display: flex; align-items: center; gap: 10px; padding: 12px 25px; background: rgba(255,255,255,0.4); border-radius: 15px; text-decoration: none; color: #444; font-weight: bold; font-size: 0.9rem; }
+        footer { text-align: center; padding: 40px; color: #555; font-size: 0.75rem; font-weight: bold; }
+
+        /* =========================================
+           4. OVERLAY & BACKGROUND BAND
+        ========================================= */
         .overlay-page {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(30px);
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(30px);
             z-index: 3000; padding: 80px 20px 40px; overflow-y: auto;
-            transform: translateY(100%); opacity: 0;
-            transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+            transform: translateY(100%); opacity: 0; transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1);
         }
+        
         .overlay-page.active { transform: translateY(0); opacity: 1; }
+        
         .close-btn {
             position: fixed; top: 20px; right: 20px; width: 50px; height: 50px;
             border-radius: 50%; background: var(--bright-pink); color: white;
@@ -148,147 +250,6 @@
             z-index: 3001; border: 2px solid white;
         }
 
-        /* --- MUSIC PLAYER --- */
-        .music-player { position: fixed; bottom: 30px; right: 30px; background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); padding: 10px 20px; border-radius: 50px; display: flex; align-items: center; gap: 12px; border: 1px solid rgba(255, 255, 255, 0.3); z-index: 2000; }
-        .music-player:hover { background: rgba(255, 255, 255, 0.4); border-color: var(--bright-pink); transform: translateY(-5px) !important; }
-        .play-btn { width: 40px; height: 40px; border-radius: 50%; border: none; background: var(--bright-pink); color: white; display: flex; align-items: center; justify-content: center; position: relative; }
-        .play-btn.playing::after { content: ""; position: absolute; width: 100%; height: 100%; border-radius: 50%; background: var(--bright-pink); animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite; }
-        @keyframes pulse-ring { 0% { transform: scale(.33); } 80%, 100% { opacity: 0; } }
-
-               
-                /* IGKontainer Utama untuk Geser */
-        .ig-embed-container {
-            display: flex;
-            gap: 15px;
-            overflow-x: auto;
-            padding: 10px 5px 20px;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-        }
-        
-        /* Kartu Pembungkus Embed */
-        .ig-embed-card {
-            flex: 0 0 320px; /* Lebar postingan IG */
-            scroll-snap-align: center;
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            border: 1px solid var(--soft-blue);
-        }
-        
-        /* Responsif untuk HP */
-        @media (max-width: 768px) {
-            .ig-embed-card {
-                flex: 0 0 280px; /* Sedikit lebih kecil di HP */
-            }
-        }
-
-        /* Sembunyikan Scrollbar tapi tetap bisa digeser */
-        .ig-embed-container::-webkit-scrollbar {
-            height: 6px;
-        }
-        .ig-embed-container::-webkit-scrollbar-thumb {
-            background: var(--candy-pink);
-            border-radius: 10px;
-        }
-                /* =========================================
-           RESPONSIVE MOBILE (LAYAR HP)
-           ========================================= */
-        @media (max-width: 768px) {
-            
-            /* 1. Header Menjadi Susun ke Bawah */
-            header {
-                flex-direction: column;
-                gap: 15px;
-                padding: 15px;
-                background: rgba(255, 255, 255, 0.85);
-            }
-        
-            /* Navigasi agar muat di layar kecil */
-            nav {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 8px;
-            }
-        
-            nav a {
-                margin: 0;
-                font-size: 0.75rem;
-                padding: 6px 12px;
-            }
-        
-            /* Sembunyikan Tag Leader di HP agar tidak penuh */
-            .leader-tag { display: none; }
-        
-            /* 2. Penyesuaian Kontainer Utama */
-            .container {
-                margin-top: 160px;
-                padding: 15px;
-            }
-        
-            /* 3. Teks Judul Lebih Kecil */
-            h1 { font-size: 1.8rem !important; }
-            h2 { font-size: 1.4rem; border-left-width: 4px; padding-left: 10px; }
-            
-            /* 4. Banner Unit */
-            .special-slide {
-                height: 160px;
-                padding: 0 15px;
-            }
-            .special-slide .unit-info h1 { font-size: 1.5rem; letter-spacing: 2px; }
-            
-            /* Logo Watermark di HP dibuat lebih transparan */
-            .bg-7pm, .bg-lunar { opacity: 0.1; }
-        
-            /* 5. Music Player Lebih Ringkas */
-            .music-player {
-                    bottom: 15px;
-                    right: 15px;
-                    padding: 8px 15px;
-                    background: rgba(255, 255, 255, 0.6);
-                }
-            /* Sembunyikan teks "TAP TO PLAY" di HP */
-            .music-player div { display: none; } 
-            
-            /* 6. Overlay / Slide Page */
-            .overlay-page {
-                padding: 20px 15px;
-                z-index: 5000;
-            }
-            
-            /* Tombol Close Overlay */
-            .close-btn {
-                top: 15px; 
-                right: 15px;
-                width: 40px; 
-                height: 40px;
-                font-size: 1.2rem;
-            }
-        
-            /* 7. Grid Kontak Menjadi 2 Kolom */
-            .contact-grid {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 10px;
-            }
-            .contact-btn {
-                justify-content: center;
-                font-size: 0.8rem;
-                padding: 10px;
-            }
-        
-            /* 8. Sembunyikan Instagram Feed (Solusi Anti-Lag) */
-            /* Langsung ditulis di sini, JANGAN pakai @media lagi */
-            #instagram-feed {
-                display: none;
-            }
-        
-        } /* <--- Ini penutup kurung kurawal utama untuk @media (max-width: 768px) */
-        /* =========================================
-           BACKGROUND FOTO UNTUK OVERLAY BAND
-        ========================================= */
         #page-7pm, #page-lunar {
             background-size: cover;      
             background-position: center; 
@@ -296,19 +257,9 @@
             color: white !important;     
         }
 
-        /* Background Khusus 7PM + Overlay Gelap Transparan */
-        #page-7pm {
-            background-image: linear-gradient(to bottom, rgba(27, 38, 59, 0.9), rgba(0, 0, 0, 0.95)), 
-                              url('7L.png'); 
-        }
+        #page-7pm { background-image: linear-gradient(to bottom, rgba(27, 38, 59, 0.9), rgba(0, 0, 0, 0.95)), url('7L.png'); }
+        #page-lunar { background-image: linear-gradient(to bottom, rgba(27, 38, 59, 0.9), rgba(0, 0, 0, 0.95)), url('LD.png'); }
 
-        /* Background Khusus Lunar Dial + Overlay Gelap Transparan */
-        #page-lunar {
-            background-image: linear-gradient(to bottom, rgba(27, 38, 59, 0.9), rgba(0, 0, 0, 0.95)), 
-                              url('LD.png'); 
-        }
-
-        /* --- Penyesuaian Teks agar terbaca di background gelap --- */
         #page-7pm h1, #page-7pm h2, #page-7pm p,
         #page-lunar h1, #page-lunar h2, #page-lunar p,
         #page-7pm .unit-info p, #page-lunar .unit-info p {
@@ -316,384 +267,436 @@
             text-shadow: 0 2px 10px rgba(0,0,0,0.8) !important;
         }
         
-        #page-7pm h2, #page-lunar h2 {
-             border-left: none;
-             text-align: center;
-             padding-left: 0;
-        }
-        
+        #page-7pm h2, #page-lunar h2 { border-left: none; text-align: center; padding-left: 0; }
         #page-7pm p[style*="Satisfy"] { color: #ff85a1 !important; }
         #page-lunar p[style*="Satisfy"] { color: #a2d2ff !important; }
 
-    
-        footer { text-align: center; padding: 40px; color: #555; font-size: 0.75rem; font-weight: bold; }
-                /* --- MUSICAL NOTES ANIMATION --- */
+        /* =========================================
+           5. MUSIC PLAYER & PARTIKEL NOT MUSIK
+        ========================================= */
+        .music-player { 
+            position: fixed; bottom: 30px; right: 30px; 
+            background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); 
+            padding: 10px 20px; border-radius: 50px; display: flex; align-items: center; 
+            gap: 12px; border: 1px solid rgba(255, 255, 255, 0.3); z-index: 2000; 
+        }
+        
+        .music-player:hover { 
+            background: rgba(255, 255, 255, 0.4); 
+            border-color: var(--bright-pink); 
+            transform: translateY(-5px) !important; 
+        }
+        
+        .play-btn { 
+            width: 40px; height: 40px; border-radius: 50%; border: none; 
+            background: var(--bright-pink); color: white; display: flex; 
+            align-items: center; justify-content: center; position: relative; 
+        }
+        
+        .play-btn.playing::after { 
+            content: ""; position: absolute; width: 100%; height: 100%; 
+            border-radius: 50%; background: var(--bright-pink); 
+            animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite; 
+        }
+        
+        @keyframes pulse-ring { 
+            0% { transform: scale(.33); } 
+            80%, 100% { opacity: 0; } 
+        }
+
+        #particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+        
         .music-note {
-            position: absolute;
-            bottom: -50px; /* Mulai dari bawah layar */
-            color: rgba(255, 255, 255, 0.6); /* Warna putih transparan */
-            font-size: 24px;
-            pointer-events: none; /* Agar tidak mengganggu klik */
-            animation: floatUp linear forwards; /* Animasi jalan ke atas */
-            z-index: -1; /* Di belakang konten */
-            text-shadow: 0 0 5px rgba(255, 133, 161, 0.4); /* Glow pink tipis */
+            position: absolute; bottom: -50px; color: rgba(255, 255, 255, 0.6); 
+            font-size: 24px; pointer-events: none; animation: floatUp linear forwards; 
+            z-index: -1; text-shadow: 0 0 5px rgba(255, 133, 161, 0.4); 
         }
         
         @keyframes floatUp {
-            0% {
-                transform: translateY(0) rotate(0deg) translateX(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.8;
-            }
-            100% {
-                transform: translateY(-110vh) rotate(360deg) translateX(50px); /* Naik sampai atas layar */
-                opacity: 0;
-            }
+            0% { transform: translateY(0) rotate(0deg) translateX(0); opacity: 0; }
+            10% { opacity: 0.8; }
+            100% { transform: translateY(-110vh) rotate(360deg) translateX(50px); opacity: 0; }
+        }
+
+        /* =========================================
+           6. RESPONSIVE MOBILE (Posisikan Paling Bawah!)
+        ========================================= */
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; padding: 15px; background: rgba(255, 255, 255, 0.85); }
+            nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+            nav a { margin: 0; font-size: 0.75rem; padding: 6px 12px; }
+            .leader-tag { display: none; }
+            
+            .container { margin-top: 160px; padding: 15px; }
+            h1 { font-size: 1.8rem !important; }
+            h2 { font-size: 1.4rem; border-left-width: 4px; padding-left: 10px; }
+            
+            .special-slide { height: 160px; padding: 0 15px; }
+            .special-slide .unit-info h1 { font-size: 1.5rem; letter-spacing: 2px; }
+            .bg-7pm, .bg-lunar { opacity: 0.1; }
+            
+            .music-player { bottom: 15px; right: 15px; padding: 8px 15px; background: rgba(255, 255, 255, 0.6); }
+            .music-player div { display: none; } 
+            
+            .overlay-page { padding: 20px 15px; z-index: 5000; }
+            .close-btn { top: 15px; right: 15px; width: 40px; height: 40px; font-size: 1.2rem; }
+            
+            .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+            .contact-btn { justify-content: center; font-size: 0.8rem; padding: 10px; }
+            
+            .ig-embed-card { flex: 0 0 280px; }
+            #instagram-feed { display: none; }
         }
     </style>
 </head>
 <body>
 
-<div id="particles"></div>
+    <div id="particles"></div>
 
-<header>
-    <div style="display: flex; align-items: center; gap: 10px;">
-        <img src="1000211311.png" class="header-logo" alt="Akai Logo">
-        <div class="logo-text">AKAI ONGAKU</div>
+    <header>
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <img src="1000211311.png" class="header-logo" alt="Akai Logo">
+            <div class="logo-text">AKAI ONGAKU</div>
+        </div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#unit">Unit</a>
+            <a href="#" onclick="openOverlay('members')">Anggota</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Kontak</a>
+        </nav>
+        <div class="leader-tag">Leader: M. Rakan</div>
+    </header>
+
+    <div class="music-player">
+        <button class="play-btn" id="playPause">▶</button>
+        <div style="font-size: 0.65rem; font-weight: bold; color: #444;">
+            BACKGROUND MUSIC<br><span id="statusText">TAP TO PLAY</span>
+        </div>
+        <audio id="bgMusic" loop src="カラオケ敗北ヒーロー  ころんOff Vocal.mp3"></audio>
     </div>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#unit">Unit</a>
-        <a href="#" onclick="openOverlay('members')">Anggota</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#contact">Kontak</a>
-    </nav>
-    <div class="leader-tag">Leader: M. Rakan</div>
-</header>
 
-<div class="music-player">
-    <button class="play-btn" id="playPause">▶</button>
-    <div style="font-size: 0.65rem; font-weight: bold; color: #444;">BACKGROUND MUSIC<br><span id="statusText">TAP TO PLAY</span></div>
-    <audio id="bgMusic" loop src="カラオケ敗北ヒーロー  ころんOff Vocal.mp3"></audio>
-</div>
-
-<div class="container">
-    
-    <section id="home">
-        <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
-            <img src="1000211311.png" style="width: 120px; border-radius: 20px; border: 3px solid var(--bright-pink); box-shadow: 0 5px 15px rgba(0,0,0,0.1);" alt="Akai Profile">
-            <div>
-                <h2>Akai Ongaku Profile</h2>
-                <p><strong>Est:</strong> 2022 | <strong>Base:</strong> ITERA Lampung</p>
-                <p style="margin-top: 10px; font-size: 0.9rem;">Divisi Ongaku (Musik) dari UKM Atarashii Sekai ITERA (AKAI).</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="unit">
-        <h2>Telusuri Unit Band</h2>
-        <p style="margin-bottom: 20px; opacity: 0.7;">Klik band untuk membuka profil anggota.</p>
+    <div class="container">
         
-        <div class="special-slide slide-7pm" onclick="openOverlay('7pm')">
-            <img src="7Lude1.png.png" class="band-bg-logo bg-7pm" alt="7PM Watermark">
-            <div class="unit-info">
-                <h1>7PM INTERLUDE</h1>
-                <p>Born at 2024</p>
+        <section id="home">
+            <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+                <img src="1000211311.png" style="width: 120px; border-radius: 20px; border: 3px solid var(--bright-pink); box-shadow: 0 5px 15px rgba(0,0,0,0.1);" alt="Akai Profile">
+                <div>
+                    <h2>Akai Ongaku Profile</h2>
+                    <p><strong>Est:</strong> 2022 | <strong>Base:</strong> ITERA Lampung</p>
+                    <p style="margin-top: 10px; font-size: 0.9rem;">Divisi Ongaku (Musik) dari UKM Atarashii Sekai ITERA (AKAI).</p>
+                </div>
             </div>
-        </div>
+        </section>
 
-        <div class="special-slide slide-lunar" onclick="openOverlay('lunar')">
-            <img src="LunarDial.jpg" class="band-bg-logo bg-lunar" alt="Lunar Watermark">
-            <div class="unit-info">
-                <h1>LUNAR DIAL</h1>
-                <p>Born at 2023</p>
-            </div>
-        </div>
-    </section>  
-    
-    <section id="gallery">
-        <h2>Gallery Dokumentasi</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="Kelas2023.jpg" alt="Event 1">
-                <div class="desc">Moment Latihan - 2025</div>
-            </div>
-            <div class="gallery-item">
-                <img src="Iban23prep.jpg" alt="Event 2">
-                <div class="desc">H-1 Iban 2025</div>
-            </div>
-            <div class="gallery-item">
-                <img src="Iban2025.png" alt="Event 3">
-                <div class="desc">Iban 2025 after stage</div>
-            </div>
-        </div>
-    </section>
-    
-    <section id="instagram-feed">
-        <h2>Instagram Updates</h2>
-        <p style="margin-bottom: 20px; opacity: 0.7;">Postingan terbaru dari @ongaku.akai</p>
-        
-        <div class="horizontal-scroll ig-embed-container">
-            <div class="ig-embed-card">
-                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C9dBE7JuEC5/" data-instgrm-version="14"></blockquote>
-            </div>
+        <section id="unit">
+            <h2>Telusuri Unit Band</h2>
+            <p style="margin-bottom: 20px; opacity: 0.7;">Klik band untuk membuka profil anggota.</p>
             
-            <div class="ig-embed-card">
-                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DBtvHWwRVF-/" data-instgrm-version="14"></blockquote>
-            </div>
-    
-            <div class="ig-embed-card">
-                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C-k5lm6OPmc/" data-instgrm-version="14"></blockquote>
-            </div>
-
-            <div class="ig-embed-card">
-                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C-3ANvCuqGm/" data-instgrm-version="14"></blockquote>
+            <div class="special-slide slide-7pm" onclick="openOverlay('7pm')">
+                <img src="7Lude1.png.png" class="band-bg-logo bg-7pm" alt="7PM Watermark">
+                <div class="unit-info">
+                    <h1>7PM INTERLUDE</h1>
+                    <p>Born at 2024</p>
+                </div>
             </div>
 
-            <div class="ig-embed-card">
-                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DAnk06qONRy/" data-instgrm-version="14"></blockquote>
+            <div class="special-slide slide-lunar" onclick="openOverlay('lunar')">
+                <img src="LunarDial.jpg" class="band-bg-logo bg-lunar" alt="Lunar Watermark">
+                <div class="unit-info">
+                    <h1>LUNAR DIAL</h1>
+                    <p>Born at 2023</p>
+                </div>
             </div>
-
-            <div class="ig-embed-card">
-                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DHx0wN8vG3r/" data-instgrm-version="14"></blockquote>
-            </div>
-    </div>
-</section>
-
-<script async src="//www.instagram.com/embed.js"></script>
-
-    <section id="contact">
-        <h2>Hubungi Kami</h2>
-        <div class="contact-grid">
-            <a href=" https://www.instagram.com/ongaku.akai" target="_blank" class="contact-btn">
-                <span>▷</span> Instagram
-            </a>
-            <a href="#" target="_blank" class="contact-btn">
-                <span>▷</span> WhatsApp
-            </a>
-            <a href="#" class="contact-btn">
-                <span>▷</span> Email
-            </a>
-            <a href="#" class="contact-btn">
-                <span>▷</span> YouTube
-            </a>
-        </div>
-    </section>
-
-</div>
-
-<div id="page-7pm" class="overlay-page">
-    <div class="close-btn" onclick="closeOverlay('7pm')">×</div>
-    <div class="container" style="margin-top: 20px;">
-        <div style="text-align: center; margin-bottom: 40px;">
-            <img src="7Lude1.png.png" style="width: 150px; border-radius: 20px; margin-bottom: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-            <h1 style="font-family: 'Orbitron'; font-size: 2.5rem; margin-bottom: 0;">7PM INTERLUDE</h1>
-            <p style="font-family: 'Satisfy'; color: #ff85a1; font-size: 1.5rem;">The Sunset Symphony</p>
-        </div>
-        <h2>Anggota 7Lude</h2>
-        <div class="member-grid" id="grid-7pm"></div>
-    </div>
-</div>
-
-<div id="page-lunar" class="overlay-page">
-    <div class="close-btn" onclick="closeOverlay('lunar')">×</div>
-    <div class="container" style="margin-top: 20px;">
-        <div style="text-align: center; margin-bottom: 40px;">
-            <img src="LunarDial.jpg" style="width: 150px; border-radius: 50%; margin-bottom: 10px; box-shadow: 0 0 30px rgba(255,255,255,0.5); border: 4px solid white;">
-            <h1 style="font-family: 'Orbitron'; font-size: 2.5rem; margin-bottom: 0;">LUNAR DIAL</h1>
-            <p style="font-family: 'Satisfy'; color: #a2d2ff; font-size: 1.5rem;">Midnight Call</p>
-        </div>
-        <h2>Anggota Lunar Dial</h2>
-        <div class="member-grid" id="grid-lunar"></div>
-    </div>
-</div>
-
-<div id="page-members" class="overlay-page">
-    <div class="close-btn" onclick="closeOverlay('members')">×</div>
-    <div class="container" style="margin-top: 20px;">
-        <h1 style="text-align: center; font-family: 'Orbitron'; margin-bottom: 30px;">Daftar Anggota</h1>
-        <div class="category-nav">
-            <div class="cat-btn active" onclick="switchMemberTab('pengurus26', this)">Pengurus 2026</div>
-            <div class="cat-btn" onclick="switchMemberTab('aktif', this)">Anggota</div>
-            <div class="cat-btn" onclick="switchMemberTab('demis', this)">Demisioner</div>
-            <div class="cat-btn" onclick="switchMemberTab('lulus', this)">Lulus</div>
-            <div class="cat-btn" onclick="switchMemberTab('founder', this)">Founder 2022</div>
-        </div>
-        <div class="member-grid" id="grid-general"></div>
-    </div>
-</div>
-
-<footer>&copy; 2026 Akai Ongaku • Atarashii Sekai ITERA</footer>
-
-<script>
-    // === DATA ANGGOTA ===
-    const db = {
-        '7pm': [
-            { name: 'Rakan', role: 'Drummer', quote: 'Teknik Industri 24', ig: 'https://www.instagram.com/rakanmhrdk/', img: 'rakan.jpeg' },
-            { name: 'Agoy', role: 'Guitarist', quote: 'Teknik Informatika 22', ig: 'https://www.instagram.com/agoy.ay/', img: 'agoy.jpeg' },
-            { name: 'Pita', role: 'Vocalist', quote: 'Teknik Telekomunikasi 24', ig: 'https://www.instagram.com/alfita_en/', img: 'pita.jpeg' },
-            { name: 'Reza', role: 'Guitarist', quote: 'Teknik Sistem Energi 24', ig: 'https://www.instagram.com/sahrezapratama/', img: 'reza.jpg' },
-            { name: 'Afri', role: 'Keyboardist', quote: 'Teknik Elektro 24', ig: 'https://www.instagram.com/its.afriii_/', img: 'afri.png' },
-            { name: 'Rein', role: 'Bassist', quote: 'Sains Data 23', ig: 'https://www.instagram.com/reyn.cos/', img: 'rein.jpg' },
-        ],
-        'lunar': [
-            { name: 'Agoy', role: 'Bassist', quote: 'Teknik Informatika 22', ig: 'https://www.instagram.com/agoy.ay/', img: 'agoy.jpeg' },
-            { name: 'Azis', role: 'Vocalist', quote: 'SAP 20', ig: 'https://www.instagram.com/alazssltn/', img: 'azis.png' },
-            { name: 'Radit', role: 'Keyboardist', quote: 'Teknik Informatika 22', ig: 'https://www.instagram.com/radd.jpeg/', img: 'radit.jpg' },
-            { name: 'Sulthan', role: 'Drummer', quote: 'Unknown', ig: '#', img: 'sulthan.jpg' },
-            { name: 'Garlan', role: 'Guitarist', quote: 'Teknik Informatika 22', ig: 'https://www.instagram.com/garlanwijaya_/', img: 'garlan.png' },
-            { name: 'Raga', role: 'Guitarist', quote: 'Teknik Informatika 19', ig: 'https://www.instagram.com/raga_rasen/', img: 'ragan.png' },
-        ],
-        'pengurus26': [
-            { name: 'M. Rakan Mahardika', role: 'Ketua 2026', quote: 'Teknik Industri 24', ig: 'https://www.instagram.com/rakanmhrdk/', img: 'rakan.jpeg' },
-            { name: 'M. Afriandy', role: 'Wakil Ketua', quote: 'Teknik Elektro 24', ig: 'https://www.instagram.com/its.afriii_/', img: 'afri.png' },
-            { name: 'Alfita Eryani N.', role: 'Staff', quote: 'Teknik Telekomunikasi 24', ig: 'https://www.instagram.com/alfita_en/', img: 'pita.jpeg' },
-            { name: 'Sahreza Pratama Putra', role: 'Staff', quote: 'Teknik Sistem Energi 24', ig: 'https://www.instagram.com/sahrezapratama/', img: 'reza.jpg' },
-        ],
-        'aktif': [
-            { name: 'Adhe Rachman', role: 'Guitarist/Bassist', quote: 'SAP 24', ig: 'https://www.instagram.com/pencilgoonnn/', img: 'adhe.jpg' },
-            { name: 'Daniel putra nugraha', role: 'Keyboardist', quote: 'Unknown', ig: 'https://www.instagram.com/dhan.00_/', img: 'daniel.jpg' },
-            { name: 'Zahra Ayu Nur Amelia', role: 'Vocalist', quote: 'DKV 24', ig: 'https://www.instagram.com/mau_jd_batman/', img: 'mimin.png'},
-            { name: 'Habibie', role: 'Violinist', quote: 'DKV 21', ig: 'https://www.instagram.com/_emperor.11_/', img: 'habibi.png' },
-            { name: 'Albert Christian Sihaloho', role: 'Vocalist', quote: 'Teknik Informatika', ig: 'https://www.instagram.com/michi_chnk/', img: 'michi.png' },
-        ],
-        'demis': [
-            { name: 'Perdana Raga Winata', role: 'Ketua 2023', quote: 'Teknik Informatika 19', ig: 'https://www.instagram.com/raga_rasen/', img: 'ragan.png' },
-            { name: 'Al Azis Sultan R.', role: 'Bamus 2023', quote: 'SAP 20', ig: 'https://www.instagram.com/alazssltn/', img: 'azis.png' },
-            { name: 'Andreas Alfin Yoga Utama', role: 'Ketua 2024/Bamus 2025', quote: 'Teknik Informatika 22', ig: '#', img: 'agoy.jpeg' },
-            { name: 'Aulia Rizky S.', role: 'Ketua 2025', quote: 'Sains Data 23', ig: '#', img: 'rein.jpg' },        
-            { name: 'I Gede Krisna Yoga Saputra.', role: 'Wakil Ketua 2025', quote: 'Teknik Informatika 23', ig: 'https://www.instagram.com/yoga_pepsodent/', img: 'yoga.jpg' },
-            { name: 'M. Fadhil Hawari', role: 'Bendahara Umum 2025', quote: 'Teknik Informatika 23', ig: 'https://www.instagram.com/hawaricracker/', img: 'hawa.jpg' },
-            { name: 'Garlan Wijaya', role: 'Ketua Umum 2025', quote: 'Teknik Informatika 22', ig: 'https://www.instagram.com/garlanwijaya_/', img: 'garlan.png' },
-        ],
-        'lulus': [
-            { name: 'Perdana Raga Winata', role: 'Guitarist', quote: 'Teknik Informatika 19', ig: 'https://www.instagram.com/raga_rasen/', img: 'ragan.png' },
-    
-        ],
-        'founder': [
-            { name: 'Perdana Raga Winata (Raga)', role: 'Guitarist', quote: 'Teknik Informatika 19', ig: 'https://www.instagram.com/raga_rasen/', img: 'ragan.png' },
-            { name: 'Taka', role: 'Perkusi', quote: 'Unknown', ig: '#', img: 'taka.jpg' },
-            { name: 'Ferli Andriansyah (Ferly)', role: 'Guitarist', quote: 'Teknik Informatika 20', ig: 'https://www.instagram.com/ferly.ian/', img: 'ferly.jpg' },
-            { name: 'Al Azis Sultan R. (Azis)', role: 'Vokalist', quote: 'SAP 20', ig: '#', img: 'azis.png' }
-        ]
-    };
-
-    // LOGIC RENDER KARTU
-    function createCards(data, containerId) {
-        const container = document.getElementById(containerId);
-        container.innerHTML = '';
-        if (data && data.length > 0) {
-            data.forEach(m => {
-                const imageSrc = m.img ? m.img : 'https://via.placeholder.com/150/ffafcc/ffffff?text=User';
-                container.innerHTML += `
-                    <a href="${m.ig}" target="_blank" class="member-bio-card">
-                        <img src="${imageSrc}" class="bio-photo" alt="${m.name}">
-                        <div class="bio-text">
-                            <h4>${m.name}</h4>
-                            <p style="font-size:0.75rem; color: #ff85a1; font-weight:700;">${m.role}</p>
-                            <p style="font-size:0.7rem; color: #666;">"${m.quote}"</p>
-                        </div>
-                    </a>`;
-            });
-        } else {
-            container.innerHTML = '<p style="text-align:center; width:100%; color:#666;">Data belum tersedia.</p>';
-        }
-    }
-
-    // LOGIC OVERLAY
-    function openOverlay(id) {
-        if(id === '7pm') createCards(db['7pm'], 'grid-7pm');
-        if(id === 'lunar') createCards(db['lunar'], 'grid-lunar');
-        if(id === 'members') switchMemberTab('pengurus26', document.querySelector('.cat-btn'));
-
-        document.getElementById('page-' + id).classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeOverlay(id) {
-        document.getElementById('page-' + id).classList.remove('active');
-        document.body.style.overflow = 'auto';
-    }
-
-    // LOGIC TABS
-    function switchMemberTab(category, btn) {
-        createCards(db[category], 'grid-general');
-        const buttons = document.querySelectorAll('.cat-btn');
-        buttons.forEach(b => b.classList.remove('active'));
-        if(btn) btn.classList.add('active');
-    }
-
-    // MUSIC PLAYER & AUTO START
-    const audio = document.getElementById('bgMusic');
-    const btn = document.getElementById('playPause');
-    const statusText = document.getElementById('statusText');
-
-    function togglePlay() {
-        if (audio.paused) {
-            audio.play().then(() => {
-                btn.innerHTML = "⏸"; btn.classList.add('playing'); statusText.innerText = "NOW PLAYING";
-            });
-        } else {
-            audio.pause(); btn.innerHTML = "▶"; btn.classList.remove('playing'); statusText.innerText = "PAUSED";
-        }
-    }
-    btn.addEventListener('click', (e) => { e.stopPropagation(); togglePlay(); });
-
-    // FITUR: Auto Play saat klik pertama di body
-    document.body.addEventListener('click', () => {
-        if (audio.paused) {
-            audio.play().then(() => {
-                btn.innerHTML = "⏸";
-                btn.classList.add('playing');
-                statusText.innerText = "NOW PLAYING";
-            }).catch(e => console.log("Autoplay blocked until interaction"));
-        }
-    }, { once: true });
-
-    // === MUSICAL NOTES BACKGROUND ===
-    const notesContainer = document.getElementById('particles');
-    const symbols = ['♪', '♫', '♩', '♬', '♭', '♮', '♯']; // Simbol not musik
-
-    function createNote() {
-        const note = document.createElement('div');
-        const symbol = symbols[Math.floor(Math.random() * symbols.length)];
+        </section>  
         
-        note.classList.add('music-note');
-        note.innerText = symbol;
+        <section id="gallery">
+            <h2>Gallery Dokumentasi</h2>
+            <p style="font-size: 0.8rem; margin-bottom: 10px; color: #666;">(Klik foto untuk melihat ukuran penuh)</p>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="Kelas2023.jpg" alt="Event 1">
+                    <div class="desc">Moment Latihan - 2025</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Iban23prep.jpg" alt="Event 2">
+                    <div class="desc">H-1 Iban 2025</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Iban2025.png" alt="Event 3">
+                    <div class="desc">Iban 2025 after stage</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="instagram-feed">
+            <h2>Instagram Updates</h2>
+            <p style="margin-bottom: 20px; opacity: 0.7;">Postingan terbaru dari @ongaku.akai</p>
+            
+            <div class="horizontal-scroll ig-embed-container">
+                <div class="ig-embed-card">
+                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C9dBE7JuEC5/" data-instgrm-version="14"></blockquote>
+                </div>
+                <div class="ig-embed-card">
+                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DBtvHWwRVF-/" data-instgrm-version="14"></blockquote>
+                </div>
+                <div class="ig-embed-card">
+                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C-k5lm6OPmc/" data-instgrm-version="14"></blockquote>
+                </div>
+                <div class="ig-embed-card">
+                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C-3ANvCuqGm/" data-instgrm-version="14"></blockquote>
+                </div>
+                <div class="ig-embed-card">
+                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DAnk06qONRy/" data-instgrm-version="14"></blockquote>
+                </div>
+                <div class="ig-embed-card">
+                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DHx0wN8vG3r/" data-instgrm-version="14"></blockquote>
+                </div>
+            </div>
+        </section>
+        <script async src="//www.instagram.com/embed.js"></script>
 
-        // Randomisasi Posisi, Ukuran, dan Durasi
-        const left = Math.random() * 100; // Posisi horizontal 0-100%
-        const size = Math.random() * 20 + 15; // Ukuran font antara 15px - 35px
-        const duration = Math.random() * 5 + 5; // Durasi animasi antara 5 - 10 detik
-        const delay = Math.random() * 2; // Delay sedikit biar tidak muncul barengan
+        <section id="contact">
+            <h2>Hubungi Kami</h2>
+            <div class="contact-grid">
+                <a href="https://www.instagram.com/ongaku.akai" target="_blank" class="contact-btn">
+                    <span>▷</span> Instagram
+                </a>
+                <a href="#" target="_blank" class="contact-btn">
+                    <span>▷</span> WhatsApp
+                </a>
+                <a href="#" class="contact-btn">
+                    <span>▷</span> Email
+                </a>
+                <a href="#" class="contact-btn">
+                    <span>▷</span> YouTube
+                </a>
+            </div>
+        </section>
 
-        note.style.left = left + '%';
-        note.style.fontSize = size + 'px';
-        note.style.animationDuration = duration + 's';
-        note.style.animationDelay = delay + 's';
+    </div>
 
-        // Warna acak lembut (Putih, Pink Pucat, Biru Pucat) sesuai tema
-        const colors = ['rgba(255,255,255,0.7)', 'rgba(255, 175, 204, 0.6)', 'rgba(162, 210, 255, 0.6)'];
-        note.style.color = colors[Math.floor(Math.random() * colors.length)];
+    <div id="page-7pm" class="overlay-page">
+        <div class="close-btn" onclick="closeOverlay('7pm')">×</div>
+        <div class="container" style="margin-top: 20px;">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <img src="7Lude1.png.png" style="width: 150px; border-radius: 20px; margin-bottom: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                <h1 style="font-family: 'Orbitron'; font-size: 2.5rem; margin-bottom: 0;">7PM INTERLUDE</h1>
+                <p style="font-family: 'Satisfy'; color: #ff85a1; font-size: 1.5rem;">The Sunset Symphony</p>
+            </div>
+            <h2>Anggota 7Lude</h2>
+            <div class="member-grid" id="grid-7pm"></div>
+        </div>
+    </div>
 
-        notesContainer.appendChild(note);
+    <div id="page-lunar" class="overlay-page">
+        <div class="close-btn" onclick="closeOverlay('lunar')">×</div>
+        <div class="container" style="margin-top: 20px;">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <img src="LunarDial.jpg" style="width: 150px; border-radius: 50%; margin-bottom: 10px; box-shadow: 0 0 30px rgba(255,255,255,0.5); border: 4px solid white;">
+                <h1 style="font-family: 'Orbitron'; font-size: 2.5rem; margin-bottom: 0;">LUNAR DIAL</h1>
+                <p style="font-family: 'Satisfy'; color: #a2d2ff; font-size: 1.5rem;">Midnight Call</p>
+            </div>
+            <h2>Anggota Lunar Dial</h2>
+            <div class="member-grid" id="grid-lunar"></div>
+        </div>
+    </div>
 
-        // Hapus elemen setelah animasi selesai agar website tidak berat
-        setTimeout(() => {
-            note.remove();
-        }, (duration + delay) * 1000); 
-    }
+    <div id="page-members" class="overlay-page">
+        <div class="close-btn" onclick="closeOverlay('members')">×</div>
+        <div class="container" style="margin-top: 20px;">
+            <h1 style="text-align: center; font-family: 'Orbitron'; margin-bottom: 30px;">Daftar Anggota</h1>
+            <div class="category-nav">
+                <div class="cat-btn active" onclick="switchMemberTab('pengurus26', this)">Pengurus 2026</div>
+                <div class="cat-btn" onclick="switchMemberTab('aktif', this)">Anggota</div>
+                <div class="cat-btn" onclick="switchMemberTab('demis', this)">Demisioner</div>
+                <div class="cat-btn" onclick="switchMemberTab('lulus', this)">Lulus</div>
+                <div class="cat-btn" onclick="switchMemberTab('founder', this)">Founder 2022</div>
+            </div>
+            <div class="member-grid" id="grid-general"></div>
+        </div>
+    </div>
 
-    // Buat not baru setiap 800ms
-    setInterval(createNote, 800);
+    <footer>&copy; 2026 Akai Ongaku • Atarashii Sekai ITERA</footer>
 
-    // Buat beberapa not langsung saat load agar tidak kosong
-    for(let i=0; i<10; i++) createNote();
-    
-</script>
+    <script>
+        // === DATA ANGGOTA ===
+        const db = {
+            '7pm': [
+                { name: 'Rakan', role: 'Drummer', quote: 'Teknik Industri 24', ig: 'https://www.instagram.com/rakanmhrdk/', img: 'rakan.png' },
+                { name: 'Agoy', role: 'Guitarist', quote: 'Teknik Informatika 22', ig: 'https://www.instagram.com/agoy.ay/', img: 'agoy.png' },
+                { name: 'Pita', role: 'Vocalist', quote: 'Teknik Telekomunikasi 24', ig: 'https://www.instagram.com/alfita_en/', img: 'pita.jpeg' },
+                { name: 'Reza', role: 'Guitarist', quote: 'Teknik Sistem Energi 24', ig: 'https://www.instagram.com/sahrezapratama/', img: 'reza.jpg' },
+                { name: 'Afri', role: 'Keyboardist', quote: 'Teknik Elektro 24', ig: 'https://www.instagram.com/its.afriii_/', img: 'afri.jpg' },
+                { name: 'Rein', role: 'Bassist', quote: 'Sains Data 23', ig: 'https://www.instagram.com/reyn.cos/', img: 'rein.jpg' },
+            ],
+            'lunar': [
+                { name: 'Agoy', role: 'Bassist', quote: 'Teknik Informatika 22', ig: 'https://www.instagram.com/agoy.ay/', img: 'agoy.png' },
+                { name: 'Azis', role: 'Vocalist', quote: 'SAP 20', ig: 'https://www.instagram.com/alazssltn/', img: 'azis.png' },
+                { name: 'Radit', role: 'Keyboardist', quote: 'Teknik Informatika 22', ig: 'https://www.instagram.com/radd.jpeg/', img: 'radit.jpg' },
+                { name: 'Sulthan', role: 'Drummer', quote: 'Unknown', ig: '#', img: 'sulthan.jpg' },
+                { name: 'Garlan', role: 'Guitarist', quote: 'Teknik Informatika 22', ig: 'https://www.instagram.com/garlanwijaya_/', img: 'garlan.png' },
+                { name: 'Raga', role: 'Guitarist', quote: 'Teknik Informatika 19', ig: 'https://www.instagram.com/raga_rasen/', img: 'ragan.png' },
+            ],
+            'pengurus26': [
+                { name: 'M. Rakan Mahardika', role: 'Ketua 2026', quote: 'Teknik Industri 24', ig: 'https://www.instagram.com/rakanmhrdk/', img: 'rakan.png' },
+                { name: 'M. Afriandy', role: 'Wakil Ketua', quote: 'Teknik Elektro 24', ig: 'https://www.instagram.com/its.afriii_/', img: 'afri.jpg' },
+                { name: 'Alfita Eryani N.', role: 'Staff', quote: 'Teknik Telekomunikasi 24', ig: 'https://www.instagram.com/alfita_en/', img: 'pita.jpeg' },
+                { name: 'Sahreza Pratama Putra', role: 'Staff', quote: 'Teknik Sistem Energi 24', ig: 'https://www.instagram.com/sahrezapratama/', img: 'reza.jpg' },
+            ],
+            'aktif': [
+                { name: 'Adhe Rachman', role: 'Guitarist/Bassist', quote: 'SAP 24', ig: 'https://www.instagram.com/pencilgoonnn/', img: 'adhe.jpg' },
+                { name: 'Daniel putra nugraha', role: 'Keyboardist', quote: 'Unknown', ig: 'https://www.instagram.com/dhan.00_/', img: 'daniel.jpg' },
+                { name: 'Zahra Ayu Nur Amelia', role: 'Vocalist', quote: 'DKV 24', ig: 'https://www.instagram.com/mau_jd_batman/', img: 'mimin.png'},
+                { name: 'Habibie', role: 'Violinist', quote: 'DKV 21', ig: 'https://www.instagram.com/_emperor.11_/', img: 'habibie.png' },
+                { name: 'Albert Christian Sihaloho', role: 'Vocalist', quote: 'Teknik Informatika', ig: 'https://www.instagram.com/michi_chnk/', img: 'michi.png' },
+            ],
+            'demis': [
+                { name: 'Perdana Raga Winata', role: 'Ketua 2023', quote: 'Teknik Informatika 19', ig: 'https://www.instagram.com/raga_rasen/', img: 'ragan.png' },
+                { name: 'Al Azis Sultan R.', role: 'Bamus 2023', quote: 'SAP 20', ig: 'https://www.instagram.com/alazssltn/', img: 'azis.png' },
+                { name: 'Andreas Alfin Yoga Utama', role: 'Ketua 2024/Bamus 2025', quote: 'Teknik Informatika 22', ig: '#', img: 'agoy.png' },
+                { name: 'Aulia Rizky S.', role: 'Ketua 2025', quote: 'Sains Data 23', ig: '#', img: 'rein.jpg' },        
+                { name: 'I Gede Krisna Yoga Saputra.', role: 'Wakil Ketua 2025', quote: 'Teknik Informatika 23', ig: 'https://www.instagram.com/yoga_pepsodent/', img: 'yoga.jpg' },
+                { name: 'M. Fadhil Hawari', role: 'Bendahara Umum 2025', quote: 'Teknik Informatika 23', ig: 'https://www.instagram.com/hawaricracker/', img: 'hawa.jpg' },
+                { name: 'Garlan Wijaya', role: 'Ketua Umum 2025', quote: 'Teknik Informatika 22', ig: 'https://www.instagram.com/garlanwijaya_/', img: 'garlan.png' },
+            ],
+            'lulus': [
+                { name: 'Perdana Raga Winata', role: 'Guitarist', quote: 'Teknik Informatika 19', ig: 'https://www.instagram.com/raga_rasen/', img: 'ragan.png' },
+            ],
+            'founder': [
+                { name: 'Perdana Raga Winata (Raga)', role: 'Guitarist', quote: 'Teknik Informatika 19', ig: 'https://www.instagram.com/raga_rasen/', img: 'ragan.png' },
+                { name: 'Taka', role: 'Perkusi', quote: 'Unknown', ig: '#', img: 'taka.jpg' },
+                { name: 'Ferli Andriansyah (Ferly)', role: 'Guitarist', quote: 'Teknik Informatika 20', ig: 'https://www.instagram.com/ferly.ian/', img: 'ferly.jpg' },
+                { name: 'Al Azis Sultan R. (Azis)', role: 'Vokalist', quote: 'SAP 20', ig: '#', img: 'azis.png' }
+            ]
+        };
+
+        // --- RENDER KARTU ---
+        function createCards(data, containerId) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            
+            if (data && data.length > 0) {
+                data.forEach(m => {
+                    const imageSrc = m.img ? m.img : 'https://via.placeholder.com/150/ffafcc/ffffff?text=User';
+                    container.innerHTML += `
+                        <a href="${m.ig}" target="_blank" class="member-bio-card">
+                            <img src="${imageSrc}" class="bio-photo" alt="${m.name}">
+                            <div class="bio-text">
+                                <h4>${m.name}</h4>
+                                <p style="font-size:0.75rem; color: #ff85a1; font-weight:700;">${m.role}</p>
+                                <p style="font-size:0.7rem; color: #666;">"${m.quote}"</p>
+                            </div>
+                        </a>`;
+                });
+            } else {
+                container.innerHTML = '<p style="text-align:center; width:100%; color:#666;">Data belum tersedia.</p>';
+            }
+        }
+
+        // --- OVERLAY ---
+        function openOverlay(id) {
+            if(id === '7pm') createCards(db['7pm'], 'grid-7pm');
+            if(id === 'lunar') createCards(db['lunar'], 'grid-lunar');
+            if(id === 'members') switchMemberTab('pengurus26', document.querySelector('.cat-btn'));
+
+            document.getElementById('page-' + id).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeOverlay(id) {
+            document.getElementById('page-' + id).classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // --- TAB ANGGOTA ---
+        function switchMemberTab(category, btn) {
+            createCards(db[category], 'grid-general');
+            const buttons = document.querySelectorAll('.cat-btn');
+            buttons.forEach(b => b.classList.remove('active'));
+            if(btn) btn.classList.add('active');
+        }
+
+        // --- MUSIC PLAYER ---
+        const audio = document.getElementById('bgMusic');
+        const btn = document.getElementById('playPause');
+        const statusText = document.getElementById('statusText');
+
+        function togglePlay() {
+            if (audio.paused) {
+                audio.play().then(() => {
+                    btn.innerHTML = "⏸"; 
+                    btn.classList.add('playing'); 
+                    statusText.innerText = "NOW PLAYING";
+                });
+            } else {
+                audio.pause(); 
+                btn.innerHTML = "▶"; 
+                btn.classList.remove('playing'); 
+                statusText.innerText = "PAUSED";
+            }
+        }
+        
+        btn.addEventListener('click', (e) => { 
+            e.stopPropagation(); 
+            togglePlay(); 
+        });
+
+        // Autoplay saat interaksi pertama
+        document.body.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play().then(() => {
+                    btn.innerHTML = "⏸";
+                    btn.classList.add('playing');
+                    statusText.innerText = "NOW PLAYING";
+                }).catch(e => console.log("Autoplay blocked until interaction"));
+            }
+        }, { once: true });
+
+        // --- FITUR KLIK FOTO GALERI (AUTO ZOOM) ---
+        const galleryImages = document.querySelectorAll('.gallery-item img');
+        
+        galleryImages.forEach(img => {
+            img.addEventListener('click', function() {
+                // Toggle class 'show-full' saat foto diklik
+                this.classList.toggle('show-full');
+            });
+        });
+
+        // --- ANIMASI NOT MUSIK ---
+        const notesContainer = document.getElementById('particles');
+        const symbols = ['♪', '♫', '♩', '♬', '♭', '♮', '♯']; 
+
+        function createNote() {
+            const note = document.createElement('div');
+            const symbol = symbols[Math.floor(Math.random() * symbols.length)];
+            
+            note.classList.add('music-note');
+            note.innerText = symbol;
+
+            const left = Math.random() * 100; 
+            const size = Math.random() * 20 + 15; 
+            const duration = Math.random() * 5 + 5; 
+            const delay = Math.random() * 2; 
+
+            note.style.left = left + '%';
+            note.style.fontSize = size + 'px';
+            note.style.animationDuration = duration + 's';
+            note.style.animationDelay = delay + 's';
+
+            const colors = ['rgba(255,255,255,0.7)', 'rgba(255, 175, 204, 0.6)', 'rgba(162, 210, 255, 0.6)'];
+            note.style.color = colors[Math.floor(Math.random() * colors.length)];
+
+            notesContainer.appendChild(note);
+
+            setTimeout(() => {
+                note.remove();
+            }, (duration + delay) * 1000); 
+        }
+
+        setInterval(createNote, 800);
+        for(let i=0; i<10; i++) createNote();
+
+    </script>
 </body>
 </html>
-
-
