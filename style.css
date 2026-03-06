@@ -344,6 +344,9 @@ footer { text-align: center; padding: 40px; color: #555; font-size: 0.75rem; fon
     
     .music-player { bottom: 15px; right: 15px; padding: 8px 15px; background: rgba(255, 255, 255, 0.6); }
     .music-player div { display: none; } 
+
+    .piano-player { bottom: 80px; right: 15px; padding: 8px 15px; background: rgba(255, 255, 255, 0.6); }
+    .piano-player div { display: none; } 
     
     .overlay-page { padding: 20px 15px; z-index: 5000; }
     .close-btn { top: 15px; right: 15px; width: 40px; height: 40px; font-size: 1.2rem; }
