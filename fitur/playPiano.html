@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piano 32 Keys | Akai Ongaku</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@500;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="piano-container">
+        <p style="color: white;">&copy; 2026 Akai Ongaku • Atarashii Sekai ITERA</p>
+
+        <h1 class="piano-title">🎹 Piano 32 Keys</h1>
+        <p class="piano-subtitle">Tekan tombol di keyboard atau klik untuk memainkan</p>
+
+        <div class="piano-wrapper">
+            <div class="piano" id="piano">
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="control-btn btn-back" onclick="window.location.href='../index.html'">← Kembali</button>
+            <button class="control-btn btn-sustain" id="sustainBtn">Sustain: OFF</button>
+        </div>
+
+        <div class="keyboard-hint">
+            <h3>⌨️ Tombol Keyboard</h3>
+            <div class="key-map">
+                <span>White: z x c v b n m , /</span>
+                <span>Black: s d g h j l ;</span>
+            </div>
+        </div>
+
+        <div class="note-display" id="noteDisplay">C</div>
+        <div class="sustain-indicator" id="sustainIndicator">SUSTAIN</div>
+
+    </div>
+
+
+    <script type="module" src="engine.js"></script>
+
+
+</body>
+
+</html>

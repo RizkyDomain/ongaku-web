@@ -1,11 +1,10 @@
-// === DATA ANGGOTA ===
 const db = {
     '7pm': [
         { name: 'Rakan', role: 'Drummer', quote: 'Teknik Industri 24', ig: 'https://www.instagram.com/rakanmhrdk/', img: 'pict/person/rakan.jpeg' },
         { name: 'Agoy', role: 'Guitarist', quote: 'Teknik Informatika 22', ig: 'https://www.instagram.com/agoy.ay/', img: 'pict/person/agoy.jpeg' },
         { name: 'Pita', role: 'Vocalist', quote: 'Teknik Telekomunikasi 24', ig: 'https://www.instagram.com/alfita_en/', img: 'pict/person/pita.jpeg' },
         { name: 'Reza', role: 'Guitarist', quote: 'Teknik Sistem Energi 24', ig: 'https://www.instagram.com/sahrezapratama/', img: 'pict/person/reza.jpeg' },
-        { name: 'Afri', role: 'Keyboardist', quote: 'Teknik Elektro 24', ig: 'https://www.instagram.com/its.afriii_/', img: 'pict/person/afri.png' },
+        { name: 'Afri', role: 'Keyboardist', quote: 'Teknik Elektro 24', ig: 'https://www.instagram.com/its.afriii_/', img: 'https://media1.tenor.com/m/5g-hgOAftZoAAAAC/mugi-tsumugi.gif' },
         { name: 'Rein', role: 'Bassist', quote: 'Sains Data 23', ig: 'https://www.instagram.com/reyn.cos/', img: 'pict/person/rein.jpg' },
     ],
     'lunar': [
@@ -18,13 +17,13 @@ const db = {
     ],
     'pengurus26': [
         { name: 'M. Rakan Mahardika', role: 'Ketua 2026', quote: 'Teknik Industri 24', ig: 'https://www.instagram.com/rakanmhrdk/', img: 'pict/person/rakan.jpeg' },
-        { name: 'M. Afriandy', role: 'Wakil Ketua', quote: 'Teknik Elektro 24', ig: 'https://www.instagram.com/its.afriii_/', img: 'pict/person/afri.png' },
+        { name: 'M. Afriandy', role: 'Wakil Ketua', quote: 'Teknik Elektro 24', ig: 'https://www.instagram.com/its.afriii_/', img: 'https://media1.tenor.com/m/5g-hgOAftZoAAAAC/mugi-tsumugi.gif' },
         { name: 'Alfita Eryani N.', role: 'Staff', quote: 'Teknik Telekomunikasi 24', ig: 'https://www.instagram.com/alfita_en/', img: 'pict/person/pita.jpeg' },
         { name: 'Sahreza Pratama Putra', role: 'Staff', quote: 'Teknik Sistem Energi 24', ig: 'https://www.instagram.com/sahrezapratama/', img: 'pict/person/reza.jpeg' },
     ],
     'aktif': [
         { name: 'Adhe Rachman', role: 'Guitarist/Bassist', quote: 'SAP 24', ig: 'https://www.instagram.com/pencilgoonnn/', img: 'pict/person/adhe.jpg' },
-        { name: 'Daniel putra nugraha', role: 'Keyboardist', quote: 'Unknown', ig: 'https://www.instagram.com/dhan.00_/', img: 'pict/person/daniel.jpg' },
+        { name: 'Daniel putra nugraha', role: 'Keyboardist', quote: 'Teknik Informatika 24', ig: 'https://www.instagram.com/dhan.00_/', img: 'pict/person/daniel.jpg' },
         { name: 'Zahra Ayu Nur Amelia', role: 'Vocalist', quote: 'DKV 24', ig: 'https://www.instagram.com/mau_jd_batman/', img: 'pict/person/mimin.png' },
         { name: 'Habibie', role: 'Violinist', quote: 'DKV 21', ig: 'https://www.instagram.com/_emperor.11_/', img: 'pict/person/habibi.png' },
         { name: 'Albert Christian Sihaloho', role: 'Vocalist', quote: 'Teknik Informatika', ig: 'https://www.instagram.com/michi_chnk/', img: 'pict/person/michi.png' },
