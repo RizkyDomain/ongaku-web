@@ -5,7 +5,7 @@ const db = {
         { name: 'Pita', role: 'Vocalist', quote: 'Teknik Telekomunikasi 24', ig: 'https://www.instagram.com/alfita_en/', img: 'pict/person/pita.jpeg' },
         { name: 'Reza', role: 'Guitarist', quote: 'Teknik Sistem Energi 24', ig: 'https://www.instagram.com/sahrezapratama/', img: 'pict/person/reza.jpeg' },
         { name: 'Afri', role: 'Keyboardist', quote: 'Teknik Elektro 24', ig: 'https://www.instagram.com/its.afriii_/', img: 'https://media1.tenor.com/m/5g-hgOAftZoAAAAC/mugi-tsumugi.gif' },
-        { name: 'Rein', role: 'Bassist', quote: 'Sains Data 23', ig: 'https://www.instagram.com/reyn.cos/', img: 'pict/person/rein.jpg' },
+        { name: 'Rein', role: 'Bassist', quote: 'Sains Data 23', ig: 'https://www.instagram.com/rein._5/', img: 'pict/person/rein.jpg' },
     ],
     'lunar': [
         { name: 'Agoy', role: 'Bassist', quote: 'Teknik Informatika 22', ig: 'https://www.instagram.com/agoy.ay/', img: 'pict/person/agoy.jpeg' },
